@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"My Account";
+        
     }
     return self;
 }
@@ -28,7 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-   
+    self.navigationItem.title = @"My Account";
 }
 
 - (void)didReceiveMemoryWarning

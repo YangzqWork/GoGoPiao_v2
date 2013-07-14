@@ -24,6 +24,18 @@
 		182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED701792F72100C23EB4 /* GGEventViewController.xib */; };
 		182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED741792F73200C23EB4 /* GGSettingsViewController.m */; };
 		182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED751792F73200C23EB4 /* GGSettingsViewController.xib */; };
+		18791D931793683900B02EB2 /* 5-orange-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D8B1793683900B02EB2 /* 5-orange-back-button.png */; };
+		18791D941793683900B02EB2 /* 5-orange-back-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D8C1793683900B02EB2 /* 5-orange-back-button@2x.png */; };
+		18791D951793683900B02EB2 /* 5-orange-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18791D8D1793683900B02EB2 /* 5-orange-background.jpg */; };
+		18791D961793683900B02EB2 /* 5-orange-background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18791D8E1793683900B02EB2 /* 5-orange-background@2x.jpg */; };
+		18791D971793683900B02EB2 /* 5-orange-menu-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D8F1793683900B02EB2 /* 5-orange-menu-bar.png */; };
+		18791D981793683900B02EB2 /* 5-orange-menu-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D901793683900B02EB2 /* 5-orange-menu-bar@2x.png */; };
+		18791D991793683900B02EB2 /* 5-orange-settings-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D911793683900B02EB2 /* 5-orange-settings-button.png */; };
+		18791D9A1793683900B02EB2 /* 5-orange-settings-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D921793683900B02EB2 /* 5-orange-settings-button@2x.png */; };
+		18791DA0179369E400B02EB2 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9C179369E400B02EB2 /* tabbar.png */; };
+		18791DA1179369E400B02EB2 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9D179369E400B02EB2 /* tabbar@2x.png */; };
+		18791DA2179369E400B02EB2 /* tabbar_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9E179369E400B02EB2 /* tabbar_selected.png */; };
+		18791DA3179369E400B02EB2 /* tabbar_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +64,18 @@
 		182CED731792F73200C23EB4 /* GGSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSettingsViewController.h; sourceTree = "<group>"; };
 		182CED741792F73200C23EB4 /* GGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSettingsViewController.m; sourceTree = "<group>"; };
 		182CED751792F73200C23EB4 /* GGSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSettingsViewController.xib; sourceTree = "<group>"; };
+		18791D8B1793683900B02EB2 /* 5-orange-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-orange-back-button.png"; sourceTree = "<group>"; };
+		18791D8C1793683900B02EB2 /* 5-orange-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-orange-back-button@2x.png"; sourceTree = "<group>"; };
+		18791D8D1793683900B02EB2 /* 5-orange-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "5-orange-background.jpg"; sourceTree = "<group>"; };
+		18791D8E1793683900B02EB2 /* 5-orange-background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "5-orange-background@2x.jpg"; sourceTree = "<group>"; };
+		18791D8F1793683900B02EB2 /* 5-orange-menu-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-orange-menu-bar.png"; sourceTree = "<group>"; };
+		18791D901793683900B02EB2 /* 5-orange-menu-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-orange-menu-bar@2x.png"; sourceTree = "<group>"; };
+		18791D911793683900B02EB2 /* 5-orange-settings-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-orange-settings-button.png"; sourceTree = "<group>"; };
+		18791D921793683900B02EB2 /* 5-orange-settings-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-orange-settings-button@2x.png"; sourceTree = "<group>"; };
+		18791D9C179369E400B02EB2 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
+		18791D9D179369E400B02EB2 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		18791D9E179369E400B02EB2 /* tabbar_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected.png; sourceTree = "<group>"; };
+		18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_selected@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +133,8 @@
 		182CED401792960500C23EB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18791DA4179369EF00B02EB2 /* TabBarImages */,
+				18791D9B1793684000B02EB2 /* NavBarImages */,
 				182CED411792960500C23EB4 /* GoGoPiao-Info.plist */,
 				182CED421792960500C23EB4 /* InfoPlist.strings */,
 				182CED451792960500C23EB4 /* main.m */,
@@ -137,6 +163,32 @@
 				182CED751792F73200C23EB4 /* GGSettingsViewController.xib */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18791D9B1793684000B02EB2 /* NavBarImages */ = {
+			isa = PBXGroup;
+			children = (
+				18791D8B1793683900B02EB2 /* 5-orange-back-button.png */,
+				18791D8C1793683900B02EB2 /* 5-orange-back-button@2x.png */,
+				18791D8D1793683900B02EB2 /* 5-orange-background.jpg */,
+				18791D8E1793683900B02EB2 /* 5-orange-background@2x.jpg */,
+				18791D8F1793683900B02EB2 /* 5-orange-menu-bar.png */,
+				18791D901793683900B02EB2 /* 5-orange-menu-bar@2x.png */,
+				18791D911793683900B02EB2 /* 5-orange-settings-button.png */,
+				18791D921793683900B02EB2 /* 5-orange-settings-button@2x.png */,
+			);
+			name = NavBarImages;
+			sourceTree = "<group>";
+		};
+		18791DA4179369EF00B02EB2 /* TabBarImages */ = {
+			isa = PBXGroup;
+			children = (
+				18791D9C179369E400B02EB2 /* tabbar.png */,
+				18791D9D179369E400B02EB2 /* tabbar@2x.png */,
+				18791D9E179369E400B02EB2 /* tabbar_selected.png */,
+				18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */,
+			);
+			name = TabBarImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +250,18 @@
 				182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */,
 				182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */,
 				182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */,
+				18791D931793683900B02EB2 /* 5-orange-back-button.png in Resources */,
+				18791D941793683900B02EB2 /* 5-orange-back-button@2x.png in Resources */,
+				18791D951793683900B02EB2 /* 5-orange-background.jpg in Resources */,
+				18791D961793683900B02EB2 /* 5-orange-background@2x.jpg in Resources */,
+				18791D971793683900B02EB2 /* 5-orange-menu-bar.png in Resources */,
+				18791D981793683900B02EB2 /* 5-orange-menu-bar@2x.png in Resources */,
+				18791D991793683900B02EB2 /* 5-orange-settings-button.png in Resources */,
+				18791D9A1793683900B02EB2 /* 5-orange-settings-button@2x.png in Resources */,
+				18791DA0179369E400B02EB2 /* tabbar.png in Resources */,
+				18791DA1179369E400B02EB2 /* tabbar@2x.png in Resources */,
+				18791DA2179369E400B02EB2 /* tabbar_selected.png in Resources */,
+				18791DA3179369E400B02EB2 /* tabbar_selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
