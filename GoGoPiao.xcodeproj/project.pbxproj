@@ -16,8 +16,14 @@
 		182CED4C1792960500C23EB4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4B1792960500C23EB4 /* Default.png */; };
 		182CED4E1792960500C23EB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4D1792960500C23EB4 /* Default@2x.png */; };
 		182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4F1792960500C23EB4 /* Default-568h@2x.png */; };
-		182CED531792960500C23EB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED521792960500C23EB4 /* ViewController.m */; };
-		182CED561792960500C23EB4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED541792960500C23EB4 /* ViewController.xib */; };
+		182CED621792F43200C23EB4 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED601792F43200C23EB4 /* GGLoginViewController.m */; };
+		182CED631792F43200C23EB4 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED611792F43200C23EB4 /* GGLoginViewController.xib */; };
+		182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */; };
+		182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */; };
+		182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6F1792F72100C23EB4 /* GGEventViewController.m */; };
+		182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED701792F72100C23EB4 /* GGEventViewController.xib */; };
+		182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED741792F73200C23EB4 /* GGSettingsViewController.m */; };
+		182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED751792F73200C23EB4 /* GGSettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +40,18 @@
 		182CED4B1792960500C23EB4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		182CED4D1792960500C23EB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		182CED4F1792960500C23EB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		182CED511792960500C23EB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		182CED521792960500C23EB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		182CED551792960500C23EB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		182CED5F1792F43200C23EB4 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
+		182CED601792F43200C23EB4 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
+		182CED611792F43200C23EB4 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
+		182CED691792F70A00C23EB4 /* GGAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAccountViewController.h; sourceTree = "<group>"; };
+		182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAccountViewController.m; sourceTree = "<group>"; };
+		182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGAccountViewController.xib; sourceTree = "<group>"; };
+		182CED6E1792F72100C23EB4 /* GGEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventViewController.h; sourceTree = "<group>"; };
+		182CED6F1792F72100C23EB4 /* GGEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventViewController.m; sourceTree = "<group>"; };
+		182CED701792F72100C23EB4 /* GGEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventViewController.xib; sourceTree = "<group>"; };
+		182CED731792F73200C23EB4 /* GGSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSettingsViewController.h; sourceTree = "<group>"; };
+		182CED741792F73200C23EB4 /* GGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSettingsViewController.m; sourceTree = "<group>"; };
+		182CED751792F73200C23EB4 /* GGSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +100,7 @@
 			children = (
 				182CED481792960500C23EB4 /* AppDelegate.h */,
 				182CED491792960500C23EB4 /* AppDelegate.m */,
-				182CED511792960500C23EB4 /* ViewController.h */,
-				182CED521792960500C23EB4 /* ViewController.m */,
-				182CED541792960500C23EB4 /* ViewController.xib */,
+				182CED781792FC9500C23EB4 /* ViewControllers */,
 				182CED401792960500C23EB4 /* Supporting Files */,
 			);
 			path = GoGoPiao;
@@ -105,6 +118,25 @@
 				182CED4F1792960500C23EB4 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		182CED781792FC9500C23EB4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				182CED5F1792F43200C23EB4 /* GGLoginViewController.h */,
+				182CED601792F43200C23EB4 /* GGLoginViewController.m */,
+				182CED611792F43200C23EB4 /* GGLoginViewController.xib */,
+				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
+				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
+				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
+				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
+				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
+				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
+				182CED731792F73200C23EB4 /* GGSettingsViewController.h */,
+				182CED741792F73200C23EB4 /* GGSettingsViewController.m */,
+				182CED751792F73200C23EB4 /* GGSettingsViewController.xib */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +194,10 @@
 				182CED4C1792960500C23EB4 /* Default.png in Resources */,
 				182CED4E1792960500C23EB4 /* Default@2x.png in Resources */,
 				182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */,
-				182CED561792960500C23EB4 /* ViewController.xib in Resources */,
+				182CED631792F43200C23EB4 /* GGLoginViewController.xib in Resources */,
+				182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */,
+				182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */,
+				182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +210,10 @@
 			files = (
 				182CED461792960500C23EB4 /* main.m in Sources */,
 				182CED4A1792960500C23EB4 /* AppDelegate.m in Sources */,
-				182CED531792960500C23EB4 /* ViewController.m in Sources */,
+				182CED621792F43200C23EB4 /* GGLoginViewController.m in Sources */,
+				182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */,
+				182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */,
+				182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +226,6 @@
 				182CED431792960500C23EB4 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		182CED541792960500C23EB4 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				182CED551792960500C23EB4 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,6 +293,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoPiao/GoGoPiao-Prefix.pch";
 				INFOPLIST_FILE = "GoGoPiao/GoGoPiao-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +305,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoPiao/GoGoPiao-Prefix.pch";
 				INFOPLIST_FILE = "GoGoPiao/GoGoPiao-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,6 +330,7 @@
 				182CED5B1792960500C23EB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

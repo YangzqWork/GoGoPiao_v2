@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GGAccountViewController.h
 //  GoGoPiao
 //
 //  Created by Cho-Yeung Lam on 14/7/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface GGAccountViewController : UIViewController
 
 @end
