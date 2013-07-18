@@ -19,10 +19,9 @@
 //NavigationBar的设定
     [self customizeiPhoneTheme];
 
-//RootVC和Navigation的设定
-    self.ggLoginVC = [[GGLoginViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.ggLoginVC];
-    [self.window addSubview:self.navigationController.view];    
+//RootVC的设定
+    self.ggLoginVC = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
+    [self.window setRootViewController:self.ggLoginVC];
     
     return YES;
 }

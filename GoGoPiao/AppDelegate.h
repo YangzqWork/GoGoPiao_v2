@@ -17,8 +17,6 @@
 
 @property (strong, nonatomic) ViewController *viewController;
 
-@property (strong, nonatomic) UINavigationController *navigationController;
-
 @property (strong, nonatomic) GGLoginViewController *ggLoginVC;
 
 @end

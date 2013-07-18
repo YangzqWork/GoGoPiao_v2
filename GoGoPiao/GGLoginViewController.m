@@ -26,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -34,8 +35,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Login";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(rightBarButtonItemPressed)];
+    self.navigationItem.title = @"Login";
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,20 +44,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)rightBarButtonItemPressed
+- (IBAction)loginButtonPressed:(id)sender
 {
     self.tabBarController = [[UITabBarController alloc] init];
-    self.ggAcountVC = [[GGAccountViewController alloc] initWithNibName:nil bundle:nil];
-    self.ggEventVC = [[GGEventViewController alloc] initWithNibName:nil bundle:nil];
-    self.ggSettingsVC = [[GGSettingsViewController alloc] initWithNibName:nil bundle:nil];
-    NSArray* vcArray = [[NSArray alloc] initWithObjects:
-                        ggAcountVC,
-                        ggEventVC,
-                        ggSettingsVC, nil];
+    self.ggAcountVC = [[GGAccountViewController alloc] initWithNibName:@"GGAccountViewController" bundle:nil];
+    self.ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+    self.ggSettingsVC = [[GGSettingsViewController alloc] initWithNibName:@"GGSettingsViewController" bundle:nil];
+    UINavigationController *accountNav = [[UINavigationController alloc] initWithRootViewController:self.ggAcountVC];
+    UINavigationController *eventNav = [[UINavigationController alloc] initWithRootViewController:self.ggEventVC];
+    UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:self.ggSettingsVC];
+    
+    NSArray* vcArray = [[NSArray alloc] initWithObjects:accountNav, eventNav, settingNav, nil];
     [self.tabBarController setViewControllers:vcArray];
     
-//TabBarController由Navigation控制
-    [self.navigationController pushViewController:self.tabBarController animated:YES];
+
+    [self presentViewController:self.tabBarController animated:YES completion:nil];
 }
 
+- (void)viewDidUnload {
+    [self setLoginButton:nil];
+    [super viewDidUnload];
+}
 @end
