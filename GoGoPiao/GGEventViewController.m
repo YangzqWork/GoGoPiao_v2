@@ -14,6 +14,25 @@
 
 @implementation GGEventViewController
 
+
+//-(void)loadTodos {
+//    NSMutableURLRequest *theRequest=[NSMutableURLRequest
+//                                     requestWithURL:
+//                                     [NSURL URLWithString: kGetAllUrl]
+//                                     cachePolicy:NSURLRequestUseProtocolCachePolicy
+//                                     timeoutInterval:60.0];
+//    [theRequest setHTTPMethod:@"GET"];
+//    [theRequest addValue:@"application/json" forHTTPHeaderField:@"ACCEPT"];
+//    [theRequest addValue:kMobileServiceAppId forHTTPHeaderField:@"X-ZUMO-APPLICATION"];
+//    
+//    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    if (theConnection) {
+//        receivedData = [NSMutableData data];
+//    } else {
+//        // We should inform the user that the connection failed.
+//    }
+//}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

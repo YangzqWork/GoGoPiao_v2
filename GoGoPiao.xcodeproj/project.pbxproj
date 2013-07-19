@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1806B6FC1798CF2C0088234C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806B6FB1798CF2C0088234C /* CoreData.framework */; };
+		1806B6FF1798CFD20088234C /* GoGoPiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806B6FD1798CFD20088234C /* GoGoPiao.xcdatamodeld */; };
 		182CED3A1792960500C23EB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CED391792960500C23EB4 /* UIKit.framework */; };
 		182CED3C1792960500C23EB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CED3B1792960500C23EB4 /* Foundation.framework */; };
 		182CED3E1792960500C23EB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CED3D1792960500C23EB4 /* CoreGraphics.framework */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1806B6FB1798CF2C0088234C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1806B6FE1798CFD20088234C /* GoGoPiao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoGoPiao.xcdatamodel; sourceTree = "<group>"; };
 		182CED361792960500C23EB4 /* GoGoPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGoPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182CED391792960500C23EB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		182CED3B1792960500C23EB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1806B6FC1798CF2C0088234C /* CoreData.framework in Frameworks */,
 				182CED3A1792960500C23EB4 /* UIKit.framework in Frameworks */,
 				182CED3C1792960500C23EB4 /* Foundation.framework in Frameworks */,
 				182CED3E1792960500C23EB4 /* CoreGraphics.framework in Frameworks */,
@@ -97,6 +102,7 @@
 		182CED2D1792960500C23EB4 = {
 			isa = PBXGroup;
 			children = (
+				1806B6FB1798CF2C0088234C /* CoreData.framework */,
 				182CED3F1792960500C23EB4 /* GoGoPiao */,
 				182CED381792960500C23EB4 /* Frameworks */,
 				182CED371792960500C23EB4 /* Products */,
@@ -145,6 +151,7 @@
 				182CED4B1792960500C23EB4 /* Default.png */,
 				182CED4D1792960500C23EB4 /* Default@2x.png */,
 				182CED4F1792960500C23EB4 /* Default-568h@2x.png */,
+				1806B6FD1798CFD20088234C /* GoGoPiao.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -282,6 +289,7 @@
 				182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */,
 				182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */,
 				182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */,
+				1806B6FF1798CFD20088234C /* GoGoPiao.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +409,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1806B6FD1798CFD20088234C /* GoGoPiao.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1806B6FE1798CFD20088234C /* GoGoPiao.xcdatamodel */,
+			);
+			currentVersion = 1806B6FE1798CFD20088234C /* GoGoPiao.xcdatamodel */;
+			path = GoGoPiao.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 182CED2E1792960500C23EB4 /* Project object */;
 }
