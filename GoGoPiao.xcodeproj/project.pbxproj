@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		1806B6FC1798CF2C0088234C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806B6FB1798CF2C0088234C /* CoreData.framework */; };
 		1806B6FF1798CFD20088234C /* GoGoPiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806B6FD1798CFD20088234C /* GoGoPiao.xcdatamodeld */; };
+		1806B7051798ECB20088234C /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B7021798ECB10088234C /* Login.png */; };
+		1806B7061798ECB20088234C /* Submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B7031798ECB20088234C /* Submit.png */; };
+		1806B7071798ECB20088234C /* Register.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B7041798ECB20088234C /* Register.png */; };
+		1806B70C1798EDF50088234C /* GGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806B70A1798EDF50088234C /* GGRegisterViewController.m */; };
+		1806B70D1798EDF50088234C /* GGRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1806B70B1798EDF50088234C /* GGRegisterViewController.xib */; };
+		1806B713179900070088234C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806B7121798F6C40088234C /* SVProgressHUD.m */; };
+		1806B715179900650088234C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1806B714179900650088234C /* SVProgressHUD.bundle */; };
+		1806B717179900CA0088234C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806B716179900CA0088234C /* QuartzCore.framework */; };
+		1806B72717990CF00088234C /* GGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806B72517990CEF0088234C /* GGMainViewController.m */; };
+		1806B72817990CF00088234C /* GGMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72617990CEF0088234C /* GGMainViewController.xib */; };
+		1806B72A17990ED20088234C /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72917990ED20088234C /* main.png */; };
 		182CED3A1792960500C23EB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CED391792960500C23EB4 /* UIKit.framework */; };
 		182CED3C1792960500C23EB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CED3B1792960500C23EB4 /* Foundation.framework */; };
 		182CED3E1792960500C23EB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182CED3D1792960500C23EB4 /* CoreGraphics.framework */; };
@@ -44,6 +55,22 @@
 /* Begin PBXFileReference section */
 		1806B6FB1798CF2C0088234C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1806B6FE1798CFD20088234C /* GoGoPiao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoGoPiao.xcdatamodel; sourceTree = "<group>"; };
+		1806B7021798ECB10088234C /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
+		1806B7031798ECB20088234C /* Submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Submit.png; sourceTree = "<group>"; };
+		1806B7041798ECB20088234C /* Register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Register.png; sourceTree = "<group>"; };
+		1806B7091798EDF50088234C /* GGRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGRegisterViewController.h; sourceTree = "<group>"; };
+		1806B70A1798EDF50088234C /* GGRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGRegisterViewController.m; sourceTree = "<group>"; };
+		1806B70B1798EDF50088234C /* GGRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGRegisterViewController.xib; sourceTree = "<group>"; };
+		1806B7111798F6C40088234C /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		1806B7121798F6C40088234C /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		1806B714179900650088234C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		1806B716179900CA0088234C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1806B72417990CEE0088234C /* GGMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMainViewController.h; sourceTree = "<group>"; };
+		1806B72517990CEF0088234C /* GGMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMainViewController.m; sourceTree = "<group>"; };
+		1806B72617990CEF0088234C /* GGMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGMainViewController.xib; sourceTree = "<group>"; };
+		1806B72917990ED20088234C /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
+		1806B72B17991C370088234C /* AKSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKSegmentedControl.h; sourceTree = "<group>"; };
+		1806B72C17991C380088234C /* AKSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKSegmentedControl.m; sourceTree = "<group>"; };
 		182CED361792960500C23EB4 /* GoGoPiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGoPiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182CED391792960500C23EB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		182CED3B1792960500C23EB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1806B717179900CA0088234C /* QuartzCore.framework in Frameworks */,
 				1806B6FC1798CF2C0088234C /* CoreData.framework in Frameworks */,
 				182CED3A1792960500C23EB4 /* UIKit.framework in Frameworks */,
 				182CED3C1792960500C23EB4 /* Foundation.framework in Frameworks */,
@@ -99,10 +127,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1806B7081798ECBA0088234C /* 登录注册 */ = {
+			isa = PBXGroup;
+			children = (
+				1806B7021798ECB10088234C /* Login.png */,
+				1806B7031798ECB20088234C /* Submit.png */,
+				1806B7041798ECB20088234C /* Register.png */,
+				18E6A9B81793FAD100E53621 /* login_pic.png */,
+			);
+			name = "登录注册";
+			sourceTree = "<group>";
+		};
+		1806B718179900FD0088234C /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				1806B7111798F6C40088234C /* SVProgressHUD.h */,
+				1806B7121798F6C40088234C /* SVProgressHUD.m */,
+				1806B714179900650088234C /* SVProgressHUD.bundle */,
+			);
+			name = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		1806B719179901180088234C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				182CED481792960500C23EB4 /* AppDelegate.h */,
+				182CED491792960500C23EB4 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1806B72D17991EEE0088234C /* SubVCs */ = {
+			isa = PBXGroup;
+			children = (
+				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
+				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
+				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
+				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
+				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
+				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
+				182CED731792F73200C23EB4 /* GGSettingsViewController.h */,
+				182CED741792F73200C23EB4 /* GGSettingsViewController.m */,
+				182CED751792F73200C23EB4 /* GGSettingsViewController.xib */,
+			);
+			name = SubVCs;
+			sourceTree = "<group>";
+		};
 		182CED2D1792960500C23EB4 = {
 			isa = PBXGroup;
 			children = (
-				1806B6FB1798CF2C0088234C /* CoreData.framework */,
 				182CED3F1792960500C23EB4 /* GoGoPiao */,
 				182CED381792960500C23EB4 /* Frameworks */,
 				182CED371792960500C23EB4 /* Products */,
@@ -120,6 +193,8 @@
 		182CED381792960500C23EB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1806B716179900CA0088234C /* QuartzCore.framework */,
+				1806B6FB1798CF2C0088234C /* CoreData.framework */,
 				182CED391792960500C23EB4 /* UIKit.framework */,
 				182CED3B1792960500C23EB4 /* Foundation.framework */,
 				182CED3D1792960500C23EB4 /* CoreGraphics.framework */,
@@ -130,8 +205,10 @@
 		182CED3F1792960500C23EB4 /* GoGoPiao */ = {
 			isa = PBXGroup;
 			children = (
-				182CED481792960500C23EB4 /* AppDelegate.h */,
-				182CED491792960500C23EB4 /* AppDelegate.m */,
+				1806B72B17991C370088234C /* AKSegmentedControl.h */,
+				1806B72C17991C380088234C /* AKSegmentedControl.m */,
+				1806B719179901180088234C /* AppDelegate */,
+				1806B718179900FD0088234C /* SVProgressHUD */,
 				182CED781792FC9500C23EB4 /* ViewControllers */,
 				182CED401792960500C23EB4 /* Supporting Files */,
 			);
@@ -141,7 +218,8 @@
 		182CED401792960500C23EB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18E6A9B81793FAD100E53621 /* login_pic.png */,
+				1806B72917990ED20088234C /* main.png */,
+				1806B7081798ECBA0088234C /* 登录注册 */,
 				18791DA4179369EF00B02EB2 /* TabBarImages */,
 				18791D9B1793684000B02EB2 /* NavBarImages */,
 				182CED411792960500C23EB4 /* GoGoPiao-Info.plist */,
@@ -162,15 +240,13 @@
 				182CED5F1792F43200C23EB4 /* GGLoginViewController.h */,
 				182CED601792F43200C23EB4 /* GGLoginViewController.m */,
 				182CED611792F43200C23EB4 /* GGLoginViewController.xib */,
-				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
-				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
-				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
-				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
-				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
-				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
-				182CED731792F73200C23EB4 /* GGSettingsViewController.h */,
-				182CED741792F73200C23EB4 /* GGSettingsViewController.m */,
-				182CED751792F73200C23EB4 /* GGSettingsViewController.xib */,
+				1806B7091798EDF50088234C /* GGRegisterViewController.h */,
+				1806B70A1798EDF50088234C /* GGRegisterViewController.m */,
+				1806B70B1798EDF50088234C /* GGRegisterViewController.xib */,
+				1806B72417990CEE0088234C /* GGMainViewController.h */,
+				1806B72517990CEF0088234C /* GGMainViewController.m */,
+				1806B72617990CEF0088234C /* GGMainViewController.xib */,
+				1806B72D17991EEE0088234C /* SubVCs */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -273,6 +349,13 @@
 				18791DA2179369E400B02EB2 /* tabbar_selected.png in Resources */,
 				18791DA3179369E400B02EB2 /* tabbar_selected@2x.png in Resources */,
 				18E6A9B91793FAD100E53621 /* login_pic.png in Resources */,
+				1806B7051798ECB20088234C /* Login.png in Resources */,
+				1806B7061798ECB20088234C /* Submit.png in Resources */,
+				1806B7071798ECB20088234C /* Register.png in Resources */,
+				1806B70D1798EDF50088234C /* GGRegisterViewController.xib in Resources */,
+				1806B715179900650088234C /* SVProgressHUD.bundle in Resources */,
+				1806B72817990CF00088234C /* GGMainViewController.xib in Resources */,
+				1806B72A17990ED20088234C /* main.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1806B713179900070088234C /* SVProgressHUD.m in Sources */,
 				182CED461792960500C23EB4 /* main.m in Sources */,
 				182CED4A1792960500C23EB4 /* AppDelegate.m in Sources */,
 				182CED621792F43200C23EB4 /* GGLoginViewController.m in Sources */,
@@ -290,6 +374,8 @@
 				182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */,
 				182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */,
 				1806B6FF1798CFD20088234C /* GoGoPiao.xcdatamodeld in Sources */,
+				1806B70C1798EDF50088234C /* GGRegisterViewController.m in Sources */,
+				1806B72717990CF00088234C /* GGMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

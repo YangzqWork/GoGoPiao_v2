@@ -7,9 +7,11 @@
 //
 
 #import "GGLoginViewController.h"
+#import "GGRegisterViewController.h"
 #import "GGAccountViewController.h"
 #import "GGEventViewController.h"
 #import "GGSettingsViewController.h"
+#import "GGMainViewController.h"
 
 @interface GGLoginViewController ()
 
@@ -35,7 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"Login";
+    self.navigationItem.title = @"登录/注册";
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,8 +63,17 @@
     [self presentViewController:self.tabBarController animated:YES completion:nil];
 }
 
+- (IBAction)registerButtonPressed:(id)sender
+{
+    GGRegisterViewController *ggRegisterVC = [[GGRegisterViewController alloc] initWithNibName:@"GGRegisterViewController" bundle:nil];
+    
+//    [self.navigationController pushViewController:ggRegisterVC animated:YES];
+    [self presentViewController:ggRegisterVC animated:YES completion:nil];
+}
+
 - (void)viewDidUnload {
     [self setLoginButton:nil];
+    [self setRegisterButton:nil];
     [super viewDidUnload];
 }
 @end

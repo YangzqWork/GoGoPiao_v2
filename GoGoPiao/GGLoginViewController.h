@@ -20,5 +20,6 @@
 @property (strong, nonatomic) GGSettingsViewController *ggSettingsVC;
 
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) IBOutlet UIButton *registerButton;
 
 @end

@@ -19,7 +19,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"My Account";
+        self.title = @"我的账户";
+        self.navigationController.navigationItem.title = @"我的账户";
         
     }
     return self;
@@ -29,7 +30,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationItem.title = @"My Account";
     
 }
 

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GGLoginViewController.h"
+#import "GGMainViewController.h"
 
 @implementation AppDelegate
 
@@ -25,8 +26,10 @@
     [self customizeiPhoneTheme];
 
 //RootVC的设定
-    self.ggLoginVC = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
-    [self.window setRootViewController:self.ggLoginVC];
+//    self.ggLoginVC = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
+    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+    [self.window setRootViewController:self.ggMainVC];
+//    [self.window setRootViewController:self.ggLoginVC];
     
     return YES;
 }

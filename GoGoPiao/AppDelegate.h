@@ -10,6 +10,7 @@
 
 @class ViewController;
 @class GGLoginViewController;
+@class GGMainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,9 +20,11 @@
 
 @property (strong, nonatomic) GGLoginViewController *ggLoginVC;
 
+@property (strong, nonatomic) GGMainViewController *ggMainVC;
+
 //New Core Data
-@property (readonly,strong,nonatomic)NSManagedObjectContext *managedObjectContext;
-@property (readonly,strong,nonatomic)NSManagedObjectModel *managedObjectModel;
-@property (readonly,strong,nonatomic)NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly,strong,nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly,strong,nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly,strong,nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @end

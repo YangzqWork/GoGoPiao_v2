@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGEventViewController : UIViewController
+@interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
 
 @end
