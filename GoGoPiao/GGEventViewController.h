@@ -10,6 +10,9 @@
 
 @interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *eventsTableView;
+@property (strong, nonatomic) IBOutlet UITableView *concertTableView;
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

@@ -15,6 +15,8 @@
 
 @interface GGLoginViewController ()
 
+@property (strong, nonatomic) GGMainViewController *ggMainVC;
+
 @end
 
 @implementation GGLoginViewController
@@ -48,19 +50,22 @@
 
 - (IBAction)loginButtonPressed:(id)sender
 {
-    self.tabBarController = [[UITabBarController alloc] init];
-    self.ggAcountVC = [[GGAccountViewController alloc] initWithNibName:@"GGAccountViewController" bundle:nil];
-    self.ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-    self.ggSettingsVC = [[GGSettingsViewController alloc] initWithNibName:@"GGSettingsViewController" bundle:nil];
-    UINavigationController *accountNav = [[UINavigationController alloc] initWithRootViewController:self.ggAcountVC];
-    UINavigationController *eventNav = [[UINavigationController alloc] initWithRootViewController:self.ggEventVC];
-    UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:self.ggSettingsVC];
-    
-    NSArray* vcArray = [[NSArray alloc] initWithObjects:accountNav, eventNav, settingNav, nil];
-    [self.tabBarController setViewControllers:vcArray];
-    
-
-    [self presentViewController:self.tabBarController animated:YES completion:nil];
+//    self.tabBarController = [[UITabBarController alloc] init];
+//    self.ggAcountVC = [[GGAccountViewController alloc] initWithNibName:@"GGAccountViewController" bundle:nil];
+//    self.ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+//    self.ggSettingsVC = [[GGSettingsViewController alloc] initWithNibName:@"GGSettingsViewController" bundle:nil];
+//    UINavigationController *accountNav = [[UINavigationController alloc] initWithRootViewController:self.ggAcountVC];
+//    UINavigationController *eventNav = [[UINavigationController alloc] initWithRootViewController:self.ggEventVC];
+//    UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:self.ggSettingsVC];
+//    
+//    NSArray* vcArray = [[NSArray alloc] initWithObjects:accountNav, eventNav, settingNav, nil];
+//    [self.tabBarController setViewControllers:vcArray];
+//    
+//
+//    [self presentViewController:self.tabBarController animated:YES completion:nil];
+    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:self.ggMainVC];
+    [self presentViewController:mainNav animated:YES completion:nil];
 }
 
 - (IBAction)registerButtonPressed:(id)sender

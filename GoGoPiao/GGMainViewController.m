@@ -57,13 +57,20 @@
 - (void)handleTap1
 {
     NSLog(@"tap1");
-    GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-    [self presentViewController:ggEventVC animated:YES completion:nil];
+    
 }
 
 - (void)handleTap2
 {
     NSLog(@"tap2");
+    GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+//    [self presentViewController:ggEventVC animated:YES completion:nil];
+    [self.navigationController pushViewController:ggEventVC animated:YES];
+}
+
+- (IBAction)handleTap3:(id)sender
+{
+    NSLog(@"tap3");
 }
 
 @end
