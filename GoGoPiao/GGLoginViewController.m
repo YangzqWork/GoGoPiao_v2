@@ -145,11 +145,13 @@
     else if (textField == self.passwordTextField) {
         //进行登录操作
 #warning unfinished - 应该判断是ipad还是iphone来登录
+        
         [self.passwordTextField resignFirstResponder];
         [SVProgressHUD showWithStatus:@"正在登录"];
         NSLog(@"%@ -- %@", self.userTextField.text, self.passwordTextField.text);
         
 //登录：网络请求
+        void (^loginBlock)(void) = ^{
         NSString *urlString = @"http://42.121.58.78/api/v1/auth/signin.json";
         NSURL *requestURL = [NSURL URLWithString:urlString];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
@@ -162,6 +164,7 @@
         
         [request setHTTPBody:postBody];
         [NSURLConnection connectionWithRequest:request delegate:self];
+        };
     }
     return YES;
 }
@@ -184,7 +187,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString *dictData = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
     NSDictionary *returnJSONObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:nil];
     NSString *token = [returnJSONObject objectForKey:@"token"];
     if (token == nil) {
