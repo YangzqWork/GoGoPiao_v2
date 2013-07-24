@@ -55,8 +55,6 @@
 		182CED4C1792960500C23EB4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4B1792960500C23EB4 /* Default.png */; };
 		182CED4E1792960500C23EB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4D1792960500C23EB4 /* Default@2x.png */; };
 		182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4F1792960500C23EB4 /* Default-568h@2x.png */; };
-		182CED621792F43200C23EB4 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED601792F43200C23EB4 /* GGLoginViewController.m */; };
-		182CED631792F43200C23EB4 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED611792F43200C23EB4 /* GGLoginViewController.xib */; };
 		182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */; };
 		182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */; };
 		182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6F1792F72100C23EB4 /* GGEventViewController.m */; };
@@ -74,6 +72,9 @@
 		18791DA1179369E400B02EB2 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9D179369E400B02EB2 /* tabbar@2x.png */; };
 		18791DA2179369E400B02EB2 /* tabbar_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9E179369E400B02EB2 /* tabbar_selected.png */; };
 		18791DA3179369E400B02EB2 /* tabbar_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */; };
+		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
+		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
+		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
 		18E6A9B91793FAD100E53621 /* login_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E6A9B81793FAD100E53621 /* login_pic.png */; };
 /* End PBXBuildFile section */
 
@@ -133,9 +134,6 @@
 		182CED4B1792960500C23EB4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		182CED4D1792960500C23EB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		182CED4F1792960500C23EB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		182CED5F1792F43200C23EB4 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
-		182CED601792F43200C23EB4 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
-		182CED611792F43200C23EB4 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
 		182CED691792F70A00C23EB4 /* GGAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAccountViewController.h; sourceTree = "<group>"; };
 		182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAccountViewController.m; sourceTree = "<group>"; };
 		182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGAccountViewController.xib; sourceTree = "<group>"; };
@@ -157,6 +155,11 @@
 		18791D9D179369E400B02EB2 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
 		18791D9E179369E400B02EB2 /* tabbar_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_selected.png; sourceTree = "<group>"; };
 		18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_selected@2x.png"; sourceTree = "<group>"; };
+		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
+		18BEA58F179FC719005CB108 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
+		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
+		18BEA59317A022DD005CB108 /* GGAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAuthManager.h; sourceTree = "<group>"; };
+		18BEA59417A022DE005CB108 /* GGAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAuthManager.m; sourceTree = "<group>"; };
 		18E6A9B81793FAD100E53621 /* login_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_pic.png; sourceTree = "<group>"; };
 		18F1BDEF179E7E3B008FD04E /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		18F1BDF0179E7E3B008FD04E /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
@@ -279,10 +282,11 @@
 		182CED3F1792960500C23EB4 /* GoGoPiao */ = {
 			isa = PBXGroup;
 			children = (
+				18BEA59617A022EC005CB108 /* Singleton */,
+				1806B718179900FD0088234C /* SVProgressHUD */,
 				18F1BDF1179E7E44008FD04E /* JSON */,
 				186A7796179D177E00240EDF /* Cells */,
 				1806B719179901180088234C /* AppDelegate */,
-				1806B718179900FD0088234C /* SVProgressHUD */,
 				182CED781792FC9500C23EB4 /* ViewControllers */,
 				182CED401792960500C23EB4 /* Supporting Files */,
 			);
@@ -314,9 +318,9 @@
 		182CED781792FC9500C23EB4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				182CED5F1792F43200C23EB4 /* GGLoginViewController.h */,
-				182CED601792F43200C23EB4 /* GGLoginViewController.m */,
-				182CED611792F43200C23EB4 /* GGLoginViewController.xib */,
+				18BEA58E179FC719005CB108 /* GGLoginViewController.h */,
+				18BEA58F179FC719005CB108 /* GGLoginViewController.m */,
+				18BEA590179FC719005CB108 /* GGLoginViewController.xib */,
 				1806B7091798EDF50088234C /* GGRegisterViewController.h */,
 				1806B70A1798EDF50088234C /* GGRegisterViewController.m */,
 				1806B70B1798EDF50088234C /* GGRegisterViewController.xib */,
@@ -375,6 +379,15 @@
 				18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */,
 			);
 			name = TabBarImages;
+			sourceTree = "<group>";
+		};
+		18BEA59617A022EC005CB108 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				18BEA59317A022DD005CB108 /* GGAuthManager.h */,
+				18BEA59417A022DE005CB108 /* GGAuthManager.m */,
+			);
+			name = Singleton;
 			sourceTree = "<group>";
 		};
 		18F1BDF1179E7E44008FD04E /* JSON */ = {
@@ -441,7 +454,6 @@
 				182CED4C1792960500C23EB4 /* Default.png in Resources */,
 				182CED4E1792960500C23EB4 /* Default@2x.png in Resources */,
 				182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */,
-				182CED631792F43200C23EB4 /* GGLoginViewController.xib in Resources */,
 				182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */,
 				182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */,
 				182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */,
@@ -489,6 +501,7 @@
 				182391B1179D8592009472D0 /* 2-red-menu-bar@2x.png in Resources */,
 				182391B2179D8592009472D0 /* 2-red-settings-button.png in Resources */,
 				182391B3179D8592009472D0 /* 2-red-settings-button@2x.png in Resources */,
+				18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +515,6 @@
 				1806B713179900070088234C /* SVProgressHUD.m in Sources */,
 				182CED461792960500C23EB4 /* main.m in Sources */,
 				182CED4A1792960500C23EB4 /* AppDelegate.m in Sources */,
-				182CED621792F43200C23EB4 /* GGLoginViewController.m in Sources */,
 				182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */,
 				182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */,
 				182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */,
@@ -510,6 +522,8 @@
 				1806B70C1798EDF50088234C /* GGRegisterViewController.m in Sources */,
 				1806B72717990CF00088234C /* GGMainViewController.m in Sources */,
 				186A7795179D176A00240EDF /* GGEventsCell.m in Sources */,
+				18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */,
+				18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
