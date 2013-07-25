@@ -10,6 +10,8 @@
 
 @implementation GGAuthManager
 
+@synthesize token;
+
 + (GGAuthManager *)sharedManager
 {
     static GGAuthManager *instance = nil;
@@ -20,9 +22,14 @@
     return instance;
 }
 
-+ (NSString *)token
+- (NSString *)token
 {
-    //
+    return self.token;
+}
+
+- (void)setToken:(NSString *)token
+{
+    self.token = token;
 }
 
 @end
