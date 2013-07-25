@@ -10,4 +10,19 @@
 
 @implementation GGAuthManager
 
++ (GGAuthManager *)sharedManager
+{
+    static GGAuthManager *instance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
++ (NSString *)token
+{
+    //
+}
+
 @end
