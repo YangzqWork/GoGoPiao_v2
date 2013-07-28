@@ -17,7 +17,6 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) GGAccountViewController* ggAcountVC;
-@property (strong, nonatomic) GGEventViewController* ggEventVC;
 @property (strong, nonatomic) GGSettingsViewController *ggSettingsVC;
 
 @property (nonatomic) BOOL didRememberPw;

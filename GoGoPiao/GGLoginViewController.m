@@ -14,6 +14,8 @@
 #import "GGMainViewController.h"
 #import "SVProgressHUD.h"
 #import "JSONKit.h"
+#import "GGAuthManager.h"
+//#import "CYNetworkingHelper.h"
 
 @interface GGLoginViewController ()
 
@@ -24,7 +26,6 @@
 @implementation GGLoginViewController
 
 @synthesize ggAcountVC;
-@synthesize ggEventVC;
 @synthesize ggSettingsVC;
 
 @synthesize didRememberPw;
@@ -150,21 +151,19 @@
         [SVProgressHUD showWithStatus:@"正在登录"];
         NSLog(@"%@ -- %@", self.userTextField.text, self.passwordTextField.text);
         
-        //登录：网络请求
-//        void (^loginBlock)(void) = ^{
+    
             NSString *urlString = @"http://42.121.58.78/api/v1/auth/signin.json";
             NSURL *requestURL = [NSURL URLWithString:urlString];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setValue:@"Content-Language" forHTTPHeaderField:@"en-US"];
+            [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
             NSMutableData *postBody = [NSMutableData data];
             NSString *body = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@",self.userTextField.text, self.passwordTextField.text, @"iphone"];
             [postBody appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
             
             [request setHTTPBody:postBody];
             [NSURLConnection connectionWithRequest:request delegate:self];
-//        };
     }
     return YES;
 }
@@ -189,12 +188,17 @@
 {
     NSDictionary *returnJSONObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:nil];
     NSString *token = [returnJSONObject objectForKey:@"token"];
-    NSLog(@"%@", token);
-    if (token == nil) {
+    [[GGAuthManager sharedManager] setToken:token];
+    NSLog(@"%@", [[GGAuthManager sharedManager] token]);
+    
+    if ([GGAuthManager sharedManager].token == nil) {
         [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
     }
     else {
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+#warning to_be_refined - 最后要改成先进入主页面
+        GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+        [self presentViewController:ggEventVC animated:YES completion:nil];
     }
 }
 

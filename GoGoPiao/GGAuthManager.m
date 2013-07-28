@@ -22,14 +22,4 @@
     return instance;
 }
 
-- (NSString *)token
-{
-    return self.token;
-}
-
-- (void)setToken:(NSString *)token
-{
-    self.token = token;
-}
-
 @end

@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface GGEventsCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UIImageView *eventsImageView;
 @property (strong, nonatomic) IBOutlet UILabel *eventsTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventsSubtitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *eventsThirdLabel;
+
++ (UINib *)nib;
 
 @end

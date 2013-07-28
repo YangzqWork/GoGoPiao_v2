@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *concertTableView;
-
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 

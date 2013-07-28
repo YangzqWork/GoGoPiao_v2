@@ -10,6 +10,11 @@
 
 @implementation GGEventsCell
 
++ (UINib *)nib
+{
+    return [UINib nibWithNibName:@"GGEventsCell" bundle:nil];
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
