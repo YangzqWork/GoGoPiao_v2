@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) TableViewConfigureCellBlock configureCellBlock;
 
+//添加索引
+@property (nonatomic, strong) NSMutableArray *indexList;
+
 @end
 
 @implementation CYTableDataSource
@@ -22,6 +25,7 @@
 @synthesize dataArray;
 @synthesize cellIdentifier;
 @synthesize configureCellBlock;
+@synthesize indexList;
 
 #pragma mark - Public Methods
 
@@ -64,6 +68,18 @@
 {
 //Default to be 1
     return 1;
+}
+
+#pragma mark - 索引部分
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title = [self.indexList objectAtIndex:section];
+    return title;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.indexList;
 }
 
 @end

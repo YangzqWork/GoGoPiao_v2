@@ -105,7 +105,8 @@
 }
 
 #pragma mark - UITextField Delegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     if (textField == self.passwordFirstTextField || textField == self.passwordAgainTextField) {
         float y = textField.frame.origin.y;
@@ -114,39 +115,37 @@
     
 //输入的时候变色
     textField.layer.borderColor=[[UIColor orangeColor] CGColor];
-    return YES;
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 0) animated:YES];
+//    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 0) animated:YES];
     textField.layer.borderColor=[[UIColor grayColor] CGColor];
     if (textField == self.passwordAgainTextField) {
-        if (self.passwordAgainTextField.text != self.passwordFirstTextField.text){
+        if (![self.passwordAgainTextField.text isEqualToString:self.passwordFirstTextField.text]){
             [SVProgressHUD showErrorWithStatus:@"两次输入密码不一致"];
         }
     }
     
-    if (textField == self.passwordAgainTextField) {
-        [self becomeFirstResponder];
-        
-        NSString *urlString = @"http://42.121.58.78/api/v1/auth/signup.json";
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0f];
-        
-        [request setHTTPMethod:@"POST"];
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"Content-Language" forHTTPHeaderField:@"en-US"];
-        
-        NSMutableData *postBody = [NSMutableData data];
-        NSString *body = [NSString stringWithFormat:@"user[name]=%@&user[email]=%@&user[password]=%@",self.usernameTextField.text, self.emailTextField.text, self.passwordFirstTextField.text];
-        [postBody appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        [request setHTTPBody:postBody];
-        [NSURLConnection connectionWithRequest:request delegate:self];
-    }
+//    if (textField == self.passwordAgainTextField) {
+//        [self becomeFirstResponder];
+//        
+//        NSString *urlString = @"http://42.121.58.78/api/v1/auth/signup.json";
+//        NSURL *url = [NSURL URLWithString:urlString];
+//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0f];
+//        
+//        [request setHTTPMethod:@"POST"];
+//        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//        [request setValue:@"Content-Language" forHTTPHeaderField:@"en-US"];
+//        
+//        NSMutableData *postBody = [NSMutableData data];
+//        NSString *body = [NSString stringWithFormat:@"user[name]=%@&user[email]=%@&user[password]=%@",self.usernameTextField.text, self.emailTextField.text, self.passwordFirstTextField.text];
+//        [postBody appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
+//        
+//        [request setHTTPBody:postBody];
+//        [NSURLConnection connectionWithRequest:request delegate:self];
+//    }
     
-    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

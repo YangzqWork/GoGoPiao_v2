@@ -11,6 +11,7 @@
 @implementation GGAuthManager
 
 @synthesize token;
+@synthesize tempToken;
 
 + (GGAuthManager *)sharedManager
 {

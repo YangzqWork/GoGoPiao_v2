@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) GGMainViewController *ggMainVC;
 
+
 //New Core Data
 @property (readonly,strong,nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly,strong,nonatomic) NSManagedObjectModel *managedObjectModel;

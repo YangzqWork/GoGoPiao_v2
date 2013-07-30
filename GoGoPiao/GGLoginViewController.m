@@ -197,8 +197,10 @@
     else {
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
 #warning to_be_refined - 最后要改成先进入主页面
+        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
         GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-        [self presentViewController:ggEventVC animated:YES completion:nil];
+//        [self presentViewController:ggEventVC animated:YES completion:nil];
+        [self.navigationController pushViewController:ggMainVC animated:YES];
     }
 }
 

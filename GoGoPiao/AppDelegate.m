@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GGLoginViewController.h"
 #import "GGMainViewController.h"
+#import "GGAuthManager.h"
 
 @implementation AppDelegate
 
@@ -25,11 +26,22 @@
 //NavigationBar的设定
     [self customizeiPhoneTheme];
 
+//拿到CFUUIDRef 设定临时的Token值
+    CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
+    NSLog(@"-------- %@", cfuuidString);
+    NSLog(@"before -- %@", [GGAuthManager sharedManager].tempToken);
+    [GGAuthManager sharedManager].tempToken = cfuuidString;
+    NSLog(@"length -- %d", [cfuuidString length]);
+    NSLog(@"after -- %@", [GGAuthManager sharedManager].tempToken);
+    
 //RootVC的设定
     self.ggLoginVC = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.ggLoginVC];
+    
 //    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
 //    [self.window setRootViewController:self.ggMainVC];
-    [self.window setRootViewController:self.ggLoginVC];
+    [self.window setRootViewController:navController];
     
     return YES;
 }

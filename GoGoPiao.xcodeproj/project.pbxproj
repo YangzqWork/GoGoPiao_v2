@@ -74,6 +74,8 @@
 		18791DA3179369E400B02EB2 /* tabbar_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */; };
 		187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ABED017A2161200113C80 /* CYTableDataSource.m */; };
 		187ABED917A24F4C00113C80 /* CYNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ABED817A24F4C00113C80 /* CYNetworkingHelper.m */; };
+		1899BB5A17A4ACAB00EF6CB2 /* GGEventsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */; };
+		1899BB5B17A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */; };
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
 		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
@@ -162,6 +164,11 @@
 		187ABED017A2161200113C80 /* CYTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTableDataSource.m; sourceTree = "<group>"; };
 		187ABED717A24F4C00113C80 /* CYNetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYNetworkingHelper.h; sourceTree = "<group>"; };
 		187ABED817A24F4C00113C80 /* CYNetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYNetworkingHelper.m; sourceTree = "<group>"; };
+		1899BB5717A4ACAB00EF6CB2 /* GGEventsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventsDetailViewController.h; sourceTree = "<group>"; };
+		1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventsDetailViewController.m; sourceTree = "<group>"; };
+		1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventsDetailViewController.xib; sourceTree = "<group>"; };
+		1899BB5D17A4BFA500EF6CB2 /* ChineseToPinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
+		1899BB5E17A4BFA500EF6CB2 /* ChineseToPinyin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
 		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
 		18BEA58F179FC719005CB108 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
 		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
@@ -290,6 +297,8 @@
 		182CED3F1792960500C23EB4 /* GoGoPiao */ = {
 			isa = PBXGroup;
 			children = (
+				1899BB5D17A4BFA500EF6CB2 /* ChineseToPinyin.h */,
+				1899BB5E17A4BFA500EF6CB2 /* ChineseToPinyin.m */,
 				18BEA59617A022EC005CB108 /* Singleton */,
 				1806B718179900FD0088234C /* SVProgressHUD */,
 				18F1BDF1179E7E44008FD04E /* JSON */,
@@ -337,6 +346,7 @@
 				1806B72517990CEF0088234C /* GGMainViewController.m */,
 				1806B72617990CEF0088234C /* GGMainViewController.xib */,
 				1806B72D17991EEE0088234C /* 九宫格里面的VCs */,
+				1899BB5C17A4ACB400EF6CB2 /* SubViews */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -388,6 +398,16 @@
 				18791D9F179369E400B02EB2 /* tabbar_selected@2x.png */,
 			);
 			name = TabBarImages;
+			sourceTree = "<group>";
+		};
+		1899BB5C17A4ACB400EF6CB2 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				1899BB5717A4ACAB00EF6CB2 /* GGEventsDetailViewController.h */,
+				1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */,
+				1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */,
+			);
+			name = SubViews;
 			sourceTree = "<group>";
 		};
 		18BEA59617A022EC005CB108 /* Singleton */ = {
@@ -516,6 +536,7 @@
 				182391B3179D8592009472D0 /* 2-red-settings-button@2x.png in Resources */,
 				18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */,
 				18DC25E417A3CA0C0068C62E /* temp_concert.png in Resources */,
+				1899BB5B17A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +561,7 @@
 				18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */,
 				187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */,
 				187ABED917A24F4C00113C80 /* CYNetworkingHelper.m in Sources */,
+				1899BB5A17A4ACAB00EF6CB2 /* GGEventsDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

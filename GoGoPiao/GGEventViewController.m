@@ -8,6 +8,7 @@
 
 #import "GGEventViewController.h"
 #import "GGEventsCell.h"
+#import "GGEventsDetailViewController.h"
 #import "GGAuthManager.h"
 #import "CYTableDataSource.h"
 
@@ -63,7 +64,7 @@
     
     
     [self beginNetworking];
-    [self setUpList];
+    [self setTableView];
 }
 
 
@@ -127,7 +128,7 @@
 
 }
 
-- (void)setUpList
+- (void)setTableView
 {
     TableViewConfigureCellBlock configureCell = ^(GGEventsCell* cell, NSDictionary *event) {
         cell.eventsTitleLabel.text = [event objectForKey:@"title"];
@@ -136,7 +137,7 @@
     };
     
     self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
-//    self.concertTableView.delegate = self.cyTableDataSource;
+    self.concertTableView.delegate = self;
     
     self.concertTableView.dataSource = self.cyTableDataSource;
     [self.concertTableView registerNib:[GGEventsCell nib] forCellReuseIdentifier:@"GGEventsCell"];
@@ -170,7 +171,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"did select row at index");
+    GGEventsDetailViewController *ggEventsDetailVC = [[GGEventsDetailViewController alloc] initWithNibName:@"GGEventsDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:ggEventsDetailVC animated:YES];
 }
 
 @end

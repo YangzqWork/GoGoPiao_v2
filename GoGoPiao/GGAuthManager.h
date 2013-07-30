@@ -11,6 +11,7 @@
 @interface GGAuthManager : NSObject
 
 @property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) NSString *tempToken;
 
 +(GGAuthManager *)sharedManager;
 
