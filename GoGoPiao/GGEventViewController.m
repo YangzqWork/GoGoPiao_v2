@@ -65,6 +65,8 @@
     
     [self beginNetworking];
     [self setTableView];
+    
+    
 }
 
 
@@ -87,6 +89,11 @@
 
 - (void)beginNetworking
 {
+//设置缓存
+    NSURLCache *urlCache = [NSURLCache sharedURLCache];
+    [urlCache setMemoryCapacity:1 * 1024 * 1024];
+    
+
     NSString *urlString = @"http://42.121.58.78/api/v1/events.json?token=";
     [urlString stringByAppendingString:self.token];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -95,6 +102,14 @@
     [request setHTTPMethod:@"GET"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
+    
+    
+//请求从缓存中读取数据
+    NSCachedURLResponse *response = [urlCache cachedResponseForRequest:request];
+    if (response != nil) {
+        [request setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
+    }
+    
 
 //这个是异步    [NSURLConnection connectionWithRequest:request delegate:self];
     
@@ -103,6 +118,7 @@
     
     
 //Afterwards
+    
     [self dealWithData];
 }
 
