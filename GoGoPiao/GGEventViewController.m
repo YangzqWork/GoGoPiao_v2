@@ -36,9 +36,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+    
+#warning Unfinished - 拿Token只是简单地用CFUUID
 //拿Token
-        self.token = [GGAuthManager sharedManager].token;
+        self.token = [GGAuthManager sharedManager].tempToken;
         
 //BarButton
         self.concertTableView.hidden = NO;
@@ -153,9 +154,10 @@
     };
     
     self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
-    self.concertTableView.delegate = self;
     
+    self.concertTableView.delegate = self;
     self.concertTableView.dataSource = self.cyTableDataSource;
+    
     [self.concertTableView registerNib:[GGEventsCell nib] forCellReuseIdentifier:@"GGEventsCell"];
 }
 
