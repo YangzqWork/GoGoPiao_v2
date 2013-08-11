@@ -93,7 +93,7 @@
     NSURLCache *urlCache = [NSURLCache sharedURLCache];
     [urlCache setMemoryCapacity:1 * 1024 * 1024];
     
-
+    
     NSString *urlString = @"http://42.121.58.78/api/v1/events.json?token=";
     [urlString stringByAppendingString:self.token];
     NSURL *url = [NSURL URLWithString:urlString];

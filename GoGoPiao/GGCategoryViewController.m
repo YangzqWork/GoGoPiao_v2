@@ -1,27 +1,24 @@
 //
-//  GGAccountViewController.m
+//  GGCategoryViewController.m
 //  GoGoPiao
 //
-//  Created by Cho-Yeung Lam on 14/7/13.
+//  Created by Cho-Yeung Lam on 11/8/13.
 //  Copyright (c) 2013 Cho-Yeung Lam. All rights reserved.
 //
 
-#import "GGAccountViewController.h"
+#import "GGCategoryViewController.h"
 
-@interface GGAccountViewController ()
+@interface GGCategoryViewController ()
 
 @end
 
-@implementation GGAccountViewController
+@implementation GGCategoryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"账号设置";
-        self.navigationController.navigationItem.title = @"账号设置";
-        
+        self.title = @"分类查询";
     }
     return self;
 }
@@ -30,7 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
 }
 
 - (void)didReceiveMemoryWarning

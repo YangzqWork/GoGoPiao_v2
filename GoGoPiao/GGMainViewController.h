@@ -2,16 +2,24 @@
 //  GGMainViewController.h
 //  GoGoPiao
 //
-//  Created by Cho-Yeung Lam on 19/7/13.
+//  Created by Cho-Yeung Lam on 11/8/13.
 //  Copyright (c) 2013 Cho-Yeung Lam. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface GGMainViewController : UIViewController
+@class GGCategoryViewController;
+@class GGEventViewController;
+@class GGOrderViewController;
+@class GGSellingViewController;
+@class GGAccountViewController;
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView1;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView2;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView3;
+@interface GGMainViewController : UITabBarController
+
+@property (strong, nonatomic) GGCategoryViewController *ggCategoryVC;
+@property (strong, nonatomic) GGEventViewController *ggEventVC;
+@property (strong, nonatomic) GGOrderViewController *ggOrderVC;
+@property (strong, nonatomic) GGSellingViewController *ggSellingVC;
+@property (strong, nonatomic) GGAccountViewController *ggAccountVC;
 
 @end

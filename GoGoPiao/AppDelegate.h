@@ -8,20 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class ViewController;
-@class GGLoginViewController;
 @class GGMainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) ViewController *viewController;
-
-@property (strong, nonatomic) GGLoginViewController *ggLoginVC;
-
 @property (strong, nonatomic) GGMainViewController *ggMainVC;
-
 
 //New Core Data
 @property (readonly,strong,nonatomic) NSManagedObjectContext *managedObjectContext;

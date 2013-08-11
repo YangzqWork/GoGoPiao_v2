@@ -17,8 +17,6 @@
 		1806B713179900070088234C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806B7121798F6C40088234C /* SVProgressHUD.m */; };
 		1806B715179900650088234C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1806B714179900650088234C /* SVProgressHUD.bundle */; };
 		1806B717179900CA0088234C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806B716179900CA0088234C /* QuartzCore.framework */; };
-		1806B72717990CF00088234C /* GGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806B72517990CEF0088234C /* GGMainViewController.m */; };
-		1806B72817990CF00088234C /* GGMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72617990CEF0088234C /* GGMainViewController.xib */; };
 		1806B72A17990ED20088234C /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72917990ED20088234C /* main.png */; };
 		1806B73F17991F6F0088234C /* segmented-bg-pressed-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72F17991F6F0088234C /* segmented-bg-pressed-center.png */; };
 		1806B74017991F6F0088234C /* segmented-bg-pressed-center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B73017991F6F0088234C /* segmented-bg-pressed-center@2x.png */; };
@@ -59,9 +57,14 @@
 		182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */; };
 		182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6F1792F72100C23EB4 /* GGEventViewController.m */; };
 		182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED701792F72100C23EB4 /* GGEventViewController.xib */; };
-		182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED741792F73200C23EB4 /* GGSettingsViewController.m */; };
-		182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED751792F73200C23EB4 /* GGSettingsViewController.xib */; };
 		183485A4179BB00500EF229F /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183485A3179BB00500EF229F /* sortednames.plist */; };
+		18359D7217B75F0000A8B95E /* GGCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7017B75F0000A8B95E /* GGCategoryViewController.m */; };
+		18359D7317B75F0000A8B95E /* GGCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */; };
+		18359D7717B75F2E00A8B95E /* GGOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7517B75F2E00A8B95E /* GGOrderViewController.m */; };
+		18359D7817B75F2E00A8B95E /* GGOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */; };
+		18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7A17B75F8100A8B95E /* GGSellingViewController.m */; };
+		18359D7D17B75F8200A8B95E /* GGSellingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */; };
+		18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D8217B7614800A8B95E /* GGMainViewController.m */; };
 		186A7795179D176A00240EDF /* GGEventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A7794179D176A00240EDF /* GGEventsCell.m */; };
 		186A7798179D179800240EDF /* GGEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A7797179D179800240EDF /* GGEventsCell.xib */; };
 		186A779D179D265D00240EDF /* cb_dark_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 186A7799179D265C00240EDF /* cb_dark_off.png */; };
@@ -96,9 +99,6 @@
 		1806B7121798F6C40088234C /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		1806B714179900650088234C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		1806B716179900CA0088234C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1806B72417990CEE0088234C /* GGMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMainViewController.h; sourceTree = "<group>"; };
-		1806B72517990CEF0088234C /* GGMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMainViewController.m; sourceTree = "<group>"; };
-		1806B72617990CEF0088234C /* GGMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGMainViewController.xib; sourceTree = "<group>"; };
 		1806B72917990ED20088234C /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 		1806B72F17991F6F0088234C /* segmented-bg-pressed-center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-center.png"; sourceTree = "<group>"; };
 		1806B73017991F6F0088234C /* segmented-bg-pressed-center@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-center@2x.png"; sourceTree = "<group>"; };
@@ -145,10 +145,18 @@
 		182CED6E1792F72100C23EB4 /* GGEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventViewController.h; sourceTree = "<group>"; };
 		182CED6F1792F72100C23EB4 /* GGEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventViewController.m; sourceTree = "<group>"; };
 		182CED701792F72100C23EB4 /* GGEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventViewController.xib; sourceTree = "<group>"; };
-		182CED731792F73200C23EB4 /* GGSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSettingsViewController.h; sourceTree = "<group>"; };
-		182CED741792F73200C23EB4 /* GGSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSettingsViewController.m; sourceTree = "<group>"; };
-		182CED751792F73200C23EB4 /* GGSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSettingsViewController.xib; sourceTree = "<group>"; };
 		183485A3179BB00500EF229F /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sortednames.plist; sourceTree = "<group>"; };
+		18359D6F17B75F0000A8B95E /* GGCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCategoryViewController.h; sourceTree = "<group>"; };
+		18359D7017B75F0000A8B95E /* GGCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCategoryViewController.m; sourceTree = "<group>"; };
+		18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGCategoryViewController.xib; sourceTree = "<group>"; };
+		18359D7417B75F2E00A8B95E /* GGOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGOrderViewController.h; sourceTree = "<group>"; };
+		18359D7517B75F2E00A8B95E /* GGOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGOrderViewController.m; sourceTree = "<group>"; };
+		18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGOrderViewController.xib; sourceTree = "<group>"; };
+		18359D7917B75F8100A8B95E /* GGSellingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSellingViewController.h; sourceTree = "<group>"; };
+		18359D7A17B75F8100A8B95E /* GGSellingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSellingViewController.m; sourceTree = "<group>"; };
+		18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSellingViewController.xib; sourceTree = "<group>"; };
+		18359D8117B7614800A8B95E /* GGMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMainViewController.h; sourceTree = "<group>"; };
+		18359D8217B7614800A8B95E /* GGMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMainViewController.m; sourceTree = "<group>"; };
 		186A7793179D176A00240EDF /* GGEventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventsCell.h; sourceTree = "<group>"; };
 		186A7794179D176A00240EDF /* GGEventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventsCell.m; sourceTree = "<group>"; };
 		186A7797179D179800240EDF /* GGEventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventsCell.xib; sourceTree = "<group>"; };
@@ -217,29 +225,37 @@
 			name = SVProgressHUD;
 			sourceTree = "<group>";
 		};
-		1806B719179901180088234C /* AppDelegate */ = {
+		1806B719179901180088234C /* AppDelegate/主界面 */ = {
 			isa = PBXGroup;
 			children = (
 				182CED481792960500C23EB4 /* AppDelegate.h */,
 				182CED491792960500C23EB4 /* AppDelegate.m */,
+				18359D8117B7614800A8B95E /* GGMainViewController.h */,
+				18359D8217B7614800A8B95E /* GGMainViewController.m */,
 			);
-			name = AppDelegate;
+			name = "AppDelegate/主界面";
 			sourceTree = "<group>";
 		};
-		1806B72D17991EEE0088234C /* 九宫格里面的VCs */ = {
+		1806B72D17991EEE0088234C /* TabBar底下5个VCs */ = {
 			isa = PBXGroup;
 			children = (
+				18359D6F17B75F0000A8B95E /* GGCategoryViewController.h */,
+				18359D7017B75F0000A8B95E /* GGCategoryViewController.m */,
+				18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */,
 				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
 				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
 				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
+				18359D7417B75F2E00A8B95E /* GGOrderViewController.h */,
+				18359D7517B75F2E00A8B95E /* GGOrderViewController.m */,
+				18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */,
+				18359D7917B75F8100A8B95E /* GGSellingViewController.h */,
+				18359D7A17B75F8100A8B95E /* GGSellingViewController.m */,
+				18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */,
 				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
 				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
 				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
-				182CED731792F73200C23EB4 /* GGSettingsViewController.h */,
-				182CED741792F73200C23EB4 /* GGSettingsViewController.m */,
-				182CED751792F73200C23EB4 /* GGSettingsViewController.xib */,
 			);
-			name = "九宫格里面的VCs";
+			name = "TabBar底下5个VCs";
 			sourceTree = "<group>";
 		};
 		1806B72E17991F5C0088234C /* Segment */ = {
@@ -303,7 +319,7 @@
 				1806B718179900FD0088234C /* SVProgressHUD */,
 				18F1BDF1179E7E44008FD04E /* JSON */,
 				186A7796179D177E00240EDF /* Cells */,
-				1806B719179901180088234C /* AppDelegate */,
+				1806B719179901180088234C /* AppDelegate/主界面 */,
 				182CED781792FC9500C23EB4 /* ViewControllers */,
 				182CED401792960500C23EB4 /* Supporting Files */,
 			);
@@ -342,10 +358,7 @@
 				1806B7091798EDF50088234C /* GGRegisterViewController.h */,
 				1806B70A1798EDF50088234C /* GGRegisterViewController.m */,
 				1806B70B1798EDF50088234C /* GGRegisterViewController.xib */,
-				1806B72417990CEE0088234C /* GGMainViewController.h */,
-				1806B72517990CEF0088234C /* GGMainViewController.m */,
-				1806B72617990CEF0088234C /* GGMainViewController.xib */,
-				1806B72D17991EEE0088234C /* 九宫格里面的VCs */,
+				1806B72D17991EEE0088234C /* TabBar底下5个VCs */,
 				1899BB5C17A4ACB400EF6CB2 /* SubViews */,
 			);
 			name = ViewControllers;
@@ -489,7 +502,6 @@
 				182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */,
 				182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */,
 				182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */,
-				182CED771792F73200C23EB4 /* GGSettingsViewController.xib in Resources */,
 				18791DA0179369E400B02EB2 /* tabbar.png in Resources */,
 				18791DA1179369E400B02EB2 /* tabbar@2x.png in Resources */,
 				18791DA2179369E400B02EB2 /* tabbar_selected.png in Resources */,
@@ -500,7 +512,6 @@
 				1806B7071798ECB20088234C /* Register.png in Resources */,
 				1806B70D1798EDF50088234C /* GGRegisterViewController.xib in Resources */,
 				1806B715179900650088234C /* SVProgressHUD.bundle in Resources */,
-				1806B72817990CF00088234C /* GGMainViewController.xib in Resources */,
 				1806B72A17990ED20088234C /* main.png in Resources */,
 				1806B73F17991F6F0088234C /* segmented-bg-pressed-center.png in Resources */,
 				1806B74017991F6F0088234C /* segmented-bg-pressed-center@2x.png in Resources */,
@@ -537,6 +548,9 @@
 				18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */,
 				18DC25E417A3CA0C0068C62E /* temp_concert.png in Resources */,
 				1899BB5B17A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib in Resources */,
+				18359D7317B75F0000A8B95E /* GGCategoryViewController.xib in Resources */,
+				18359D7817B75F2E00A8B95E /* GGOrderViewController.xib in Resources */,
+				18359D7D17B75F8200A8B95E /* GGSellingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,16 +566,18 @@
 				182CED4A1792960500C23EB4 /* AppDelegate.m in Sources */,
 				182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */,
 				182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */,
-				182CED761792F73200C23EB4 /* GGSettingsViewController.m in Sources */,
 				1806B6FF1798CFD20088234C /* GoGoPiao.xcdatamodeld in Sources */,
 				1806B70C1798EDF50088234C /* GGRegisterViewController.m in Sources */,
-				1806B72717990CF00088234C /* GGMainViewController.m in Sources */,
 				186A7795179D176A00240EDF /* GGEventsCell.m in Sources */,
 				18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */,
 				18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */,
 				187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */,
 				187ABED917A24F4C00113C80 /* CYNetworkingHelper.m in Sources */,
 				1899BB5A17A4ACAB00EF6CB2 /* GGEventsDetailViewController.m in Sources */,
+				18359D7217B75F0000A8B95E /* GGCategoryViewController.m in Sources */,
+				18359D7717B75F2E00A8B95E /* GGOrderViewController.m in Sources */,
+				18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */,
+				18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

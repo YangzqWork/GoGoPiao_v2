@@ -10,7 +10,6 @@
 #import "GGRegisterViewController.h"
 #import "GGAccountViewController.h"
 #import "GGEventViewController.h"
-#import "GGSettingsViewController.h"
 #import "GGMainViewController.h"
 #import "SVProgressHUD.h"
 #import "JSONKit.h"
