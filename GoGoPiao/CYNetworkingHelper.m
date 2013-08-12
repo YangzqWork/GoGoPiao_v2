@@ -46,6 +46,8 @@
         else
             NSLog(@"Weird JSON data, not array or dictionary. Have no idea how to deal with.");
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishReceivingData" object:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error

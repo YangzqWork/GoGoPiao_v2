@@ -123,10 +123,10 @@
     
     
 //Afterwards
-    
     [self dealWithData];
 }
 
+//解析JSON
 - (void)dealWithData
 {
     NSError *error = nil;

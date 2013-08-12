@@ -86,6 +86,11 @@
 		189F448A17B8C20300D9275B /* GGListingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448917B8C20300D9275B /* GGListingsCell.xib */; };
 		189F448F17B8CD2C00D9275B /* GGSellingFillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F448D17B8CD2B00D9275B /* GGSellingFillingViewController.m */; };
 		189F449017B8CD2C00D9275B /* GGSellingFillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448E17B8CD2C00D9275B /* GGSellingFillingViewController.xib */; };
+		189F449317B8D52D00D9275B /* GGNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449217B8D52C00D9275B /* GGNetworkingClient.m */; };
+		189F449917B8D6BD00D9275B /* GGNetworkingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449817B8D6BD00D9275B /* GGNetworkingFactory.m */; };
+		189F449D17B8D6DE00D9275B /* GGGetNetworkingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449C17B8D6DE00D9275B /* GGGetNetworkingFactory.m */; };
+		189F44A017B8D6ED00D9275B /* GGPostNetworkingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449F17B8D6ED00D9275B /* GGPostNetworkingFactory.m */; };
+		189F44A317B8DB7700D9275B /* GGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F44A217B8DB7700D9275B /* GGConstants.m */; };
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
 		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
@@ -195,6 +200,16 @@
 		189F448C17B8CD2B00D9275B /* GGSellingFillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSellingFillingViewController.h; sourceTree = "<group>"; };
 		189F448D17B8CD2B00D9275B /* GGSellingFillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSellingFillingViewController.m; sourceTree = "<group>"; };
 		189F448E17B8CD2C00D9275B /* GGSellingFillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSellingFillingViewController.xib; sourceTree = "<group>"; };
+		189F449117B8D52C00D9275B /* GGNetworkingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGNetworkingClient.h; sourceTree = "<group>"; };
+		189F449217B8D52C00D9275B /* GGNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGNetworkingClient.m; sourceTree = "<group>"; };
+		189F449717B8D6BD00D9275B /* GGNetworkingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGNetworkingFactory.h; sourceTree = "<group>"; };
+		189F449817B8D6BD00D9275B /* GGNetworkingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGNetworkingFactory.m; sourceTree = "<group>"; };
+		189F449B17B8D6DE00D9275B /* GGGetNetworkingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGGetNetworkingFactory.h; sourceTree = "<group>"; };
+		189F449C17B8D6DE00D9275B /* GGGetNetworkingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGGetNetworkingFactory.m; sourceTree = "<group>"; };
+		189F449E17B8D6ED00D9275B /* GGPostNetworkingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGPostNetworkingFactory.h; sourceTree = "<group>"; };
+		189F449F17B8D6ED00D9275B /* GGPostNetworkingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGPostNetworkingFactory.m; sourceTree = "<group>"; };
+		189F44A117B8DB7600D9275B /* GGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGConstants.h; sourceTree = "<group>"; };
+		189F44A217B8DB7700D9275B /* GGConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGConstants.m; sourceTree = "<group>"; };
 		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
 		18BEA58F179FC719005CB108 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
 		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
@@ -327,9 +342,13 @@
 		182CED3F1792960500C23EB4 /* GoGoPiao */ = {
 			isa = PBXGroup;
 			children = (
+				189F44A117B8DB7600D9275B /* GGConstants.h */,
+				189F44A217B8DB7700D9275B /* GGConstants.m */,
 				1899BB5D17A4BFA500EF6CB2 /* ChineseToPinyin.h */,
 				1899BB5E17A4BFA500EF6CB2 /* ChineseToPinyin.m */,
-				18BEA59617A022EC005CB108 /* Singleton */,
+				189F449617B8D68A00D9275B /* Singleton */,
+				189F449417B8D56A00D9275B /* Factory */,
+				18BEA59617A022EC005CB108 /* Delegate */,
 				1806B718179900FD0088234C /* SVProgressHUD */,
 				18F1BDF1179E7E44008FD04E /* JSON */,
 				186A7796179D177E00240EDF /* Cells */,
@@ -460,17 +479,55 @@
 			name = "我要转让";
 			sourceTree = "<group>";
 		};
-		18BEA59617A022EC005CB108 /* Singleton */ = {
+		189F449417B8D56A00D9275B /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				189F449517B8D61B00D9275B /* Client */,
+				189F449A17B8D6C400D9275B /* Creator */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		189F449517B8D61B00D9275B /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				189F449117B8D52C00D9275B /* GGNetworkingClient.h */,
+				189F449217B8D52C00D9275B /* GGNetworkingClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		189F449617B8D68A00D9275B /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				18BEA59317A022DD005CB108 /* GGAuthManager.h */,
+				18BEA59417A022DE005CB108 /* GGAuthManager.m */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
+		189F449A17B8D6C400D9275B /* Creator */ = {
+			isa = PBXGroup;
+			children = (
+				189F449717B8D6BD00D9275B /* GGNetworkingFactory.h */,
+				189F449817B8D6BD00D9275B /* GGNetworkingFactory.m */,
+				189F449B17B8D6DE00D9275B /* GGGetNetworkingFactory.h */,
+				189F449C17B8D6DE00D9275B /* GGGetNetworkingFactory.m */,
+				189F449E17B8D6ED00D9275B /* GGPostNetworkingFactory.h */,
+				189F449F17B8D6ED00D9275B /* GGPostNetworkingFactory.m */,
+			);
+			name = Creator;
+			sourceTree = "<group>";
+		};
+		18BEA59617A022EC005CB108 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				187ABED717A24F4C00113C80 /* CYNetworkingHelper.h */,
 				187ABED817A24F4C00113C80 /* CYNetworkingHelper.m */,
 				187ABECF17A2161200113C80 /* CYTableDataSource.h */,
 				187ABED017A2161200113C80 /* CYTableDataSource.m */,
-				18BEA59317A022DD005CB108 /* GGAuthManager.h */,
-				18BEA59417A022DE005CB108 /* GGAuthManager.m */,
 			);
-			name = Singleton;
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		18F1BDF1179E7E44008FD04E /* JSON */ = {
@@ -622,6 +679,11 @@
 				189F448417B8B96900D9275B /* GGEventSearchViewController.m in Sources */,
 				189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */,
 				189F448F17B8CD2C00D9275B /* GGSellingFillingViewController.m in Sources */,
+				189F449317B8D52D00D9275B /* GGNetworkingClient.m in Sources */,
+				189F449917B8D6BD00D9275B /* GGNetworkingFactory.m in Sources */,
+				189F449D17B8D6DE00D9275B /* GGGetNetworkingFactory.m in Sources */,
+				189F44A017B8D6ED00D9275B /* GGPostNetworkingFactory.m in Sources */,
+				189F44A317B8DB7700D9275B /* GGConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
