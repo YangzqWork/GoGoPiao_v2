@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGEventsDetailViewController : UIViewController
+@class CYTableDataSource;
+
+@interface GGEventsDetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *listingsTableView;
+
+
 
 @end

@@ -65,6 +65,7 @@
 		18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7A17B75F8100A8B95E /* GGSellingViewController.m */; };
 		18359D7D17B75F8200A8B95E /* GGSellingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */; };
 		18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D8217B7614800A8B95E /* GGMainViewController.m */; };
+		18359D8917B78EB700A8B95E /* GGEventTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D8817B78EB400A8B95E /* GGEventTitleView.m */; };
 		186A7795179D176A00240EDF /* GGEventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A7794179D176A00240EDF /* GGEventsCell.m */; };
 		186A7798179D179800240EDF /* GGEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186A7797179D179800240EDF /* GGEventsCell.xib */; };
 		186A779D179D265D00240EDF /* cb_dark_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 186A7799179D265C00240EDF /* cb_dark_off.png */; };
@@ -79,6 +80,12 @@
 		187ABED917A24F4C00113C80 /* CYNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ABED817A24F4C00113C80 /* CYNetworkingHelper.m */; };
 		1899BB5A17A4ACAB00EF6CB2 /* GGEventsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */; };
 		1899BB5B17A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */; };
+		189F448417B8B96900D9275B /* GGEventSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F448217B8B96800D9275B /* GGEventSearchViewController.m */; };
+		189F448517B8B96900D9275B /* GGEventSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448317B8B96900D9275B /* GGEventSearchViewController.xib */; };
+		189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F448717B8C1F000D9275B /* GGListingsCell.m */; };
+		189F448A17B8C20300D9275B /* GGListingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448917B8C20300D9275B /* GGListingsCell.xib */; };
+		189F448F17B8CD2C00D9275B /* GGSellingFillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F448D17B8CD2B00D9275B /* GGSellingFillingViewController.m */; };
+		189F449017B8CD2C00D9275B /* GGSellingFillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448E17B8CD2C00D9275B /* GGSellingFillingViewController.xib */; };
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
 		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
@@ -157,6 +164,8 @@
 		18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSellingViewController.xib; sourceTree = "<group>"; };
 		18359D8117B7614800A8B95E /* GGMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMainViewController.h; sourceTree = "<group>"; };
 		18359D8217B7614800A8B95E /* GGMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMainViewController.m; sourceTree = "<group>"; };
+		18359D8717B78EB200A8B95E /* GGEventTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventTitleView.h; sourceTree = "<group>"; };
+		18359D8817B78EB400A8B95E /* GGEventTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventTitleView.m; sourceTree = "<group>"; };
 		186A7793179D176A00240EDF /* GGEventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventsCell.h; sourceTree = "<group>"; };
 		186A7794179D176A00240EDF /* GGEventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventsCell.m; sourceTree = "<group>"; };
 		186A7797179D179800240EDF /* GGEventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventsCell.xib; sourceTree = "<group>"; };
@@ -177,6 +186,15 @@
 		1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventsDetailViewController.xib; sourceTree = "<group>"; };
 		1899BB5D17A4BFA500EF6CB2 /* ChineseToPinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
 		1899BB5E17A4BFA500EF6CB2 /* ChineseToPinyin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
+		189F448117B8B96800D9275B /* GGEventSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventSearchViewController.h; sourceTree = "<group>"; };
+		189F448217B8B96800D9275B /* GGEventSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventSearchViewController.m; sourceTree = "<group>"; };
+		189F448317B8B96900D9275B /* GGEventSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventSearchViewController.xib; sourceTree = "<group>"; };
+		189F448617B8C1F000D9275B /* GGListingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGListingsCell.h; sourceTree = "<group>"; };
+		189F448717B8C1F000D9275B /* GGListingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGListingsCell.m; sourceTree = "<group>"; };
+		189F448917B8C20300D9275B /* GGListingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGListingsCell.xib; sourceTree = "<group>"; };
+		189F448C17B8CD2B00D9275B /* GGSellingFillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSellingFillingViewController.h; sourceTree = "<group>"; };
+		189F448D17B8CD2B00D9275B /* GGSellingFillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSellingFillingViewController.m; sourceTree = "<group>"; };
+		189F448E17B8CD2C00D9275B /* GGSellingFillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSellingFillingViewController.xib; sourceTree = "<group>"; };
 		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
 		18BEA58F179FC719005CB108 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
 		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
@@ -242,15 +260,11 @@
 				18359D6F17B75F0000A8B95E /* GGCategoryViewController.h */,
 				18359D7017B75F0000A8B95E /* GGCategoryViewController.m */,
 				18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */,
-				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
-				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
-				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
+				18359D8A17B7912600A8B95E /* 最近热门 */,
 				18359D7417B75F2E00A8B95E /* GGOrderViewController.h */,
 				18359D7517B75F2E00A8B95E /* GGOrderViewController.m */,
 				18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */,
-				18359D7917B75F8100A8B95E /* GGSellingViewController.h */,
-				18359D7A17B75F8100A8B95E /* GGSellingViewController.m */,
-				18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */,
+				189F448B17B8CCA700D9275B /* 我要转让 */,
 				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
 				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
 				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
@@ -359,9 +373,26 @@
 				1806B70A1798EDF50088234C /* GGRegisterViewController.m */,
 				1806B70B1798EDF50088234C /* GGRegisterViewController.xib */,
 				1806B72D17991EEE0088234C /* TabBar底下5个VCs */,
-				1899BB5C17A4ACB400EF6CB2 /* SubViews */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18359D8A17B7912600A8B95E /* 最近热门 */ = {
+			isa = PBXGroup;
+			children = (
+				18359D8717B78EB200A8B95E /* GGEventTitleView.h */,
+				18359D8817B78EB400A8B95E /* GGEventTitleView.m */,
+				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
+				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
+				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
+				189F448117B8B96800D9275B /* GGEventSearchViewController.h */,
+				189F448217B8B96800D9275B /* GGEventSearchViewController.m */,
+				189F448317B8B96900D9275B /* GGEventSearchViewController.xib */,
+				1899BB5717A4ACAB00EF6CB2 /* GGEventsDetailViewController.h */,
+				1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */,
+				1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */,
+			);
+			name = "最近热门";
 			sourceTree = "<group>";
 		};
 		186A7796179D177E00240EDF /* Cells */ = {
@@ -370,6 +401,9 @@
 				186A7793179D176A00240EDF /* GGEventsCell.h */,
 				186A7794179D176A00240EDF /* GGEventsCell.m */,
 				186A7797179D179800240EDF /* GGEventsCell.xib */,
+				189F448617B8C1F000D9275B /* GGListingsCell.h */,
+				189F448717B8C1F000D9275B /* GGListingsCell.m */,
+				189F448917B8C20300D9275B /* GGListingsCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -413,14 +447,17 @@
 			name = TabBarImages;
 			sourceTree = "<group>";
 		};
-		1899BB5C17A4ACB400EF6CB2 /* SubViews */ = {
+		189F448B17B8CCA700D9275B /* 我要转让 */ = {
 			isa = PBXGroup;
 			children = (
-				1899BB5717A4ACAB00EF6CB2 /* GGEventsDetailViewController.h */,
-				1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */,
-				1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */,
+				18359D7917B75F8100A8B95E /* GGSellingViewController.h */,
+				18359D7A17B75F8100A8B95E /* GGSellingViewController.m */,
+				18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */,
+				189F448C17B8CD2B00D9275B /* GGSellingFillingViewController.h */,
+				189F448D17B8CD2B00D9275B /* GGSellingFillingViewController.m */,
+				189F448E17B8CD2C00D9275B /* GGSellingFillingViewController.xib */,
 			);
-			name = SubViews;
+			name = "我要转让";
 			sourceTree = "<group>";
 		};
 		18BEA59617A022EC005CB108 /* Singleton */ = {
@@ -551,6 +588,9 @@
 				18359D7317B75F0000A8B95E /* GGCategoryViewController.xib in Resources */,
 				18359D7817B75F2E00A8B95E /* GGOrderViewController.xib in Resources */,
 				18359D7D17B75F8200A8B95E /* GGSellingViewController.xib in Resources */,
+				189F448517B8B96900D9275B /* GGEventSearchViewController.xib in Resources */,
+				189F448A17B8C20300D9275B /* GGListingsCell.xib in Resources */,
+				189F449017B8CD2C00D9275B /* GGSellingFillingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +618,10 @@
 				18359D7717B75F2E00A8B95E /* GGOrderViewController.m in Sources */,
 				18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */,
 				18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */,
+				18359D8917B78EB700A8B95E /* GGEventTitleView.m in Sources */,
+				189F448417B8B96900D9275B /* GGEventSearchViewController.m in Sources */,
+				189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */,
+				189F448F17B8CD2C00D9275B /* GGSellingFillingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

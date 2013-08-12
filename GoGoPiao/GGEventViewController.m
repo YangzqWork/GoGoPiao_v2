@@ -7,7 +7,9 @@
 //
 
 #import "GGEventViewController.h"
+#import "GGEventTitleView.h"
 #import "GGEventsCell.h"
+#import "GGEventSearchViewController.h"
 #import "GGEventsDetailViewController.h"
 #import "GGAuthManager.h"
 #import "CYTableDataSource.h"
@@ -43,9 +45,11 @@
         
 //BarButton
         self.concertTableView.hidden = NO;
-        self.title = @"演唱会";
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(test)];
+        self.title = @"最近热门";
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonPressed:)];
         self.navigationItem.rightBarButtonItem = barButton;
+        self.navigationItem.titleView = [[GGEventTitleView alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
+        
         
 //UISearchBar
         UISearchDisplayController *displaySearch = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
@@ -191,7 +195,19 @@
 {
     NSLog(@"did select row at index");
     GGEventsDetailViewController *ggEventsDetailVC = [[GGEventsDetailViewController alloc] initWithNibName:@"GGEventsDetailViewController" bundle:nil];
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggEventsDetailVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+#pragma mark - 处理按钮动作
+- (void)searchButtonPressed:(id)sender
+{
+    NSLog(@"Search button pressed");
+    GGEventSearchViewController *ggEventSearchVC = [[GGEventSearchViewController alloc] initWithNibName:@"GGEventSearchViewController" bundle:nil];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:ggEventSearchVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end
