@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *eventsTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventsSubtitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventsThirdLabel;
+@property (strong, nonatomic) NSString *idNumber;
 
 + (UINib *)nib;
 

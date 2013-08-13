@@ -48,7 +48,7 @@
         self.title = @"最近热门";
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonPressed:)];
         self.navigationItem.rightBarButtonItem = barButton;
-        self.navigationItem.titleView = [[GGEventTitleView alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
+        self.navigationItem.titleView = [[GGEventTitleView alloc] init];
         
         
 //UISearchBar
@@ -155,6 +155,7 @@
         cell.eventsTitleLabel.text = [event objectForKey:@"title"];
         cell.eventsSubtitleLabel.text = [event objectForKey:@"start_time"];
         cell.eventsThirdLabel.text = [event objectForKey:@"description"];
+        cell.idNumber = [event objectForKey:@"id"];
     };
     
     self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
@@ -193,8 +194,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"did select row at index");
+    
     GGEventsDetailViewController *ggEventsDetailVC = [[GGEventsDetailViewController alloc] initWithNibName:@"GGEventsDetailViewController" bundle:nil];
+    
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggEventsDetailVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
