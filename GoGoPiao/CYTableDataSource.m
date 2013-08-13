@@ -8,6 +8,7 @@
 
 #import "CYTableDataSource.h"
 #import "GGEventsCell.h"
+#import "GGListingsCell.h"
 
 @interface CYTableDataSource ()
 
@@ -50,9 +51,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GGEventsCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
-//    if (cell == nil)
-//        cell = (GGEventsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGEventsCell" owner:self options:nil]  lastObject];
+    NSLog(@"identifier %@", self.cellIdentifier);
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+    if (cell == nil) {
+        if ([self.cellIdentifier isEqualToString:@"GGEventsCell"])
+            cell = (GGEventsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGEventsCell" owner:self options:nil]  lastObject];
+        else if ([self.cellIdentifier isEqualToString:@"GGListingsCell"])
+            cell = (GGListingsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGListingsCell" owner:self options:nil]  lastObject];
+    }
     id item = [self itemAtIndextPath:indexPath];
     self.configureCellBlock(cell, item);
     

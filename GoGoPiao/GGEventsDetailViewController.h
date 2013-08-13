@@ -12,6 +12,7 @@
 
 @interface GGEventsDetailViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) NSString *eventID;
 @property (strong, nonatomic) IBOutlet UITableView *listingsTableView;
 
 

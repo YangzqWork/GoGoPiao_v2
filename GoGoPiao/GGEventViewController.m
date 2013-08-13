@@ -194,8 +194,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
+    NSString *idNumber = [currentEvent objectForKey:@"id"];
     
     GGEventsDetailViewController *ggEventsDetailVC = [[GGEventsDetailViewController alloc] initWithNibName:@"GGEventsDetailViewController" bundle:nil];
+    ggEventsDetailVC.eventID = idNumber;
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggEventsDetailVC animated:YES];
