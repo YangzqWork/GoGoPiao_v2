@@ -134,6 +134,8 @@
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
 		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
+		18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1523817BBB75B00841C11 /* GGEventSearchCell.m */; };
+		18D1523B17BBB76F00841C11 /* GGEventSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */; };
 		18DC25E417A3CA0C0068C62E /* temp_concert.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DC25E317A3CA0C0068C62E /* temp_concert.png */; };
 		18E6A9B91793FAD100E53621 /* login_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E6A9B81793FAD100E53621 /* login_pic.png */; };
 /* End PBXBuildFile section */
@@ -333,6 +335,9 @@
 		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
 		18BEA59317A022DD005CB108 /* GGAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAuthManager.h; sourceTree = "<group>"; };
 		18BEA59417A022DE005CB108 /* GGAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAuthManager.m; sourceTree = "<group>"; };
+		18D1523717BBB75B00841C11 /* GGEventSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventSearchCell.h; sourceTree = "<group>"; };
+		18D1523817BBB75B00841C11 /* GGEventSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventSearchCell.m; sourceTree = "<group>"; };
+		18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventSearchCell.xib; sourceTree = "<group>"; };
 		18DC25E317A3CA0C0068C62E /* temp_concert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temp_concert.png; sourceTree = "<group>"; };
 		18E6A9B81793FAD100E53621 /* login_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_pic.png; sourceTree = "<group>"; };
 		18F1BDEF179E7E3B008FD04E /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -549,6 +554,9 @@
 				189F448617B8C1F000D9275B /* GGListingsCell.h */,
 				189F448717B8C1F000D9275B /* GGListingsCell.m */,
 				189F448917B8C20300D9275B /* GGListingsCell.xib */,
+				18D1523717BBB75B00841C11 /* GGEventSearchCell.h */,
+				18D1523817BBB75B00841C11 /* GGEventSearchCell.m */,
+				18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -878,6 +886,7 @@
 				189F449017B8CD2C00D9275B /* GGSellingFillingViewController.xib in Resources */,
 				1883FB1E17BA0CA000671E9B /* GGBuyFirstViewController.xib in Resources */,
 				1883FB2317BA0CB400671E9B /* GGBuySecondViewController.xib in Resources */,
+				18D1523B17BBB76F00841C11 /* GGEventSearchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,6 +961,7 @@
 				1883FB1717B9D56300671E9B /* UIImageView+AFNetworking.m in Sources */,
 				1883FB1D17BA0CA000671E9B /* GGBuyFirstViewController.m in Sources */,
 				1883FB2217BA0CB400671E9B /* GGBuySecondViewController.m in Sources */,
+				18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

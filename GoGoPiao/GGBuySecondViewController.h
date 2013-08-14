@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "RETableViewManager.h"
+#import "RETableViewOptionsController.h"
 
 @interface GGBuySecondViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, readonly, nonatomic) RETableViewManager *manager;
+@property (strong, readwrite, nonatomic) RETableViewSection *creditCardSection;
+@property (strong, readwrite, nonatomic) RETableViewSection *accessoriesSection;
 
 @end

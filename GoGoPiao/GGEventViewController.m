@@ -214,7 +214,7 @@
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:self.ggEventsDetailVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
+//    self.hidesBottomBarWhenPushed = NO;
 }
 
 #pragma mark - 处理按钮动作

@@ -53,12 +53,12 @@
 {
     NSLog(@"identifier %@", self.cellIdentifier);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
-    if (cell == nil) {
-        if ([self.cellIdentifier isEqualToString:@"GGEventsCell"])
-            cell = (GGEventsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGEventsCell" owner:self options:nil]  lastObject];
-        else if ([self.cellIdentifier isEqualToString:@"GGListingsCell"])
-            cell = (GGListingsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGListingsCell" owner:self options:nil]  lastObject];
-    }
+//    if (cell == nil) {
+//        if ([self.cellIdentifier isEqualToString:@"GGEventsCell"])
+//            cell = (GGEventsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGEventsCell" owner:self options:nil]  lastObject];
+//        else if ([self.cellIdentifier isEqualToString:@"GGListingsCell"])
+//            cell = (GGListingsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGListingsCell" owner:self options:nil]  lastObject];
+//    }
     id item = [self itemAtIndextPath:indexPath];
     self.configureCellBlock(cell, item);
     

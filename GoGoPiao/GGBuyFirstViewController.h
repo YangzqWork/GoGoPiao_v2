@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *nextButton;
 
+
 @property (strong, nonatomic) RETextItem *sectionTextItem;
 @property (strong, nonatomic) RETextItem *rowTextItem;
 @property (strong, nonatomic) RETextItem *seatsTextItem;

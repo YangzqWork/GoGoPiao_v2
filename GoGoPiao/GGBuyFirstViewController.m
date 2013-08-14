@@ -11,6 +11,9 @@
 
 @interface GGBuyFirstViewController ()
 
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSMutableArray *ticketsArray;
+
 @end
 
 @implementation GGBuyFirstViewController
@@ -20,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"购买详细";
-        [self setupTableView];
+        
     }
     return self;
 }
@@ -29,7 +32,11 @@
 {
     [super viewDidLoad];
     
+    
+    
     [self setUpLabels];
+    [self beginNetworking];
+    [self setupTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,6 +53,52 @@
     [self setImageView:nil];
     [self setNextButton:nil];
     [super viewDidUnload];
+}
+
+#pragma mark - 网络请求
+- (void)beginNetworking
+{
+    NSString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://42.121.58.78/api/v1/listings/%@/tickets/unsold.json?id=%@&token=%@",self.listingID, self.listingID, [GGAuthManager sharedManager].tempToken]];
+    
+    NSLog(@"URLString: %@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:40.0f];
+    
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
+    
+    
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    self.responseData = [[NSMutableData alloc] initWithData:data];
+    NSLog(@"%@", self.responseData);
+    
+    //Afterwards
+    [self dealWithData];
+}
+
+//解析JSON
+- (void)dealWithData
+{
+    NSError *error = nil;
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
+    NSLog(@"jsonObject %@", jsonObject);
+    
+    if (jsonObject != nil && error == nil) {
+        if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"Not supposed to be a dictionary object!");
+        }
+        else if ([jsonObject isKindOfClass:[NSArray class]]) {
+            self.ticketsArray = [[NSMutableArray alloc] initWithArray:(NSArray *)jsonObject];
+            NSLog(@"self.listingArray -- %@", self.ticketsArray);
+            
+        }
+    }
+    else {
+        NSLog(@"Error message -- %@", error);
+        NSLog(@"jsonObject -- %@", jsonObject);
+    }
+    
 }
 
 #pragma mark - SELF
@@ -99,12 +152,13 @@
 - (IBAction)nextButtonPressed:(id)sender
 {
 #warning Unfinished - 判断是否已经登录了，决定是先Login还是进入第二步
+    
     GGBuySecondViewController *ggBuySecondVC = [[GGBuySecondViewController alloc] initWithNibName:@"GGBuySecondViewController" bundle:nil];
+    
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggBuySecondVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
+//    self.hidesBottomBarWhenPushed = NO;
 }
-
 
 @end

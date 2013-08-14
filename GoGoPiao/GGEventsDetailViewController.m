@@ -179,7 +179,7 @@
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggBuyFirstVC animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
+//    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end
