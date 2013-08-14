@@ -8,6 +8,7 @@
 
 #import "GGEventsDetailViewController.h"
 #import "GGListingsCell.h"
+#import "GGBuyFirstViewController.h"
 #import "CYTableDataSource.h"
 
 @interface GGEventsDetailViewController ()
@@ -26,11 +27,19 @@
 
 @implementation GGEventsDetailViewController
 
+@synthesize thisTitle;
+@synthesize thisTime;
+@synthesize thisAddress;
+
 @synthesize eventID;
 @synthesize responseData;
 @synthesize listingArray;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize titleLabel;
+@synthesize timeLabel;
+@synthesize addressLabel;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil 
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -38,6 +47,11 @@
         self.title = @"票集信息";
         UIBarButtonItem *backToMainButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(backToMainButtonPressed:)];
         self.navigationItem.rightBarButtonItem = backToMainButton;
+    
+//        self.titleLabel.text = aTitle;
+//        self.timeLabel.text = aTime;
+//        self.addressLabel.text = anAddress;
+//        NSLog(@"title 1 for test: %@", self.titleLabel.text);
     }
     return self;
 }
@@ -47,11 +61,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self setupLabel];
     [self beginNetworking];
     [self setTableView];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)didReceiveMemoryWarningr
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -63,22 +78,26 @@
     [self setCheckSeatButton:nil];
     [self setSurroundingsButton:nil];
     [self setListingsTableView:nil];
+    [self setTitleLabel:nil];
+    [self setTimeLabel:nil];
+    [self setAddressLabel:nil];
     [super viewDidUnload];
 }
 
 #pragma mark - SELF
 
-#pragma mark - SELF
+- (void)setupLabel
+{
+//设置三个Label
+    self.titleLabel.text = self.thisTitle;
+    self.timeLabel.text = self.thisTime;
+    self.addressLabel.text = self.thisAddress;
+}
 
 - (void)beginNetworking
 {
-    //设置缓存
-    NSURLCache *urlCache = [NSURLCache sharedURLCache];
-    [urlCache setMemoryCapacity:1 * 1024 * 1024];
-    
-    
-    NSMutableString *urlStrin = [[NSMutableString alloc] initWithString:@"http://42.121.58.78/api/v1/events/97/listings.json"];
-    NSString *urlString = [urlStrin stringByAppendingString:[NSString stringWithFormat:@"?token=%@&id=%@", [GGAuthManager sharedManager].tempToken, self.eventID]];
+    NSString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://42.121.58.78/api/v1/events/%@/listings.json?token=%@&id=%@",self.eventID, [GGAuthManager sharedManager].tempToken, self.eventID]];
+
     NSLog(@"URLString: %@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:40.0f];
@@ -87,15 +106,6 @@
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
     
-    
-    //请求从缓存中读取数据
-    NSCachedURLResponse *response = [urlCache cachedResponseForRequest:request];
-    if (response != nil) {
-        [request setCachePolicy:NSURLRequestReturnCacheDataDontLoad];
-    }
-    
-    
-    //这个是异步    [NSURLConnection connectionWithRequest:request delegate:self];
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     self.responseData = [[NSMutableData alloc] initWithData:data];
@@ -134,9 +144,7 @@
     TableViewConfigureCellBlock configureCell = ^(GGListingsCell* cell, NSDictionary *listing) {
         cell.areaLabel.text = [listing objectForKey:@"section"];
         cell.rowLabel.text = [listing objectForKey:@"row"];
-        NSString *ticketsCount = [listing objectForKey:@"tickets_count"];
-        NSLog(@"ticketCount : %@", ticketsCount);
-        [cell.quantityLabel.text stringByAppendingFormat:@"%@", ticketsCount];
+        cell.quantityLabel.text = [NSString stringWithFormat:@"%@",[listing objectForKey:@"tickets_count"]];
         cell.priceLabel.text = [listing objectForKey:@"list_price"];
     };
     
@@ -154,6 +162,24 @@
 {
 #warning Maybe Problem - 返回主页的跳转
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *currentListing = [self.listingArray objectAtIndex:indexPath.row];
+    NSString *idNumber = [currentListing objectForKey:@"id"];
+    
+    GGBuyFirstViewController *ggBuyFirstVC = [[GGBuyFirstViewController alloc] initWithNibName:@"GGBuyFirstViewController" bundle:nil];
+    ggBuyFirstVC.listingID = idNumber;
+    ggBuyFirstVC.thisTitle = self.thisTitle;
+    ggBuyFirstVC.thisTime = self.thisTime;
+    ggBuyFirstVC.thisAddress = self.thisAddress;
+    
+    
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:ggBuyFirstVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

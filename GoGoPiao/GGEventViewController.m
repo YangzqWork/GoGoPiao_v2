@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *eventsArray;
 
 @property (nonatomic, strong) CYTableDataSource *cyTableDataSource;
+@property (nonatomic, strong) GGEventsDetailViewController *ggEventsDetailVC;
 
 @end
 
@@ -31,6 +32,7 @@
 @synthesize responseData;
 @synthesize eventsArray;
 @synthesize cyTableDataSource;
+@synthesize ggEventsDetailVC;
 
 #pragma mark - Life Cycle
 
@@ -197,11 +199,21 @@
     NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
     NSString *idNumber = [currentEvent objectForKey:@"id"];
     
-    GGEventsDetailViewController *ggEventsDetailVC = [[GGEventsDetailViewController alloc] initWithNibName:@"GGEventsDetailViewController" bundle:nil];
-    ggEventsDetailVC.eventID = idNumber;
+    
+    self.ggEventsDetailVC = [[GGEventsDetailViewController alloc] initWithNibName:@"GGEventsDetailViewController" bundle:nil];
+    self.ggEventsDetailVC.thisTitle = [currentEvent objectForKey:@"title"];
+    self.ggEventsDetailVC.thisTime = [currentEvent objectForKey:@"start_time"];
+    self.ggEventsDetailVC.thisAddress = [currentEvent objectForKey:@"description"];
+    self.ggEventsDetailVC.eventID = idNumber;
+//    NSLog(@"title %@", [currentEvent objectForKey:@"title"]);
+//    [ggEventsDetailVC.titleLabel.text stringByAppendingString:[currentEvent objectForKey:@"title"]];
+//    NSLog(@"title2 %@", ggEventsDetailVC.titleLabel.text);
+//    ggEventsDetailVC.timeLabel.text = [currentEvent objectForKey:@"start_time"];
+//    ggEventsDetailVC.addressLabel.text = [currentEvent objectForKey:@"description"];
+    
     
     self.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:ggEventsDetailVC animated:YES];
+    [self.navigationController pushViewController:self.ggEventsDetailVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
 
