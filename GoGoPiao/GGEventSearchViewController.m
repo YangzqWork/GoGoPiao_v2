@@ -100,7 +100,7 @@
         case 0:
             catalog = @"Guangzhou";
 #warning 先忽略了region_id
-            urlString = [NSString stringWithFormat:@"%@?token=%@&title=%@", api_events_list, [GGAuthManager sharedManager].tempToken, _searchBar.text];
+            urlString = [NSString stringWithFormat:@"%@?token=%region_id=%d@&title=%@", api_events_list, [GGAuthManager sharedManager].tempToken, 3, _searchBar.text];
             break;
         case 1:
             catalog = @"ElseArea";

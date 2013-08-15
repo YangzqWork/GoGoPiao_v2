@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGSellingFillingViewController : UIViewController
+@interface GGSellingFillingViewController : UIViewController<RETableViewManagerDelegate>
+
+@property (strong, nonatomic) RETableViewManager *tableViewManager;
+@property (strong, nonatomic) RETableViewSection *firstTableViewSection;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

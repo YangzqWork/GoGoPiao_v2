@@ -10,4 +10,6 @@
 
 @interface GGSellingViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @end

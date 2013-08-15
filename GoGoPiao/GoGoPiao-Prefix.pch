@@ -17,6 +17,7 @@
     #import "AFHTTPClient.h"
     #import "AFHTTPRequestOperation.h"
     #import "CYTableDataSource.h"
+    #import "RETableViewManager.h"
 #endif
 
 #define api_events_list @"http://42.121.58.78/api/v1/events.json"
