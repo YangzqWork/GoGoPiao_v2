@@ -10,7 +10,7 @@
 
 @implementation GGPOSTLinkFactory
 
-- (GGPOSTLink *)createLink:(NSString *)api_url param:(NSDictionary *)dictionary
+- (GGPOSTLink *)createLink:(NSString *)api_url
 {
     GGPOSTLink *result = [[GGPOSTLink alloc] init];
     NSString *url = [base_url stringByAppendingString:api_url];

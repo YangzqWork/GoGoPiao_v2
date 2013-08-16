@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSString *postBody;
 
 - (NSMutableData *)getResponseData;
-- (NSArray *)getResponseArray;
+- (NSArray *)getResponseJSON;
 
 @end

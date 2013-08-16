@@ -8,6 +8,7 @@
 
 #import "GGBuyFirstViewController.h"
 #import "GGBuySecondViewController.h"
+#import "GGLoginViewController.h"
 
 @interface GGBuyFirstViewController ()
 
@@ -153,12 +154,20 @@
 {
 #warning Unfinished - 判断是否已经登录了，决定是先Login还是进入第二步
     
-    GGBuySecondViewController *ggBuySecondVC = [[GGBuySecondViewController alloc] initWithNibName:@"GGBuySecondViewController" bundle:nil];
+    if ([GGAuthManager sharedManager].token != nil) {
+        
+    }
+    else {
+        GGLoginViewController *ggLoginViewController = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
+        
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:ggLoginViewController animated:YES];  
+    }
     
+    GGBuySecondViewController *ggBuySecondVC = [[GGBuySecondViewController alloc] initWithNibName:@"GGBuySecondViewController" bundle:nil];
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggBuySecondVC animated:YES];
-//    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end

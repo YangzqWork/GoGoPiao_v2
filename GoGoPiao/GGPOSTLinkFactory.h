@@ -11,6 +11,6 @@
 
 @interface GGPOSTLinkFactory : NSObject
 
-- (GGPOSTLink *)createLink: (NSString *)api_url param:(NSDictionary *)dictionary;
+- (GGPOSTLink *)createLink: (NSString *)api_url;
 
 @end

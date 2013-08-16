@@ -73,7 +73,7 @@
     GGGETLink *getLink = [getLinkFactory createLink:[NSString stringWithFormat:@"/events.json?token=%@", [GGAuthManager sharedManager].tempToken]];
     self.responseData = [getLink getResponseData];
     self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
-    [self.eventsArray addObjectsFromArray:[getLink getResponseArray]];
+    [self.eventsArray addObjectsFromArray:[getLink getResponseJSON]];
 
     [self setTableView];
 }

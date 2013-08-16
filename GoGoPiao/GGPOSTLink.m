@@ -11,7 +11,7 @@
 @interface GGPOSTLink ()
 
 @property (strong, nonatomic) NSMutableData *responseData;
-@property (strong, nonatomic) NSMutableArray *responseArray;
+//@property (strong, nonatomic) NSMutableArray *responseArray;
 
 @end
 
@@ -38,20 +38,20 @@
 }
 
 
-- (NSArray *)getResponseArray
+- (id)getResponseJSON
 {
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
-    self.responseArray = [[NSMutableArray alloc] initWithArray:nil];
     
     if (jsonObject != nil && error == nil) {
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"Not supposed to be a dictionary object!");
+            NSMutableDictionary *responseDictionary = [[NSMutableDictionary alloc] initWithDictionary:(NSDictionary *)jsonObject copyItems:YES];
+            return responseDictionary;
         }
         else if ([jsonObject isKindOfClass:[NSArray class]]) {
-            [self.responseArray addObjectsFromArray:(NSArray *)jsonObject];
-            NSLog(@"self.responseArray -- %@", self.responseArray);
-            
+            NSMutableArray *responseArray = [[NSMutableArray alloc] initWithArray:nil];
+            [responseArray addObjectsFromArray:(NSArray *)jsonObject];
+            return responseArray;
         }
     }
     else {
@@ -59,7 +59,7 @@
         NSLog(@"jsonObject -- %@", jsonObject);
     }
     
-    return self.responseArray;
+    return nil;
 }
 
 

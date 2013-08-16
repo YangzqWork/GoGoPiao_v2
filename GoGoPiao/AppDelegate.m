@@ -30,13 +30,19 @@
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
     NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
     [GGAuthManager sharedManager].uuid = cfuuidString;
-    [GGAuthManager sharedManager].tempToken = @"9afe5f9f9afba68e5eb152880011fbfd";
+
+#warning 待修改 - 判断是iphone还是ipad
+    NSString *urlString = [NSString stringWithFormat:@"/auth/xapp_auth.json?platform=%@&application=%@&client_uuid=%@&client_secret=%@", @"iphone", @"gogopiao", cfuuidString, @"111"];
+    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
+    GGGETLink *getLink = [getLinkFactory createLink:urlString];
     
-    
-//RootVC的设定
-//  原来这里是用LoginVC
-//    self.ggLoginVC = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.ggLoginVC];
+    NSMutableData *responseData = [getLink getResponseData];
+    NSMutableArray *tokenDict = [[NSMutableArray alloc] initWithArray:nil];
+    [tokenDict addObjectsFromArray:[getLink getResponseJSON]];
+    NSLog(@"tokenDict : %@", tokenDict);
+    NSString *token = [NSString stringWithString:[[tokenDict objectAtIndex:0] objectForKey:@"token"]];
+    [GGAuthManager sharedManager].tempToken = token;
+    NSLog(@"temp token : %@", [GGAuthManager sharedManager].tempToken);
     
     self.ggMainVC = [[GGMainViewController alloc] initWithNibName:nil bundle:nil];
     [self.window setRootViewController:self.ggMainVC];

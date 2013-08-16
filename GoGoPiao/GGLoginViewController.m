@@ -150,57 +150,75 @@
         [SVProgressHUD showWithStatus:@"正在登录"];
         NSLog(@"%@ -- %@", self.userTextField.text, self.passwordTextField.text);
         
-    
-            NSString *urlString = @"http://42.121.58.78/api/v1/auth/signin.json";
-            NSURL *requestURL = [NSURL URLWithString:urlString];
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
-            NSMutableData *postBody = [NSMutableData data];
-            NSString *body = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@",self.userTextField.text, self.passwordTextField.text, @"iphone"];
-            [postBody appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            [request setHTTPBody:postBody];
-            [NSURLConnection connectionWithRequest:request delegate:self];
+        GGPOSTLinkFactory *getPOSTLinkFactory = [[GGPOSTLinkFactory alloc] init];
+        GGPOSTLink *postLink = [getPOSTLinkFactory createLink:@"/auth/siginin.json"];
+        postLink.postBody = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@",self.userTextField.text, self.passwordTextField.text, @"iphone"];
+        NSMutableData *responseData = [postLink getResponseData];
+        NSDictionary *responseDictionary = [NSDictionary dictionaryWithDictionary:(NSDictionary *)[postLink getResponseJSON]];
+        NSString *token = [responseDictionary objectForKey:@"token"];
+        [[GGAuthManager sharedManager] setToken:token];
+        NSLog(@"%@", [[GGAuthManager sharedManager] token]);
+        
+        [self login];
     }
     return YES;
 }
 
-#pragma mark - 网络异步方法
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+#pragma mark - 登录method
+- (void)login
 {
-    self.responseData = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [self.responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"Login fail error message: %@", error);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSDictionary *returnJSONObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:nil];
-    NSString *token = [returnJSONObject objectForKey:@"token"];
-    [[GGAuthManager sharedManager] setToken:token];
-    NSLog(@"%@", [[GGAuthManager sharedManager] token]);
-    
     if ([GGAuthManager sharedManager].token == nil) {
         [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
     }
     else {
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-#warning to_be_refined - 最后要改成先进入主页面
-        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
-        GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-//        [self presentViewController:ggEventVC animated:YES completion:nil];
-        [self.navigationController pushViewController:ggMainVC animated:YES];
+    //登录成功以后自己跳出页面
+#warning 登录postNotification信息
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didSucceedLogin" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[GGAuthManager sharedManager].token, @"token", nil]];
+        [self removeFromParentViewController];
+        
+//#warning to_be_refined - 最后要改成先进入主页面
+//        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+//        GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+//        //        [self presentViewController:ggEventVC animated:YES completion:nil];
+//        [self.navigationController pushViewController:ggMainVC animated:YES];
     }
 }
+//
+//#pragma mark - 网络异步方法
+//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+//{
+//    self.responseData = [[NSMutableData alloc] init];
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+//{
+//    [self.responseData appendData:data];
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+//{
+//    NSLog(@"Login fail error message: %@", error);
+//}
+//
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+//{
+//    NSDictionary *returnJSONObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:nil];
+//    NSString *token = [returnJSONObject objectForKey:@"token"];
+//    [[GGAuthManager sharedManager] setToken:token];
+//    NSLog(@"%@", [[GGAuthManager sharedManager] token]);
+//    
+//    if ([GGAuthManager sharedManager].token == nil) {
+//        [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+//    }
+//    else {
+//        [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+//#warning to_be_refined - 最后要改成先进入主页面
+//        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+//        GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+////        [self presentViewController:ggEventVC animated:YES completion:nil];
+//        [self.navigationController pushViewController:ggMainVC animated:YES];
+//    }
+//}
 
 @end

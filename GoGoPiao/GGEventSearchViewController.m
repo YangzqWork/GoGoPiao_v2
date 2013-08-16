@@ -100,72 +100,21 @@
         case 0:
             catalog = @"Guangzhou";
 #warning 先忽略了region_id
-            urlString = [NSString stringWithFormat:@"%@?token=%region_id=%d@&title=%@", api_events_list, [GGAuthManager sharedManager].tempToken, 3, _searchBar.text];
+            urlString = [NSString stringWithFormat:@"%@?token=%@&title=%@", @"/events.json", [GGAuthManager sharedManager].tempToken, _searchBar.text];
             break;
         case 1:
             catalog = @"ElseArea";
-            urlString = [NSString stringWithFormat:@"%@?token=%@&region_id=%d&title=%@", api_events_list, [GGAuthManager sharedManager].tempToken, 1, _searchBar.text];
+            urlString = [NSString stringWithFormat:@"%@?token=%@&region_id=%d&title=%@", @"/events.json", [GGAuthManager sharedManager].tempToken, 1, _searchBar.text];
             break;
     }
-    NSLog(@"check url : %@", urlString);
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:40.0f];
-    [request setHTTPMethod:@"GET"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
+    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
+    GGGETLink *getLink = [getLinkFactory createLink:urlString];
+    self.responseData = [getLink getResponseData];
+    self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
+    [self.eventsArray addObjectsFromArray:[getLink getResponseJSON]];
     
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    self.responseData = [[NSMutableData alloc] initWithData:data];
-    
-    [self dealWithData];
-    
-//    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://42.121.58.78/api/"]];
-//    [client getPath:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-//        
-//        NSLog(@"check point 2");
-//        //成功接收数据后
-//        [self._searchBar resignFirstResponder];
-//        self.tableResult.hidden = NO;
-//        isLoading = NO;
-//        NSString *response = operation.responseString;
-//        NSLog(@"response string %@", response);
-//     
-//     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//         
-//        //接收数据失败后
-//        NSLog(@"网络连接问题");
-//     }];
-    
-//    [self.tableResult reloadData];
-}
-
-//解析JSON
-#warning 需要重构的代码
-- (void)dealWithData
-{
-    
-    isLoading = NO;
-    self.tableResult.hidden = NO;
-    
-    NSError *error = nil;
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
-    NSLog(@"search result %@", jsonObject);
-    
-    if (jsonObject != nil && error == nil) {
-        if ([jsonObject isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"Not supposed to be a dictionary object!");
-        }
-        else if ([jsonObject isKindOfClass:[NSArray class]]) {
-            self.eventsArray = [[NSMutableArray alloc] initWithArray:(NSArray *)jsonObject];
-            NSLog(@"self.eventsArray -- %@", self.eventsArray);
-            
-        }
-    }
-    else {
-        NSLog(@"Error message -- %@", error);
-        NSLog(@"jsonObject -- %@", jsonObject);
-    }
-    
+    [self setTableView];
 }
 
 - (void)setTableView
