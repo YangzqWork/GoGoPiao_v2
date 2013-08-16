@@ -1,55 +1,56 @@
 //
-//  GGPostNetworkingFactory.m
+//  GGPOSTLink.m
 //  GoGoPiao
 //
-//  Created by Cho-Yeung Lam on 12/8/13.
+//  Created by Cho-Yeung Lam on 15/8/13.
 //  Copyright (c) 2013 Cho-Yeung Lam. All rights reserved.
 //
 
-#import "GGPostNetworkingFactory.h"
-#import "GGConstants.h"
-#import "CYNetworkingHelper.h"
+#import "GGPOSTLink.h"
 
-@interface GGPostNetworkingFactory ()
+@interface GGPOSTLink ()
 
-@property (strong, nonatomic) CYNetworkingHelper *cyNetworkingHelper;
+@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSMutableArray *responseArray;
 
 @end
 
-@implementation GGPostNetworkingFactory
+@implementation GGPOSTLink
 
-@synthesize responseData;
-@synthesize dataArray;
+@synthesize postBody;
 
--(NSArray *)createConnectionWithSuburl:(NSString *)suburl postBody:(NSString *)body
+- (NSMutableData *)getResponseData
 {
-    //kHostUrl = @"http://42.121.58.78"
-    NSString *urlString = [kHostUrl stringByAppendingString:suburl];
-    NSURL *requestURL = [NSURL URLWithString:urlString];
+    NSURL *requestURL = [NSURL URLWithString:self.urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
+    NSMutableData *body = [NSMutableData data];
+   
+    [body appendData:[self.postBody dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSMutableData *postBody = [NSMutableData data];
-    [postBody appendData:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [request setHTTPBody:postBody];
+    [request setHTTPBody:body];
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     self.responseData = [[NSMutableData alloc] initWithData:data];
-    
-//解析JSON
+    return self.responseData;
+}
+
+
+- (NSArray *)getResponseArray
+{
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
+    self.responseArray = [[NSMutableArray alloc] initWithArray:nil];
     
     if (jsonObject != nil && error == nil) {
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {
             NSLog(@"Not supposed to be a dictionary object!");
         }
         else if ([jsonObject isKindOfClass:[NSArray class]]) {
-            self.dataArray = [[NSMutableArray alloc] initWithArray:(NSArray *)jsonObject];
-            NSLog(@"self.eventsArray -- %@", self.dataArray);
+            [self.responseArray addObjectsFromArray:(NSArray *)jsonObject];
+            NSLog(@"self.responseArray -- %@", self.responseArray);
             
         }
     }
@@ -58,7 +59,8 @@
         NSLog(@"jsonObject -- %@", jsonObject);
     }
     
-    return self.dataArray;    
+    return self.responseArray;
 }
+
 
 @end

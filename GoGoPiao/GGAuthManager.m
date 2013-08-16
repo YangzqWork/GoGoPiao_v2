@@ -12,6 +12,7 @@
 
 @synthesize token;
 @synthesize tempToken;
+@synthesize uuid;
 
 + (GGAuthManager *)sharedManager
 {

@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *tempToken;
+@property (strong, nonatomic) NSString *uuid;
 
 +(GGAuthManager *)sharedManager;
 

@@ -29,6 +29,7 @@
 //拿到CFUUIDRef 设定临时的tempToken值
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
     NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
+    [GGAuthManager sharedManager].uuid = cfuuidString;
     [GGAuthManager sharedManager].tempToken = @"9afe5f9f9afba68e5eb152880011fbfd";
     
     

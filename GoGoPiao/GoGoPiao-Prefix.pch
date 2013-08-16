@@ -9,14 +9,20 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import <CoreData/CoreData.h>
-    #import "GGAuthManager.h"
-    #import "GGConstants.h"
-    #import "AFHTTPClient.h"
-    #import "AFHTTPRequestOperation.h"
-    #import "CYTableDataSource.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "GGAuthManager.h"
+#import "GGConstants.h"
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "CYTableDataSource.h"
+#import "GGGETLink.h"
+#import "GGPOSTLink.h"
+#import "GGGETLinkFactory.h"
+#import "GGPOSTLinkFactory.h"
+#import "GGNetworkingClient.h"
 #endif
 
 #define api_events_list @"http://42.121.58.78/api/v1/events.json"
+#define base_url @"http://42.121.58.78/api/v1"

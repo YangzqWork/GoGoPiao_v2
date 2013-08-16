@@ -17,7 +17,6 @@
 		1806B713179900070088234C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806B7121798F6C40088234C /* SVProgressHUD.m */; };
 		1806B715179900650088234C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1806B714179900650088234C /* SVProgressHUD.bundle */; };
 		1806B717179900CA0088234C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806B716179900CA0088234C /* QuartzCore.framework */; };
-		1806B72A17990ED20088234C /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72917990ED20088234C /* main.png */; };
 		1806B73F17991F6F0088234C /* segmented-bg-pressed-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B72F17991F6F0088234C /* segmented-bg-pressed-center.png */; };
 		1806B74017991F6F0088234C /* segmented-bg-pressed-center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B73017991F6F0088234C /* segmented-bg-pressed-center@2x.png */; };
 		1806B74117991F6F0088234C /* segmented-bg-pressed-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1806B73117991F6F0088234C /* segmented-bg-pressed-left.png */; };
@@ -62,6 +61,10 @@
 		181FF71117BCB41D00556594 /* RETableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FF6CF17BCB32C00556594 /* RETableViewSection.m */; };
 		181FF71517BCB80D00556594 /* GGSellingFillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FF71317BCB80C00556594 /* GGSellingFillingViewController.m */; };
 		181FF71617BCB80D00556594 /* GGSellingFillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181FF71417BCB80D00556594 /* GGSellingFillingViewController.xib */; };
+		181FF71A17BCD0BC00556594 /* GGGETLinkFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FF71917BCD0BC00556594 /* GGGETLinkFactory.m */; };
+		181FF71D17BCD0EC00556594 /* GGPOSTLinkFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FF71C17BCD0EB00556594 /* GGPOSTLinkFactory.m */; };
+		181FF72017BCD11400556594 /* GGGETLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FF71F17BCD11400556594 /* GGGETLink.m */; };
+		181FF72317BCD1AC00556594 /* GGPOSTLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 181FF72217BCD1AC00556594 /* GGPOSTLink.m */; };
 		182391AA179D8592009472D0 /* 2-red-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 182391A0179D8592009472D0 /* 2-red-back-button.png */; };
 		182391AB179D8592009472D0 /* 2-red-back-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182391A1179D8592009472D0 /* 2-red-back-button@2x.png */; };
 		182391AC179D8592009472D0 /* 2-red-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 182391A2179D8592009472D0 /* 2-red-background.jpg */; };
@@ -127,9 +130,6 @@
 		189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F448717B8C1F000D9275B /* GGListingsCell.m */; };
 		189F448A17B8C20300D9275B /* GGListingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448917B8C20300D9275B /* GGListingsCell.xib */; };
 		189F449317B8D52D00D9275B /* GGNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449217B8D52C00D9275B /* GGNetworkingClient.m */; };
-		189F449917B8D6BD00D9275B /* GGNetworkingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449817B8D6BD00D9275B /* GGNetworkingFactory.m */; };
-		189F449D17B8D6DE00D9275B /* GGGetNetworkingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449C17B8D6DE00D9275B /* GGGetNetworkingFactory.m */; };
-		189F44A017B8D6ED00D9275B /* GGPostNetworkingFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449F17B8D6ED00D9275B /* GGPostNetworkingFactory.m */; };
 		189F44A317B8DB7700D9275B /* GGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F44A217B8DB7700D9275B /* GGConstants.m */; };
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
@@ -138,6 +138,7 @@
 		18D1523B17BBB76F00841C11 /* GGEventSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */; };
 		18DC25E417A3CA0C0068C62E /* temp_concert.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DC25E317A3CA0C0068C62E /* temp_concert.png */; };
 		18E6A9B91793FAD100E53621 /* login_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E6A9B81793FAD100E53621 /* login_pic.png */; };
+		18ED5ED217BDC15600B14405 /* GGLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED5ED117BDC15600B14405 /* GGLink.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,7 +154,6 @@
 		1806B7121798F6C40088234C /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		1806B714179900650088234C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		1806B716179900CA0088234C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1806B72917990ED20088234C /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 		1806B72F17991F6F0088234C /* segmented-bg-pressed-center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-center.png"; sourceTree = "<group>"; };
 		1806B73017991F6F0088234C /* segmented-bg-pressed-center@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-center@2x.png"; sourceTree = "<group>"; };
 		1806B73117991F6F0088234C /* segmented-bg-pressed-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "segmented-bg-pressed-left.png"; sourceTree = "<group>"; };
@@ -226,6 +226,14 @@
 		181FF71217BCB80C00556594 /* GGSellingFillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSellingFillingViewController.h; sourceTree = "<group>"; };
 		181FF71317BCB80C00556594 /* GGSellingFillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSellingFillingViewController.m; sourceTree = "<group>"; };
 		181FF71417BCB80D00556594 /* GGSellingFillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSellingFillingViewController.xib; sourceTree = "<group>"; };
+		181FF71817BCD0BC00556594 /* GGGETLinkFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGGETLinkFactory.h; sourceTree = "<group>"; };
+		181FF71917BCD0BC00556594 /* GGGETLinkFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGGETLinkFactory.m; sourceTree = "<group>"; };
+		181FF71B17BCD0EB00556594 /* GGPOSTLinkFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGPOSTLinkFactory.h; sourceTree = "<group>"; };
+		181FF71C17BCD0EB00556594 /* GGPOSTLinkFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGPOSTLinkFactory.m; sourceTree = "<group>"; };
+		181FF71E17BCD11400556594 /* GGGETLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGGETLink.h; sourceTree = "<group>"; };
+		181FF71F17BCD11400556594 /* GGGETLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGGETLink.m; sourceTree = "<group>"; };
+		181FF72117BCD1AC00556594 /* GGPOSTLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGPOSTLink.h; sourceTree = "<group>"; };
+		181FF72217BCD1AC00556594 /* GGPOSTLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGPOSTLink.m; sourceTree = "<group>"; };
 		182391A0179D8592009472D0 /* 2-red-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-red-back-button.png"; sourceTree = "<group>"; };
 		182391A1179D8592009472D0 /* 2-red-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-red-back-button@2x.png"; sourceTree = "<group>"; };
 		182391A2179D8592009472D0 /* 2-red-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-red-background.jpg"; sourceTree = "<group>"; };
@@ -322,12 +330,6 @@
 		189F448917B8C20300D9275B /* GGListingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGListingsCell.xib; sourceTree = "<group>"; };
 		189F449117B8D52C00D9275B /* GGNetworkingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGNetworkingClient.h; sourceTree = "<group>"; };
 		189F449217B8D52C00D9275B /* GGNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGNetworkingClient.m; sourceTree = "<group>"; };
-		189F449717B8D6BD00D9275B /* GGNetworkingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGNetworkingFactory.h; sourceTree = "<group>"; };
-		189F449817B8D6BD00D9275B /* GGNetworkingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGNetworkingFactory.m; sourceTree = "<group>"; };
-		189F449B17B8D6DE00D9275B /* GGGetNetworkingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGGetNetworkingFactory.h; sourceTree = "<group>"; };
-		189F449C17B8D6DE00D9275B /* GGGetNetworkingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGGetNetworkingFactory.m; sourceTree = "<group>"; };
-		189F449E17B8D6ED00D9275B /* GGPostNetworkingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGPostNetworkingFactory.h; sourceTree = "<group>"; };
-		189F449F17B8D6ED00D9275B /* GGPostNetworkingFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGPostNetworkingFactory.m; sourceTree = "<group>"; };
 		189F44A117B8DB7600D9275B /* GGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGConstants.h; sourceTree = "<group>"; };
 		189F44A217B8DB7700D9275B /* GGConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGConstants.m; sourceTree = "<group>"; };
 		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
@@ -340,6 +342,8 @@
 		18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventSearchCell.xib; sourceTree = "<group>"; };
 		18DC25E317A3CA0C0068C62E /* temp_concert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temp_concert.png; sourceTree = "<group>"; };
 		18E6A9B81793FAD100E53621 /* login_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_pic.png; sourceTree = "<group>"; };
+		18ED5ED017BDC15600B14405 /* GGLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLink.h; sourceTree = "<group>"; };
+		18ED5ED117BDC15600B14405 /* GGLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLink.m; sourceTree = "<group>"; };
 		18F1BDEF179E7E3B008FD04E /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		18F1BDF0179E7E3B008FD04E /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -573,7 +577,6 @@
 			children = (
 				18DC25E317A3CA0C0068C62E /* temp_concert.png */,
 				186A77A1179D266300240EDF /* CheckBox */,
-				1806B72917990ED20088234C /* main.png */,
 				183485A3179BB00500EF229F /* sortednames.plist */,
 				1806B72E17991F5C0088234C /* Segment */,
 				1806B7081798ECBA0088234C /* 登录注册 */,
@@ -726,6 +729,7 @@
 		189F449417B8D56A00D9275B /* Factory */ = {
 			isa = PBXGroup;
 			children = (
+				18ED5ECF17BDBF3E00B14405 /* Product */,
 				189F449517B8D61B00D9275B /* Client */,
 				189F449A17B8D6C400D9275B /* Creator */,
 			);
@@ -753,12 +757,10 @@
 		189F449A17B8D6C400D9275B /* Creator */ = {
 			isa = PBXGroup;
 			children = (
-				189F449717B8D6BD00D9275B /* GGNetworkingFactory.h */,
-				189F449817B8D6BD00D9275B /* GGNetworkingFactory.m */,
-				189F449B17B8D6DE00D9275B /* GGGetNetworkingFactory.h */,
-				189F449C17B8D6DE00D9275B /* GGGetNetworkingFactory.m */,
-				189F449E17B8D6ED00D9275B /* GGPostNetworkingFactory.h */,
-				189F449F17B8D6ED00D9275B /* GGPostNetworkingFactory.m */,
+				181FF71817BCD0BC00556594 /* GGGETLinkFactory.h */,
+				181FF71917BCD0BC00556594 /* GGGETLinkFactory.m */,
+				181FF71B17BCD0EB00556594 /* GGPOSTLinkFactory.h */,
+				181FF71C17BCD0EB00556594 /* GGPOSTLinkFactory.m */,
 			);
 			name = Creator;
 			sourceTree = "<group>";
@@ -772,6 +774,19 @@
 				187ABED017A2161200113C80 /* CYTableDataSource.m */,
 			);
 			name = Delegate;
+			sourceTree = "<group>";
+		};
+		18ED5ECF17BDBF3E00B14405 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				18ED5ED017BDC15600B14405 /* GGLink.h */,
+				18ED5ED117BDC15600B14405 /* GGLink.m */,
+				181FF71E17BCD11400556594 /* GGGETLink.h */,
+				181FF71F17BCD11400556594 /* GGGETLink.m */,
+				181FF72117BCD1AC00556594 /* GGPOSTLink.h */,
+				181FF72217BCD1AC00556594 /* GGPOSTLink.m */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 		18F1BDF1179E7E44008FD04E /* JSON */ = {
@@ -850,7 +865,6 @@
 				1806B7071798ECB20088234C /* Register.png in Resources */,
 				1806B70D1798EDF50088234C /* GGRegisterViewController.xib in Resources */,
 				1806B715179900650088234C /* SVProgressHUD.bundle in Resources */,
-				1806B72A17990ED20088234C /* main.png in Resources */,
 				1806B73F17991F6F0088234C /* segmented-bg-pressed-center.png in Resources */,
 				1806B74017991F6F0088234C /* segmented-bg-pressed-center@2x.png in Resources */,
 				1806B74117991F6F0088234C /* segmented-bg-pressed-left.png in Resources */,
@@ -953,9 +967,6 @@
 				189F448417B8B96900D9275B /* GGEventSearchViewController.m in Sources */,
 				189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */,
 				189F449317B8D52D00D9275B /* GGNetworkingClient.m in Sources */,
-				189F449917B8D6BD00D9275B /* GGNetworkingFactory.m in Sources */,
-				189F449D17B8D6DE00D9275B /* GGGetNetworkingFactory.m in Sources */,
-				189F44A017B8D6ED00D9275B /* GGPostNetworkingFactory.m in Sources */,
 				189F44A317B8DB7700D9275B /* GGConstants.m in Sources */,
 				1883FB0F17B9D56300671E9B /* AFHTTPClient.m in Sources */,
 				1883FB1017B9D56300671E9B /* AFHTTPRequestOperation.m in Sources */,
@@ -970,6 +981,11 @@
 				1883FB2217BA0CB400671E9B /* GGBuySecondViewController.m in Sources */,
 				18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */,
 				181FF71517BCB80D00556594 /* GGSellingFillingViewController.m in Sources */,
+				181FF71A17BCD0BC00556594 /* GGGETLinkFactory.m in Sources */,
+				181FF71D17BCD0EC00556594 /* GGPOSTLinkFactory.m in Sources */,
+				181FF72017BCD11400556594 /* GGGETLink.m in Sources */,
+				181FF72317BCD1AC00556594 /* GGPOSTLink.m in Sources */,
+				18ED5ED217BDC15600B14405 /* GGLink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
