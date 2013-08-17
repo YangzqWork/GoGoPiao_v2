@@ -44,6 +44,7 @@
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
     NSLog(@"test : %@", jsonObject);
+    //add
     
     if (jsonObject != nil && error == nil) {
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {
