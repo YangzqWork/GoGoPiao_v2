@@ -26,23 +26,22 @@
 //NavigationBar的设定
     [self customizeiPhoneTheme];
 
-//拿到CFUUIDRef 设定临时的tempToken值
+//拿到CFUUID
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
     NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
     [GGAuthManager sharedManager].uuid = cfuuidString;
 
 #warning 待修改 - 判断是iphone还是ipad
-    NSString *urlString = [NSString stringWithFormat:@"/auth/xapp_auth.json?platform=%@&application=%@&client_uuid=%@&client_secret=%@", @"iphone", @"gogopiao", cfuuidString, @"111"];
+    NSString *urlString = [NSString stringWithFormat:@"/auth/xapp_auth.json?platform=%@&application=%@&client_uuid=%@&client_secret=%@", @"iphone", @"gogopiao_v1.0", @"1234567890", @"515104200a02f596fea7c2f298aa621084c5985b"];
     GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
     GGGETLink *getLink = [getLinkFactory createLink:urlString];
     
     NSMutableData *responseData = [getLink getResponseData];
-    NSMutableArray *tokenDict = [[NSMutableArray alloc] initWithArray:nil];
-    [tokenDict addObjectsFromArray:[getLink getResponseJSON]];
-    NSLog(@"tokenDict : %@", tokenDict);
-    NSString *token = [NSString stringWithString:[[tokenDict objectAtIndex:0] objectForKey:@"token"]];
+    NSDictionary *responseDict = (NSDictionary *)[getLink getResponseJSON];
+
+//设置临时token值
+    NSString *token = [responseDict objectForKey:@"token"];
     [GGAuthManager sharedManager].tempToken = token;
-    NSLog(@"temp token : %@", [GGAuthManager sharedManager].tempToken);
     
     self.ggMainVC = [[GGMainViewController alloc] initWithNibName:nil bundle:nil];
     [self.window setRootViewController:self.ggMainVC];

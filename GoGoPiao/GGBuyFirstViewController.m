@@ -59,7 +59,7 @@
 #pragma mark - 网络请求
 - (void)beginNetworking
 {
-    NSString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://42.121.58.78/api/v1/listings/%@/tickets/unsold.json?id=%@&token=%@",self.listingID, self.listingID, [GGAuthManager sharedManager].tempToken]];
+    NSString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://42.121.58.78/api/v1/listings/%@/tickets/unsold.json?token=%@",self.listingID, [GGAuthManager sharedManager].tempToken]];
     
     NSLog(@"URLString: %@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
@@ -155,7 +155,10 @@
 #warning Unfinished - 判断是否已经登录了，决定是先Login还是进入第二步
     
     if ([GGAuthManager sharedManager].token != nil) {
+        GGBuySecondViewController *ggBuySecondVC = [[GGBuySecondViewController alloc] initWithNibName:@"GGBuySecondViewController" bundle:nil];
         
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:ggBuySecondVC animated:YES];
     }
     else {
         GGLoginViewController *ggLoginViewController = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
@@ -163,11 +166,6 @@
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:ggLoginViewController animated:YES];  
     }
-    
-    GGBuySecondViewController *ggBuySecondVC = [[GGBuySecondViewController alloc] initWithNibName:@"GGBuySecondViewController" bundle:nil];
-    
-    self.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:ggBuySecondVC animated:YES];
 }
 
 @end

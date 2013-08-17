@@ -21,11 +21,12 @@
 
 - (NSMutableData *)getResponseData
 {
+    NSLog(@"test : %@", self.urlString);
+    NSLog(@"test 2 : %@", self.postBody);
     NSURL *requestURL = [NSURL URLWithString:self.urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0f];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"en-US" forHTTPHeaderField:@"Content-Language"];
     NSMutableData *body = [NSMutableData data];
    
     [body appendData:[self.postBody dataUsingEncoding:NSUTF8StringEncoding]];
@@ -42,6 +43,7 @@
 {
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
+    NSLog(@"test : %@", jsonObject);
     
     if (jsonObject != nil && error == nil) {
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {

@@ -151,13 +151,15 @@
         NSLog(@"%@ -- %@", self.userTextField.text, self.passwordTextField.text);
         
         GGPOSTLinkFactory *getPOSTLinkFactory = [[GGPOSTLinkFactory alloc] init];
-        GGPOSTLink *postLink = [getPOSTLinkFactory createLink:@"/auth/siginin.json"];
-        postLink.postBody = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@",self.userTextField.text, self.passwordTextField.text, @"iphone"];
+        GGPOSTLink *postLink = [getPOSTLinkFactory createLink:@"/auth/signin.json"];
+        
+        postLink.postBody = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@&client_uuid=%@&client_secret=%@&application=%@",self.userTextField.text, self.passwordTextField.text, @"iphone", [GGAuthManager sharedManager].uuid, @"1234567890", @"gogopiao_v1.0"];
+        
         NSMutableData *responseData = [postLink getResponseData];
-        NSDictionary *responseDictionary = [NSDictionary dictionaryWithDictionary:(NSDictionary *)[postLink getResponseJSON]];
-        NSString *token = [responseDictionary objectForKey:@"token"];
+        NSDictionary *responseDict = (NSDictionary *)[postLink getResponseJSON];
+        
+        NSString *token = [responseDict objectForKey:@"token"];
         [[GGAuthManager sharedManager] setToken:token];
-        NSLog(@"%@", [[GGAuthManager sharedManager] token]);
         
         [self login];
     }
@@ -175,7 +177,8 @@
     //登录成功以后自己跳出页面
 #warning 登录postNotification信息
         [[NSNotificationCenter defaultCenter] postNotificationName:@"didSucceedLogin" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[GGAuthManager sharedManager].token, @"token", nil]];
-        [self removeFromParentViewController];
+//        [self removeFromParentViewController];
+        [self.navigationController popViewControllerAnimated:YES];
         
 //#warning to_be_refined - 最后要改成先进入主页面
 //        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
