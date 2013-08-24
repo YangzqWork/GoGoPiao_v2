@@ -47,7 +47,7 @@
         
 //BarButton
         self.concertTableView.hidden = NO;
-        self.title = @"最近热门";
+        self.title = @"场次";
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonPressed:)];
         self.navigationItem.rightBarButtonItem = barButton;
         self.navigationItem.titleView = [[GGEventTitleView alloc] init];
@@ -71,9 +71,13 @@
     
     GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
     GGGETLink *getLink = [getLinkFactory createLink:[NSString stringWithFormat:@"/events.json?token=%@", [GGAuthManager sharedManager].tempToken]];
-    self.responseData = [getLink getResponseData];
+    [getLink getResponseData];
     self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
-    [self.eventsArray addObjectsFromArray:[getLink getResponseJSON]];
+    NSDictionary *dict = (NSDictionary *)[getLink getResponseJSON];
+    NSArray *array = [[dict objectForKey:@"result"] objectForKey:@"events"];
+    
+    [self.eventsArray addObjectsFromArray:array];
+    
 
     [self setTableView];
 }
@@ -97,10 +101,10 @@
 - (void)setTableView
 {
     TableViewConfigureCellBlock configureCell = ^(GGEventsCell* cell, NSDictionary *event) {
-        cell.eventsTitleLabel.text = [event objectForKey:@"title"];
-        cell.eventsSubtitleLabel.text = [event objectForKey:@"start_time"];
-        cell.eventsThirdLabel.text = [event objectForKey:@"description"];
-        cell.idNumber = [event objectForKey:@"id"];
+        cell.eventsTitleLabel.text = [[event objectForKey:@"event"] objectForKey:@"title"];
+        cell.eventsSubtitleLabel.text = [[event objectForKey:@"event"] objectForKey:@"start_time"];
+        cell.eventsThirdLabel.text = [[event objectForKey:@"event"] objectForKey:@"description"];
+        cell.idNumber = [[event objectForKey:@"event"] objectForKey:@"id"];
     };
     
     self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
@@ -118,9 +122,11 @@
     if ([paramSender isEqual:self.segmentControl]){
         int selectedSegmentIndex = [paramSender selectedSegmentIndex];
         NSString *selectedSegmentText = [paramSender titleForSegmentAtIndex:selectedSegmentIndex];
-        NSLog(@"Segment %d with %@ text is selected", selectedSegmentIndex, selectedSegmentText);
+        
+        
         if (selectedSegmentIndex == 0) {
-            self.navigationItem.title = @"演唱会";
+//            self.navigationItem.title = @"演唱会";
+            
         }
         else if (selectedSegmentIndex == 1) {
             self.navigationItem.title = @"体育比赛";

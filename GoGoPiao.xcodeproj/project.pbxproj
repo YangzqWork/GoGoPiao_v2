@@ -89,10 +89,6 @@
 		182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6F1792F72100C23EB4 /* GGEventViewController.m */; };
 		182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED701792F72100C23EB4 /* GGEventViewController.xib */; };
 		183485A4179BB00500EF229F /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183485A3179BB00500EF229F /* sortednames.plist */; };
-		18359D7217B75F0000A8B95E /* GGCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7017B75F0000A8B95E /* GGCategoryViewController.m */; };
-		18359D7317B75F0000A8B95E /* GGCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */; };
-		18359D7717B75F2E00A8B95E /* GGOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7517B75F2E00A8B95E /* GGOrderViewController.m */; };
-		18359D7817B75F2E00A8B95E /* GGOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */; };
 		18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7A17B75F8100A8B95E /* GGSellingViewController.m */; };
 		18359D7D17B75F8200A8B95E /* GGSellingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */; };
 		18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D8217B7614800A8B95E /* GGMainViewController.m */; };
@@ -123,6 +119,11 @@
 		1883FB2217BA0CB400671E9B /* GGBuySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883FB2017BA0CB300671E9B /* GGBuySecondViewController.m */; };
 		1883FB2317BA0CB400671E9B /* GGBuySecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1883FB2117BA0CB300671E9B /* GGBuySecondViewController.xib */; };
 		1883FB8717BA2B0400671E9B /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1BDF0179E7E3B008FD04E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18957B6217C8511D00009FE9 /* GGMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18957B6017C8511D00009FE9 /* GGMoreViewController.m */; };
+		18957B6317C8511D00009FE9 /* GGMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18957B6117C8511D00009FE9 /* GGMoreViewController.xib */; };
+		18957B6717C8566100009FE9 /* GGRegionPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18957B6517C8566000009FE9 /* GGRegionPickerViewController.m */; };
+		18957B6817C8566100009FE9 /* GGRegionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18957B6617C8566000009FE9 /* GGRegionPickerViewController.xib */; };
+		18957B6B17C863C200009FE9 /* EventSearched.m in Sources */ = {isa = PBXBuildFile; fileRef = 18957B6A17C863C200009FE9 /* EventSearched.m */; };
 		1899BB5A17A4ACAB00EF6CB2 /* GGEventsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */; };
 		1899BB5B17A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */; };
 		189F448417B8B96900D9275B /* GGEventSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F448217B8B96800D9275B /* GGEventSearchViewController.m */; };
@@ -131,6 +132,7 @@
 		189F448A17B8C20300D9275B /* GGListingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189F448917B8C20300D9275B /* GGListingsCell.xib */; };
 		189F449317B8D52D00D9275B /* GGNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F449217B8D52C00D9275B /* GGNetworkingClient.m */; };
 		189F44A317B8DB7700D9275B /* GGConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 189F44A217B8DB7700D9275B /* GGConstants.m */; };
+		18B5839C17BF682A00059CB1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B5839B17BF682A00059CB1 /* logo.png */; };
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
 		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
@@ -264,12 +266,6 @@
 		182CED6F1792F72100C23EB4 /* GGEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventViewController.m; sourceTree = "<group>"; };
 		182CED701792F72100C23EB4 /* GGEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventViewController.xib; sourceTree = "<group>"; };
 		183485A3179BB00500EF229F /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sortednames.plist; sourceTree = "<group>"; };
-		18359D6F17B75F0000A8B95E /* GGCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCategoryViewController.h; sourceTree = "<group>"; };
-		18359D7017B75F0000A8B95E /* GGCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCategoryViewController.m; sourceTree = "<group>"; };
-		18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGCategoryViewController.xib; sourceTree = "<group>"; };
-		18359D7417B75F2E00A8B95E /* GGOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGOrderViewController.h; sourceTree = "<group>"; };
-		18359D7517B75F2E00A8B95E /* GGOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGOrderViewController.m; sourceTree = "<group>"; };
-		18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGOrderViewController.xib; sourceTree = "<group>"; };
 		18359D7917B75F8100A8B95E /* GGSellingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSellingViewController.h; sourceTree = "<group>"; };
 		18359D7A17B75F8100A8B95E /* GGSellingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSellingViewController.m; sourceTree = "<group>"; };
 		18359D7B17B75F8200A8B95E /* GGSellingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGSellingViewController.xib; sourceTree = "<group>"; };
@@ -317,6 +313,14 @@
 		1883FB1F17BA0CB300671E9B /* GGBuySecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBuySecondViewController.h; sourceTree = "<group>"; };
 		1883FB2017BA0CB300671E9B /* GGBuySecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBuySecondViewController.m; sourceTree = "<group>"; };
 		1883FB2117BA0CB300671E9B /* GGBuySecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGBuySecondViewController.xib; sourceTree = "<group>"; };
+		18957B5F17C8511D00009FE9 /* GGMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMoreViewController.h; sourceTree = "<group>"; };
+		18957B6017C8511D00009FE9 /* GGMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMoreViewController.m; sourceTree = "<group>"; };
+		18957B6117C8511D00009FE9 /* GGMoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGMoreViewController.xib; sourceTree = "<group>"; };
+		18957B6417C8565F00009FE9 /* GGRegionPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGRegionPickerViewController.h; sourceTree = "<group>"; };
+		18957B6517C8566000009FE9 /* GGRegionPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGRegionPickerViewController.m; sourceTree = "<group>"; };
+		18957B6617C8566000009FE9 /* GGRegionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGRegionPickerViewController.xib; sourceTree = "<group>"; };
+		18957B6917C863C200009FE9 /* EventSearched.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSearched.h; sourceTree = "<group>"; };
+		18957B6A17C863C200009FE9 /* EventSearched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSearched.m; sourceTree = "<group>"; };
 		1899BB5717A4ACAB00EF6CB2 /* GGEventsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventsDetailViewController.h; sourceTree = "<group>"; };
 		1899BB5817A4ACAB00EF6CB2 /* GGEventsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventsDetailViewController.m; sourceTree = "<group>"; };
 		1899BB5917A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventsDetailViewController.xib; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 		189F449217B8D52C00D9275B /* GGNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGNetworkingClient.m; sourceTree = "<group>"; };
 		189F44A117B8DB7600D9275B /* GGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGConstants.h; sourceTree = "<group>"; };
 		189F44A217B8DB7700D9275B /* GGConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGConstants.m; sourceTree = "<group>"; };
+		18B5839B17BF682A00059CB1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
 		18BEA58F179FC719005CB108 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
 		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
@@ -396,22 +401,17 @@
 			name = "AppDelegate/主界面";
 			sourceTree = "<group>";
 		};
-		1806B72D17991EEE0088234C /* TabBar底下5个VCs */ = {
+		1806B72D17991EEE0088234C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				18359D6F17B75F0000A8B95E /* GGCategoryViewController.h */,
-				18359D7017B75F0000A8B95E /* GGCategoryViewController.m */,
-				18359D7117B75F0000A8B95E /* GGCategoryViewController.xib */,
-				18359D8A17B7912600A8B95E /* 最近热门 */,
-				18359D7417B75F2E00A8B95E /* GGOrderViewController.h */,
-				18359D7517B75F2E00A8B95E /* GGOrderViewController.m */,
-				18359D7617B75F2E00A8B95E /* GGOrderViewController.xib */,
+				18957B5F17C8511D00009FE9 /* GGMoreViewController.h */,
+				18957B6017C8511D00009FE9 /* GGMoreViewController.m */,
+				18957B6117C8511D00009FE9 /* GGMoreViewController.xib */,
+				18359D8A17B7912600A8B95E /* 场次 */,
 				189F448B17B8CCA700D9275B /* 我要转让 */,
-				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
-				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
-				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
+				182C6BC517BF2B9B005CA40A /* 我的 */,
 			);
-			name = "TabBar底下5个VCs";
+			name = TabBar;
 			sourceTree = "<group>";
 		};
 		1806B72E17991F5C0088234C /* Segment */ = {
@@ -521,6 +521,16 @@
 			name = REFormattedNumberField;
 			sourceTree = "<group>";
 		};
+		182C6BC517BF2B9B005CA40A /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
+				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
+				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
+			);
+			name = "我的";
+			sourceTree = "<group>";
+		};
 		182CED2D1792960500C23EB4 = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +575,7 @@
 				1806B718179900FD0088234C /* SVProgressHUD */,
 				18F1BDF1179E7E44008FD04E /* JSON */,
 				186A7796179D177E00240EDF /* Cells */,
+				18957B6C17C863C800009FE9 /* CoreData */,
 				1806B719179901180088234C /* AppDelegate/主界面 */,
 				182CED781792FC9500C23EB4 /* ViewControllers */,
 				182CED401792960500C23EB4 /* Supporting Files */,
@@ -575,6 +586,7 @@
 		182CED401792960500C23EB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18B5839B17BF682A00059CB1 /* logo.png */,
 				18DC25E317A3CA0C0068C62E /* temp_concert.png */,
 				186A77A1179D266300240EDF /* CheckBox */,
 				183485A3179BB00500EF229F /* sortednames.plist */,
@@ -603,12 +615,12 @@
 				1806B7091798EDF50088234C /* GGRegisterViewController.h */,
 				1806B70A1798EDF50088234C /* GGRegisterViewController.m */,
 				1806B70B1798EDF50088234C /* GGRegisterViewController.xib */,
-				1806B72D17991EEE0088234C /* TabBar底下5个VCs */,
+				1806B72D17991EEE0088234C /* TabBar */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		18359D8A17B7912600A8B95E /* 最近热门 */ = {
+		18359D8A17B7912600A8B95E /* 场次 */ = {
 			isa = PBXGroup;
 			children = (
 				18359D8717B78EB200A8B95E /* GGEventTitleView.h */,
@@ -616,6 +628,9 @@
 				182CED6E1792F72100C23EB4 /* GGEventViewController.h */,
 				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
 				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
+				18957B6417C8565F00009FE9 /* GGRegionPickerViewController.h */,
+				18957B6517C8566000009FE9 /* GGRegionPickerViewController.m */,
+				18957B6617C8566000009FE9 /* GGRegionPickerViewController.xib */,
 				189F448117B8B96800D9275B /* GGEventSearchViewController.h */,
 				189F448217B8B96800D9275B /* GGEventSearchViewController.m */,
 				189F448317B8B96900D9275B /* GGEventSearchViewController.xib */,
@@ -629,7 +644,7 @@
 				1883FB2017BA0CB300671E9B /* GGBuySecondViewController.m */,
 				1883FB2117BA0CB300671E9B /* GGBuySecondViewController.xib */,
 			);
-			name = "最近热门";
+			name = "场次";
 			sourceTree = "<group>";
 		};
 		186A7796179D177E00240EDF /* Cells */ = {
@@ -711,6 +726,15 @@
 				1883FB0E17B9D56300671E9B /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		18957B6C17C863C800009FE9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				18957B6917C863C200009FE9 /* EventSearched.h */,
+				18957B6A17C863C200009FE9 /* EventSearched.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		189F448B17B8CCA700D9275B /* 我要转让 */ = {
@@ -900,8 +924,6 @@
 				18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */,
 				18DC25E417A3CA0C0068C62E /* temp_concert.png in Resources */,
 				1899BB5B17A4ACAB00EF6CB2 /* GGEventsDetailViewController.xib in Resources */,
-				18359D7317B75F0000A8B95E /* GGCategoryViewController.xib in Resources */,
-				18359D7817B75F2E00A8B95E /* GGOrderViewController.xib in Resources */,
 				18359D7D17B75F8200A8B95E /* GGSellingViewController.xib in Resources */,
 				189F448517B8B96900D9275B /* GGEventSearchViewController.xib in Resources */,
 				189F448A17B8C20300D9275B /* GGListingsCell.xib in Resources */,
@@ -909,6 +931,9 @@
 				1883FB2317BA0CB400671E9B /* GGBuySecondViewController.xib in Resources */,
 				18D1523B17BBB76F00841C11 /* GGEventSearchCell.xib in Resources */,
 				181FF71617BCB80D00556594 /* GGSellingFillingViewController.xib in Resources */,
+				18B5839C17BF682A00059CB1 /* logo.png in Resources */,
+				18957B6317C8511D00009FE9 /* GGMoreViewController.xib in Resources */,
+				18957B6817C8566100009FE9 /* GGRegionPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,8 +984,6 @@
 				187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */,
 				187ABED917A24F4C00113C80 /* CYNetworkingHelper.m in Sources */,
 				1899BB5A17A4ACAB00EF6CB2 /* GGEventsDetailViewController.m in Sources */,
-				18359D7217B75F0000A8B95E /* GGCategoryViewController.m in Sources */,
-				18359D7717B75F2E00A8B95E /* GGOrderViewController.m in Sources */,
 				18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */,
 				18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */,
 				18359D8917B78EB700A8B95E /* GGEventTitleView.m in Sources */,
@@ -986,6 +1009,9 @@
 				181FF72017BCD11400556594 /* GGGETLink.m in Sources */,
 				181FF72317BCD1AC00556594 /* GGPOSTLink.m in Sources */,
 				18ED5ED217BDC15600B14405 /* GGLink.m in Sources */,
+				18957B6217C8511D00009FE9 /* GGMoreViewController.m in Sources */,
+				18957B6717C8566100009FE9 /* GGRegionPickerViewController.m in Sources */,
+				18957B6B17C863C200009FE9 /* EventSearched.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,7 +1056,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -1054,6 +1082,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

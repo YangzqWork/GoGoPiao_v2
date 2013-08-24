@@ -19,9 +19,9 @@
 @synthesize urlString;
 @synthesize postBody;
 
-- (NSMutableData *)getResponseData
+- (void)getResponseData
 {
-    return nil;
+    
 }
 
 - (id)getResponseJSON

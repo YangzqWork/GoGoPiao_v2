@@ -110,27 +110,14 @@
     
     GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
     GGGETLink *getLink = [getLinkFactory createLink:urlString];
-    self.responseData = [getLink getResponseData];
+    [getLink getResponseData];
+    NSDictionary *dict = (NSDictionary *)[getLink getResponseJSON];
+    NSArray *array = [[dict objectForKey:@"result"] objectForKey:@"events"];
     self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
-    [self.eventsArray addObjectsFromArray:[getLink getResponseJSON]];
+    [self.eventsArray addObjectsFromArray:array];
     
     [self setTableView];
 }
-
-- (void)setTableView
-{
-    TableViewConfigureCellBlock configureCell = ^(GGEventSearchCell* cell, NSDictionary *event) {
-        cell.titleLabel.text = [event objectForKey:@"title"];
-    };
-    
-    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell];
-    
-    self.tableResult.delegate = self;
-    self.tableResult.dataSource = self.cyTableDataSource;
-    
-    [self.tableResult registerNib:[GGEventSearchCell nib] forCellReuseIdentifier:@"GGEventSearchCell"];
-}
-
 
 -(void)clear
 {
@@ -139,6 +126,21 @@
     isLoading = NO;
     isLoadOver = NO;
     allCount = 0;
+}
+
+
+- (void)setTableView
+{
+    TableViewConfigureCellBlock configureCell = ^(GGEventSearchCell* cell, NSDictionary *event) {
+        cell.titleLabel.text = [[event objectForKey:@"event"] objectForKey:@"title"];
+    };
+    
+    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell];
+    
+    self.tableResult.delegate = self;
+    self.tableResult.dataSource = self.cyTableDataSource;
+    
+    [self.tableResult registerNib:[GGEventSearchCell nib] forCellReuseIdentifier:@"GGEventSearchCell"];
 }
 
 @end

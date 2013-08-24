@@ -1,24 +1,25 @@
 //
-//  GGCategoryViewController.m
+//  GGMoreViewController.m
 //  GoGoPiao
 //
-//  Created by Cho-Yeung Lam on 11/8/13.
+//  Created by Cho-Yeung Lam on 24/8/13.
 //  Copyright (c) 2013 Cho-Yeung Lam. All rights reserved.
 //
 
-#import "GGCategoryViewController.h"
+#import "GGMoreViewController.h"
 
-@interface GGCategoryViewController ()
+@interface GGMoreViewController ()
 
 @end
 
-@implementation GGCategoryViewController
+@implementation GGMoreViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"分类查询";
+        // Custom initialization
+        self.title = @"更多";
     }
     return self;
 }

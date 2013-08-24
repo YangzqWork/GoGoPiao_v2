@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSString *urlString;
 @property (strong, nonatomic) NSString *postBody;
 
-- (NSMutableData *)getResponseData;
+- (void)getResponseData;
 - (NSArray *)getResponseJSON;
 
 @end

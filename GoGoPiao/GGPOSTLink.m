@@ -19,7 +19,7 @@
 
 @synthesize postBody;
 
-- (NSMutableData *)getResponseData
+- (void)getResponseData
 {
     NSLog(@"test : %@", self.urlString);
     NSLog(@"test 2 : %@", self.postBody);
@@ -35,7 +35,7 @@
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     self.responseData = [[NSMutableData alloc] initWithData:data];
-    return self.responseData;
+//    return self.responseData;
 }
 
 
@@ -43,8 +43,6 @@
 {
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
-    NSLog(@"test : %@", jsonObject);
-    //add
     
     if (jsonObject != nil && error == nil) {
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {

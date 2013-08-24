@@ -17,10 +17,11 @@
 
 @implementation GGGETLink
 
-- (NSMutableData *)getResponseData
+- (void)getResponseData
 {
     NSURL *url = [NSURL URLWithString:self.urlString];
-    NSLog(@"test : %@", self.urlString);
+    NSLog(@"GGGETLink getResponseData : %@", self.urlString);
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:40.0f];
     
     [request setHTTPMethod:@"GET"];
@@ -29,13 +30,14 @@
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     self.responseData = [[NSMutableData alloc] initWithData:data];
-    return self.responseData;
+//    return self.responseData;
 }
 
 - (id)getResponseJSON
 {
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:&error];
+    NSLog(@"GGGETLink getResponseJSON : %@", jsonObject);
     
     if (jsonObject != nil && error == nil) {
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {
@@ -49,8 +51,8 @@
         }
     }
     else {
-        NSLog(@"Error message -- %@", error);
-        NSLog(@"jsonObject -- %@", jsonObject);
+        NSLog(@"GGGETLink Error message -- %@", error);
+        NSLog(@"GGGETLink jsonObject -- %@", jsonObject);
     }
     
     return nil;

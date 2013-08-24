@@ -36,7 +36,7 @@
     GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
     GGGETLink *getLink = [getLinkFactory createLink:urlString];
     
-    NSMutableData *responseData = [getLink getResponseData];
+    [getLink getResponseData];
     NSDictionary *responseDict = (NSDictionary *)[getLink getResponseJSON];
 
 //设置临时token值

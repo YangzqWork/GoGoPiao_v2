@@ -11,7 +11,7 @@
 
 @interface GGGETLink : GGLink
 
-- (NSMutableData *)getResponseData;
+- (void)getResponseData;
 - (NSArray *)getResponseJSON;
 
 @end

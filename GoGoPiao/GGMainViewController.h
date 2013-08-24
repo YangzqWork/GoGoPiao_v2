@@ -8,18 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class GGCategoryViewController;
 @class GGEventViewController;
-@class GGOrderViewController;
-@class GGSellingViewController;
 @class GGAccountViewController;
+@class GGMoreViewController;
 
 @interface GGMainViewController : UITabBarController
 
-@property (strong, nonatomic) GGCategoryViewController *ggCategoryVC;
 @property (strong, nonatomic) GGEventViewController *ggEventVC;
-@property (strong, nonatomic) GGOrderViewController *ggOrderVC;
-@property (strong, nonatomic) GGSellingViewController *ggSellingVC;
 @property (strong, nonatomic) GGAccountViewController *ggAccountVC;
+@property (strong, nonatomic) GGMoreViewController *ggMoreVC;
 
 @end
