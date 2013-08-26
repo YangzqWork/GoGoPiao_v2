@@ -25,6 +25,7 @@
     
 //NavigationBar的设定
     [self customizeiPhoneTheme];
+//    [self createMockData];
 
 //拿到CFUUID
     CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
@@ -111,7 +112,7 @@
         return _managedObjectModel;
     }
     //这里一定要注意，这里的iWeather就是你刚才建立的数据模型的名字，一定要一致。否则会报错。
-    NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"iWeather"withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"GoGoPiao" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -123,8 +124,8 @@
     if (_persistentStoreCoordinator !=nil) {
         return _persistentStoreCoordinator;
     }
-    //这里的iWeaher.sqlite，也应该与数据模型的名字保持一致。
-    NSURL *storeURL = [[self applicationDocumentsDirectory]URLByAppendingPathComponent:@"iWeather.sqlite"];
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory]URLByAppendingPathComponent:@"GoGoPiao.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:[self managedObjectModel]];
@@ -172,5 +173,21 @@
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
 }
 
+- (void)createMockData
+{
+    EventSearched *newPerson = [NSEntityDescription insertNewObjectForEntityForName:@"EventSearched" inManagedObjectContext:self.managedObjectContext];
+    if (newPerson != nil) {
+        newPerson.title = @"在AppDelegate里面的测试数据1";
+        NSError *savingError = nil;
+        if ([self.managedObjectContext save:&savingError]) {
+            NSLog(@"Successfully saved the context.");
+        }
+        else {
+            NSLog(@"Failed to save the context. Error = %@", savingError);
+        }
+    } else {
+        NSLog(@"Failed to create the new person.");
+    }
+}
 
 @end

@@ -16,12 +16,17 @@
     int allCount;
 }
 
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentSearch;
+@property (nonatomic, strong) NSFetchedResultsController *fetchResultController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSEntityDescription *entityDescription;
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tableResult;
 @property (strong, nonatomic) IBOutlet UISearchBar *_searchBar;
-- (IBAction)segmentChanged:(id)sender;
 
 -(void)doSearch;
 -(void)clear;
+
+- (IBAction)backgroundTap:(id)sender;
 
 @end

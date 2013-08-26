@@ -14,8 +14,6 @@
 #import <CoreData/CoreData.h>
 #import "GGAuthManager.h"
 #import "GGConstants.h"
-#import "AFHTTPClient.h"
-#import "AFHTTPRequestOperation.h"
 #import "CYTableDataSource.h"
 #import "GGGETLink.h"
 #import "GGPOSTLink.h"

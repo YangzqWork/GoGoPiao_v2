@@ -171,9 +171,11 @@
 {
     NSLog(@"Search button pressed");
     GGEventSearchViewController *ggEventSearchVC = [[GGEventSearchViewController alloc] initWithNibName:@"GGEventSearchViewController" bundle:nil];
+    
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:ggEventSearchVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
+
 
 @end

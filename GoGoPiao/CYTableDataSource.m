@@ -34,7 +34,7 @@
 {
     self = [super init];
     if (self) {
-        self.dataArray = [[NSMutableArray alloc] initWithArray:_array copyItems:YES];
+        self.dataArray = [[NSMutableArray alloc] initWithArray:_array copyItems:NO];
         self.cellIdentifier = _cellIdentifier;
         self.configureCellBlock = _configureCellBlock;
     }
