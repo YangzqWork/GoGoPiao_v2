@@ -150,16 +150,16 @@
         [SVProgressHUD showWithStatus:@"正在登录"];
         NSLog(@"%@ -- %@", self.userTextField.text, self.passwordTextField.text);
         
-        GGPOSTLinkFactory *getPOSTLinkFactory = [[GGPOSTLinkFactory alloc] init];
-        GGPOSTLink *postLink = [getPOSTLinkFactory createLink:@"/auth/signin.json"];
-        
-        postLink.postBody = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@&client_uuid=%@&client_secret=%@&application=%@",self.userTextField.text, self.passwordTextField.text, @"iphone", [GGAuthManager sharedManager].uuid, @"1234567890", @"gogopiao_v1.0"];
-        
-        [postLink getResponseData];
-        NSDictionary *responseDict = (NSDictionary *)[postLink getResponseJSON];
-        
-        NSString *token = [responseDict objectForKey:@"token"];
-        [[GGAuthManager sharedManager] setToken:token];
+//        GGPOSTLinkFactory *getPOSTLinkFactory = [[GGPOSTLinkFactory alloc] init];
+//        GGPOSTLink *postLink = [getPOSTLinkFactory createLink:@"/auth/signin.json"];
+//        
+//        postLink.postBody = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@&client_uuid=%@&client_secret=%@&application=%@",self.userTextField.text, self.passwordTextField.text, @"iphone", [GGAuthManager sharedManager].uuid, @"1234567890", @"gogopiao_v1.0"];
+//        
+//        [postLink getResponseData];
+//        NSDictionary *responseDict = (NSDictionary *)[postLink getResponseJSON];
+//        
+//        NSString *token = [responseDict objectForKey:@"token"];
+//        [[GGAuthManager sharedManager] setToken:token];
         
         [self login];
     }

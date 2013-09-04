@@ -10,6 +10,8 @@
 #import "GGLoginViewController.h"
 #import "GGMainViewController.h"
 #import "GGAuthManager.h"
+#import "Constants.h"
+#import "MKNetworkOperation.h"
 
 @implementation AppDelegate
 
@@ -23,30 +25,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
-//NavigationBar的设定
     [self customizeiPhoneTheme];
-//    [self createMockData];
+    [self setUpNetworkEngine];
+    [self getCFUUID];
+    //如果拿到Token以后，就登陆
+    [self getTravellerToken];
 
-//拿到CFUUID
-    CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
-    [GGAuthManager sharedManager].uuid = cfuuidString;
-
-#warning 待修改 - 判断是iphone还是ipad
-    NSString *urlString = [NSString stringWithFormat:@"/auth/xapp_auth.json?platform=%@&application=%@&client_uuid=%@&client_secret=%@", @"iphone", @"gogopiao_v1.0", @"1234567890", @"515104200a02f596fea7c2f298aa621084c5985b"];
-    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
-    GGGETLink *getLink = [getLinkFactory createLink:urlString];
-    
-    [getLink getResponseData];
-    NSDictionary *responseDict = (NSDictionary *)[getLink getResponseJSON];
-
-//设置临时token值
-    NSString *token = [responseDict objectForKey:@"token"];
-    [GGAuthManager sharedManager].tempToken = token;
-    
-    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:nil bundle:nil];
-    [self.window setRootViewController:self.ggMainVC];
-    
     return YES;
 }
 
@@ -173,21 +157,48 @@
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
 }
 
-- (void)createMockData
+- (void)setUpNetworkEngine
 {
-    EventSearched *newPerson = [NSEntityDescription insertNewObjectForEntityForName:@"EventSearched" inManagedObjectContext:self.managedObjectContext];
-    if (newPerson != nil) {
-        newPerson.title = @"在AppDelegate里面的测试数据1";
-        NSError *savingError = nil;
-        if ([self.managedObjectContext save:&savingError]) {
-            NSLog(@"Successfully saved the context.");
-        }
-        else {
-            NSLog(@"Failed to save the context. Error = %@", savingError);
-        }
-    } else {
-        NSLog(@"Failed to create the new person.");
-    }
+    NSMutableDictionary *headerFields = [NSMutableDictionary dictionary];
+    headerFields[@"Content-Type"] = @"application/json";
+    self.networkEngine = [[MKNetworkEngine alloc] initWithHostName:K_HOST_URL customHeaderFields:headerFields];
+    [self.networkEngine useCache];
+}
+
+- (void)getCFUUID
+{
+    CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
+    NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
+    [GGAuthManager sharedManager].uuid = cfuuidString;
+}
+
+- (void)getTravellerToken
+{
+#warning 待修改 - 判断是iphone还是ipad
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"platform"] = @"iphone";
+    param[@"application"] = @"gogopiao_v1.0";
+    param[@"client_uuid"] = @"1234567890";
+    param[@"client_secret"] = @"515104200a02f596fea7c2f298aa621084c5985b";
+    
+    
+    MKNetworkOperation *op = [self.networkEngine operationWithPath:@"/api/v1/auth/xapp_auth.json" params:param httpMethod:@"GET"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
+            
+            [GGAuthManager sharedManager].tempToken = ((NSDictionary *)jsonObject)[@"token"];
+            self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+            [self.window setRootViewController:self.ggMainVC];
+            self.window.backgroundColor = [UIColor whiteColor];
+            [self.window makeKeyAndVisible];
+        }];
+    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        
+        NSLog(@"AppDelegate : %@", error);
+    }];
+    
+    [self.networkEngine enqueueOperation:op];
 }
 
 @end

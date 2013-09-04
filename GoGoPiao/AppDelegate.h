@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MKNetworkEngine.h"
+
+#define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
 
 @class GGMainViewController;
 
@@ -14,6 +18,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) GGMainViewController *ggMainVC;
+
+@property (strong, nonatomic) MKNetworkEngine *networkEngine;
 
 //New Core Data
 @property (readonly,strong,nonatomic) NSManagedObjectContext *managedObjectContext;

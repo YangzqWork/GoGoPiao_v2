@@ -12,18 +12,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "GGAuthManager.h"
-#import "GGConstants.h"
-#import "CYTableDataSource.h"
-#import "GGGETLink.h"
-#import "GGPOSTLink.h"
-#import "GGGETLinkFactory.h"
-#import "GGPOSTLinkFactory.h"
-#import "GGNetworkingClient.h"
-#import "GGEventSearchCell.h"
-#import "GGEventsCell.h"
-#import "GGListingsCell.h"
-#import "EventSearched.h"
+#import "SVProgressHUD.h"
 #endif
 
 #define api_events_list @"http://42.121.58.78/api/v1/events.json"

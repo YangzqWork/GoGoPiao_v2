@@ -14,8 +14,8 @@ typedef void (^TableViewConfigureCellBlock)(id cell, id item);
 @interface CYTableDataSource : NSObject<UITableViewDataSource>
 
 - (id)itemAtIndextPath:(NSIndexPath *)indexPath;
-- (id)initWithDataArray:(NSArray *)_array
-         cellIdentifier:(NSString *)_cellIdentifier
-     configureCellBlock:(TableViewConfigureCellBlock)_configureCellBlock;
+- (id)initWithDataArray:(NSArray *)anArray
+         cellIdentifier:(NSString *)aCellIdentifier
+     configureCellBlock:(TableViewConfigureCellBlock)aConfigureCellBlock;
 
 @end

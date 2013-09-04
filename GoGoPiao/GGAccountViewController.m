@@ -20,7 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"账号设置";
-        self.navigationController.navigationItem.title = @"账号设置";
+//        self.navigationController.navigationItem.title = @"账号设置";
         
     }
     return self;

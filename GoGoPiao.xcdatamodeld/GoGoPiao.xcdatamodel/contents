@@ -2,6 +2,11 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="EventSearched" representedClassName="EventSearched" syncable="YES">
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="title"/>
+            </compoundIndex>
+        </compoundIndexes>
     </entity>
     <elements>
         <element name="EventSearched" positionX="160" positionY="192" width="128" height="60"/>

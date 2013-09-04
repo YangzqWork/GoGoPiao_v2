@@ -12,7 +12,7 @@
 
 @interface CYTableDataSource ()
 
-@property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) TableViewConfigureCellBlock configureCellBlock;
 
@@ -23,20 +23,18 @@
 
 @implementation CYTableDataSource
 
-@synthesize dataArray;
-@synthesize cellIdentifier;
-@synthesize configureCellBlock;
-@synthesize indexList;
+- (id)init
+{
+    return nil;
+}
 
-#pragma mark - Public Methods
-
-- (id)initWithDataArray:(NSArray *)_array cellIdentifier:(NSString *)_cellIdentifier configureCellBlock:(TableViewConfigureCellBlock)_configureCellBlock
+- (id)initWithDataArray:(NSArray *)anArray cellIdentifier:(NSString *)aCellIdentifier configureCellBlock:(TableViewConfigureCellBlock)aConfigureCellBlock
 {
     self = [super init];
     if (self) {
-        self.dataArray = [[NSMutableArray alloc] initWithArray:_array copyItems:NO];
-        self.cellIdentifier = _cellIdentifier;
-        self.configureCellBlock = _configureCellBlock;
+        self.dataArray = anArray;
+        self.cellIdentifier = aCellIdentifier;
+        self.configureCellBlock = aConfigureCellBlock;
     }
     
     return self;
@@ -47,45 +45,32 @@
     return [self.dataArray objectAtIndex:(NSUInteger)indexPath.row];
 }
 
-#pragma mark - UITableView DataSource
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"identifier %@", self.cellIdentifier);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
-//    if (cell == nil) {
-//        if ([self.cellIdentifier isEqualToString:@"GGEventsCell"])
-//            cell = (GGEventsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGEventsCell" owner:self options:nil]  lastObject];
-//        else if ([self.cellIdentifier isEqualToString:@"GGListingsCell"])
-//            cell = (GGListingsCell *)[[[NSBundle  mainBundle]  loadNibNamed:@"GGListingsCell" owner:self options:nil]  lastObject];
-//    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
+
     id item = [self itemAtIndextPath:indexPath];
-    self.configureCellBlock(cell, item);
+    
+    __typeof (&*cell) __weak weakCell = cell;
+    self.configureCellBlock(weakCell, item);
+//    if ([self.cellIdentifier isEqual: @"GGEventsCell"]) {
+//        [(GGEventsCell *)cell showEventData:item];
+//    }
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"CYTableViewDataSource : %@", self.dataArray);
     return [self.dataArray count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//Default to be 1
+#warning Robust - Default to be 1
     return 1;
-}
-
-#pragma mark - 索引部分
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSString *title = [self.indexList objectAtIndex:section];
-    return title;
-}
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    return self.indexList;
 }
 
 @end

@@ -6,6 +6,37 @@
 // project.
 
 
+// FMDB
+#define COCOAPODS_POD_AVAILABLE_FMDB
+#define COCOAPODS_VERSION_MAJOR_FMDB 2
+#define COCOAPODS_VERSION_MINOR_FMDB 1
+#define COCOAPODS_VERSION_PATCH_FMDB 0
+
+// FMDB/common
+#define COCOAPODS_POD_AVAILABLE_FMDB_common
+#define COCOAPODS_VERSION_MAJOR_FMDB_common 2
+#define COCOAPODS_VERSION_MINOR_FMDB_common 1
+#define COCOAPODS_VERSION_PATCH_FMDB_common 0
+
+// FMDB/standard
+#define COCOAPODS_POD_AVAILABLE_FMDB_standard
+#define COCOAPODS_VERSION_MAJOR_FMDB_standard 2
+#define COCOAPODS_VERSION_MINOR_FMDB_standard 1
+#define COCOAPODS_VERSION_PATCH_FMDB_standard 0
+
+// JSONKit
+#define COCOAPODS_POD_AVAILABLE_JSONKit
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 1.5pre.
+
+// MKNetworkKit
+#define COCOAPODS_POD_AVAILABLE_MKNetworkKit
+#define COCOAPODS_VERSION_MAJOR_MKNetworkKit 0
+#define COCOAPODS_VERSION_MINOR_MKNetworkKit 87
+#define COCOAPODS_VERSION_PATCH_MKNetworkKit 0
+
 // REFormattedNumberField
 #define COCOAPODS_POD_AVAILABLE_REFormattedNumberField
 #define COCOAPODS_VERSION_MAJOR_REFormattedNumberField 1
@@ -17,4 +48,22 @@
 #define COCOAPODS_VERSION_MAJOR_RETableViewManager 1
 #define COCOAPODS_VERSION_MINOR_RETableViewManager 1
 #define COCOAPODS_VERSION_PATCH_RETableViewManager 3
+
+// Reachability
+#define COCOAPODS_POD_AVAILABLE_Reachability
+#define COCOAPODS_VERSION_MAJOR_Reachability 3
+#define COCOAPODS_VERSION_MINOR_Reachability 1
+#define COCOAPODS_VERSION_PATCH_Reachability 1
+
+// SVProgressHUD
+#define COCOAPODS_POD_AVAILABLE_SVProgressHUD
+#define COCOAPODS_VERSION_MAJOR_SVProgressHUD 0
+#define COCOAPODS_VERSION_MINOR_SVProgressHUD 9
+#define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
+
+// SparkInspector
+#define COCOAPODS_POD_AVAILABLE_SparkInspector
+#define COCOAPODS_VERSION_MAJOR_SparkInspector 1
+#define COCOAPODS_VERSION_MINOR_SparkInspector 0
+#define COCOAPODS_VERSION_PATCH_SparkInspector 12
 

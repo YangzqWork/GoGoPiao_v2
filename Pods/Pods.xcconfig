@@ -1,4 +1,5 @@
+FRAMEWORK_SEARCH_PATHS = "${PODS_ROOT}/SparkInspector"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/REFormattedNumberField" "${PODS_ROOT}/Headers/RETableViewManager"
-OTHER_LDFLAGS = -ObjC
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/FMDB" "${PODS_ROOT}/Headers/JSONKit" "${PODS_ROOT}/Headers/MKNetworkKit" "${PODS_ROOT}/Headers/MKNetworkKit/Categories" "${PODS_ROOT}/Headers/REFormattedNumberField" "${PODS_ROOT}/Headers/RETableViewManager" "${PODS_ROOT}/Headers/Reachability" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/SparkInspector"
+OTHER_LDFLAGS = -ObjC -lsqlite3 -lz -framework CFNetwork -framework QuartzCore -framework Security -framework SparkInspector -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods

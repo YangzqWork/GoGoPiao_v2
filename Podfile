@@ -1,2 +1,7 @@
 platform :ios, '6.0'
+pod 'MKNetworkKit', '~> 0.87'
 pod 'RETableViewManager', '~> 1.1.1'
+pod 'SVProgressHUD', '~> 0.9'
+pod 'JSONKit', '~> 1.5pre'
+pod 'FMDB', '~> 2.1'
+pod 'SparkInspector'

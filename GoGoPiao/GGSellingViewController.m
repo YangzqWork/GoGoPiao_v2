@@ -7,7 +7,9 @@
 //
 
 #import "GGSellingViewController.h"
-#import "GGSellingFillingViewController.h"
+#import "CYTableDataSource.h"
+#import "GGAuthManager.h"
+#import "GGEventSearchCell.h"
 
 @interface GGSellingViewController ()
 
@@ -120,12 +122,12 @@
     
     urlString = [NSString stringWithFormat:@"%@?token=%@&title=%@", @"/events.json", [GGAuthManager sharedManager].tempToken, _searchBar.text];
            
-    
-    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
-    GGGETLink *getLink = [getLinkFactory createLink:urlString];
-    [getLink getResponseData];
-    self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
-    [self.eventsArray addObjectsFromArray:[getLink getResponseJSON]];
+//    
+//    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
+//    GGGETLink *getLink = [getLinkFactory createLink:urlString];
+//    [getLink getResponseData];
+//    self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
+//    [self.eventsArray addObjectsFromArray:[getLink getResponseJSON]];
 }
 
 -(void)clear
@@ -154,7 +156,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GGSellingFillingViewController *fillingVC = [[GGSellingFillingViewController alloc] initWithNibName:@"GGSellingFillingViewController" bundle:nil];
+    
 }
 
 @end

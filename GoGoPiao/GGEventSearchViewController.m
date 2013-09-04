@@ -10,10 +10,12 @@
 #import "GGEventSearchResultsViewController.h"
 #import "GGEventSearchCell.h"
 #import "AppDelegate.h"
+#import "CYTableDataSource.h"
+#import "GGAuthManager.h"
 
 @interface GGEventSearchViewController ()
 
-@property (strong, nonatomic) NSMutableData *responseData;
+@property (strong, nonatomic) NSMutableArray *eventSearchedArray;
 @property (strong, nonatomic) CYTableDataSource *cyTableDataSource;
 
 @end
@@ -31,8 +33,6 @@
     if (self) {
         // Custom initialization
         self.title = @"搜索";
-      
-        [self setCoreData];
     }
     return self;
 }
@@ -41,18 +41,30 @@
 {
     [super viewDidLoad];
     allCount = 0;
-    [super viewDidLoad];
     self.navigationItem.title = @"搜索";
     results = [[NSMutableArray alloc] initWithCapacity:20];
     
-//    self.navigationItem.titleView = self.segmentSearch;
-//    [_searchBar becomeFirstResponder];
+    _searchBar.backgroundColor = [UIColor clearColor];
+    //去掉搜索框背景
+    for (UIView *subview in _searchBar.subviews)
+    {
+        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")])
+        {
+            [subview removeFromSuperview];
+            break;
+        }
+    }
+    //自定义背景
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2-red-menu-bar.png"]];
+    [_searchBar insertSubview:imageView atIndex:0];
+    
+    [_searchBar becomeFirstResponder];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    _searchBar.showsCancelButton = YES;
-    [self fetchResult];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.eventSearchedArray = [defaults objectForKey:@"EventSearched"];
     [self setTableView];
     [self.tableResult reloadData];
 }
@@ -71,6 +83,11 @@
 
 #pragma mark - 搜索以及搜索栏的Delegate
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    _searchBar.showsCancelButton = YES;
+}
+
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     if (_searchBar.text.length == 0) {
@@ -86,15 +103,15 @@
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    searchBar.text = @"";
-    [searchBar resignFirstResponder];
+    _searchBar.showsCancelButton = NO;
+    _searchBar.text = @"";
+    [_searchBar resignFirstResponder];
 }
 
 - (void)doSearch
 {
-//在Core Data中保存已经搜索过的Keyword
+    //NSUserDefaults保存已经搜索的数据
     [self createNewEventSearched];
-    
     
     GGEventSearchResultsViewController *resultsVC = [[GGEventSearchResultsViewController alloc] initWithNibName:@"GGEventSearchResultsViewController" bundle:nil];
     
@@ -118,12 +135,12 @@
 
 - (void)setTableView
 {
-    TableViewConfigureCellBlock configureCell = ^(GGEventSearchCell* cell, EventSearched *keyword) {
-        cell.titleLabel.text = [keyword valueForKey:@"title"];
+    TableViewConfigureCellBlock configureCell = ^(GGEventSearchCell* cell, NSString *keyword) {
+        cell.titleLabel.text = keyword;
     };
     
-    NSArray *array = [self.fetchResultController fetchedObjects];
-    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:array cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell];
+//    NSArray *array = [self.fetchResultController fetchedObjects];
+    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventSearchedArray cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell];
     
     self.tableResult.delegate = self;
     self.tableResult.dataSource = self.cyTableDataSource;
@@ -131,63 +148,32 @@
     [self.tableResult registerNib:[GGEventSearchCell nib] forCellReuseIdentifier:@"GGEventSearchCell"];
 }
 
-#pragma mark - Core Data
-
-- (void)setCoreData
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = [delegate managedObjectContext];
-    self.entityDescription = [NSEntityDescription entityForName:@"EventSearched" inManagedObjectContext:self.managedObjectContext];
-}
-
-- (void)fetchResult
-{
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    
-    [request setEntity:self.entityDescription];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    self.fetchResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    
-    NSError *fetchError = nil;
-    BOOL success = [self.fetchResultController performFetch:&fetchError];
-    if (success) {
-        NSLog(@"fetched!");
-    }
-    else {
-        NSLog(@"fetch fail!");
-    }
-    
-    NSLog(@"EventSearchVC : %@", [self.fetchResultController fetchedObjects]);
-}
+#pragma mark - 增加搜索数据
 
 - (void)createNewEventSearched
 {
-
-    EventSearched *newKeyWord = [NSEntityDescription insertNewObjectForEntityForName:@"EventSearched" inManagedObjectContext:self.managedObjectContext];
-    if (newKeyWord  != nil) {
-        newKeyWord.title = _searchBar.text;
-        NSError *savingError = nil;
-        if ([self.managedObjectContext save:&savingError]) {
-            NSLog(@"Successfully saved the context.");
-        }
-        else {
-            NSLog(@"Failed to save the context. Error = %@", savingError);
-        }
-    } else {
-        NSLog(@"Failed to create the new person.");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *eventsArray = [NSMutableArray arrayWithArray: [defaults objectForKey:@"EventSearched"]];
+    if (eventsArray == nil) {
+        [defaults setObject:[NSArray arrayWithObject:_searchBar.text] forKey:@"EventSearched"];
     }
+    else {
+        if (![eventsArray containsObject:_searchBar.text]) {
+            [eventsArray addObject:_searchBar.text];
+            [defaults setObject:eventsArray forKey:@"EventSearched"];
+        }
+    }
+    [defaults synchronize];
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *array = [self.fetchResultController fetchedObjects];
-    EventSearched *item = [array objectAtIndex:indexPath.row];
-    NSString *keyword = [item valueForKey:@"title"];
+    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"EventSearched"];
+    NSString *keyword = [array objectAtIndex:indexPath.row];
+    
     
     GGEventSearchResultsViewController *resultsVC = [[GGEventSearchResultsViewController alloc] initWithNibName:@"GGEventSearchResultsViewController" bundle:nil];
-    
     resultsVC.searchKeyword = keyword;
     
     self.hidesBottomBarWhenPushed = YES;

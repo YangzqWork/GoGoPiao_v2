@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GGNetworkEngine.h"
 
-@interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface GGEventViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *concertTableView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

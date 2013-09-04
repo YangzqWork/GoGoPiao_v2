@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGEventSearchResultsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface GGEventSearchResultsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> 
 
 @property (strong, nonatomic) NSString *searchKeyword;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
