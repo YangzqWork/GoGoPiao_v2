@@ -16,4 +16,4 @@
 #endif
 
 #define api_events_list @"http://42.121.58.78/api/v1/events.json"
-#define base_url @"http://42.121.58.78/api/v1"
+#define HOST_IP @"42.121.58.78"

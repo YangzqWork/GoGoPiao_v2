@@ -27,9 +27,15 @@
     
     [self customizeiPhoneTheme];
     [self setUpNetworkEngine];
-    [self getCFUUID];
+//    [self getCFUUID];
     //如果拿到Token以后，就登陆
-    [self getTravellerToken];
+    
+    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+    [self.window setRootViewController:self.ggMainVC];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+//    [self getTravellerToken];
 
     return YES;
 }

@@ -44,7 +44,7 @@
     NSString *posterURLString = [NSString stringWithFormat:@"%@", thisEvent[@"poster_url"]];
     NSLog(@"%@", posterURLString);
     
-    MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:posterURLString params:nil httpMethod:@"GET"];
+    MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithURLString:posterURLString params:nil httpMethod:@"GET"];
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         [self.eventsImageView setImage:[completedOperation responseImage]];
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {

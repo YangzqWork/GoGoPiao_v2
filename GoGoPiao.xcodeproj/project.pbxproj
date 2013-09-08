@@ -69,6 +69,8 @@
 		187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ABED017A2161200113C80 /* CYTableDataSource.m */; };
 		187FE96517D5C872009A6C95 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 187FE96417D5C872009A6C95 /* Constants.m */; };
 		18843C2317D6F4960023490F /* GGEventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18843C2217D6F4960023490F /* GGEventsCell.xib */; };
+		18913B9D17D8AC15009D94D9 /* ChoiceListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18913B9C17D8AC15009D94D9 /* ChoiceListView.m */; };
+		18913BA017D8AC2D009D94D9 /* ChoiceListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18913B9F17D8AC2D009D94D9 /* ChoiceListView.xib */; };
 		18957B6217C8511D00009FE9 /* GGMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18957B6017C8511D00009FE9 /* GGMoreViewController.m */; };
 		18957B6317C8511D00009FE9 /* GGMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18957B6117C8511D00009FE9 /* GGMoreViewController.xib */; };
 		18957B6B17C863C200009FE9 /* EventSearched.m in Sources */ = {isa = PBXBuildFile; fileRef = 18957B6A17C863C200009FE9 /* EventSearched.m */; };
@@ -84,6 +86,10 @@
 		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
 		18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1523817BBB75B00841C11 /* GGEventSearchCell.m */; };
 		18D1523B17BBB76F00841C11 /* GGEventSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */; };
+		18D93A8517DC2E1300F2CC33 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D93A8017DC2E1300F2CC33 /* EGORefreshTableHeaderView.m */; };
+		18D93A8617DC2E1300F2CC33 /* PullToRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D93A8217DC2E1300F2CC33 /* PullToRefreshViewController.m */; };
+		18D93A8717DC2E1300F2CC33 /* RefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D93A8317DC2E1300F2CC33 /* RefreshArrow.png */; };
+		18D93A8817DC2E1300F2CC33 /* RefreshArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D93A8417DC2E1300F2CC33 /* RefreshArrow@2x.png */; };
 		18DC25E417A3CA0C0068C62E /* temp_concert.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DC25E317A3CA0C0068C62E /* temp_concert.png */; };
 		18E6A9B91793FAD100E53621 /* login_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E6A9B81793FAD100E53621 /* login_pic.png */; };
 		290A4B84453149ADB9B15F85 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 492F2180B4DF4903B3FA911F /* libPods.a */; };
@@ -172,6 +178,9 @@
 		187FE96317D5C872009A6C95 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		187FE96417D5C872009A6C95 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		18843C2217D6F4960023490F /* GGEventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventsCell.xib; sourceTree = "<group>"; };
+		18913B9B17D8AC15009D94D9 /* ChoiceListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceListView.h; sourceTree = "<group>"; };
+		18913B9C17D8AC15009D94D9 /* ChoiceListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceListView.m; sourceTree = "<group>"; };
+		18913B9F17D8AC2D009D94D9 /* ChoiceListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceListView.xib; sourceTree = "<group>"; };
 		18957B5F17C8511D00009FE9 /* GGMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMoreViewController.h; sourceTree = "<group>"; };
 		18957B6017C8511D00009FE9 /* GGMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMoreViewController.m; sourceTree = "<group>"; };
 		18957B6117C8511D00009FE9 /* GGMoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGMoreViewController.xib; sourceTree = "<group>"; };
@@ -195,6 +204,12 @@
 		18D1523717BBB75B00841C11 /* GGEventSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventSearchCell.h; sourceTree = "<group>"; };
 		18D1523817BBB75B00841C11 /* GGEventSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventSearchCell.m; sourceTree = "<group>"; };
 		18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventSearchCell.xib; sourceTree = "<group>"; };
+		18D93A7F17DC2E1300F2CC33 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		18D93A8017DC2E1300F2CC33 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		18D93A8117DC2E1300F2CC33 /* PullToRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshViewController.h; sourceTree = "<group>"; };
+		18D93A8217DC2E1300F2CC33 /* PullToRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshViewController.m; sourceTree = "<group>"; };
+		18D93A8317DC2E1300F2CC33 /* RefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RefreshArrow.png; sourceTree = "<group>"; };
+		18D93A8417DC2E1300F2CC33 /* RefreshArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RefreshArrow@2x.png"; sourceTree = "<group>"; };
 		18DC25E317A3CA0C0068C62E /* temp_concert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temp_concert.png; sourceTree = "<group>"; };
 		18E6A9B81793FAD100E53621 /* login_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_pic.png; sourceTree = "<group>"; };
 		492F2180B4DF4903B3FA911F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				18359D8A17B7912600A8B95E /* 场次 */,
-				189F448B17B8CCA700D9275B /* 卖逻辑 */,
 				182C6BC517BF2B9B005CA40A /* 我的 */,
 				1851458F17C9A941009805E7 /* 更多 */,
 			);
@@ -311,6 +325,9 @@
 		182CED3F1792960500C23EB4 /* GoGoPiao */ = {
 			isa = PBXGroup;
 			children = (
+				18D93A8917DC2E1E00F2CC33 /* 刷新 */,
+				18D93A8317DC2E1300F2CC33 /* RefreshArrow.png */,
+				18D93A8417DC2E1300F2CC33 /* RefreshArrow@2x.png */,
 				187FE96317D5C872009A6C95 /* Constants.h */,
 				187FE96417D5C872009A6C95 /* Constants.m */,
 				1861D77617CF5B9C009DD2EA /* EventTitleView.h */,
@@ -321,6 +338,7 @@
 				186A7796179D177E00240EDF /* Cells */,
 				18957B6C17C863C800009FE9 /* CoreData */,
 				1806B719179901180088234C /* AppDelegate/主界面 */,
+				18913B9E17D8AC1A009D94D9 /* View */,
 				182CED781792FC9500C23EB4 /* ViewControllers */,
 				182CED401792960500C23EB4 /* Supporting Files */,
 			);
@@ -330,13 +348,7 @@
 		182CED401792960500C23EB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18B5839B17BF682A00059CB1 /* logo.png */,
-				18DC25E317A3CA0C0068C62E /* temp_concert.png */,
-				186A77A1179D266300240EDF /* CheckBox */,
-				183485A3179BB00500EF229F /* sortednames.plist */,
-				1806B7081798ECBA0088234C /* 登录注册 */,
-				18791DA4179369EF00B02EB2 /* TabBarImages */,
-				18791D9B1793684000B02EB2 /* NavBarImages */,
+				18913B9A17D83110009D94D9 /* Images */,
 				182CED411792960500C23EB4 /* GoGoPiao-Info.plist */,
 				182CED421792960500C23EB4 /* InfoPlist.strings */,
 				182CED451792960500C23EB4 /* main.m */,
@@ -365,6 +377,7 @@
 				182CED6F1792F72100C23EB4 /* GGEventViewController.m */,
 				182CED701792F72100C23EB4 /* GGEventViewController.xib */,
 				18957B7217C8942100009FE9 /* 搜索逻辑 */,
+				189F448B17B8CCA700D9275B /* 卖逻辑 */,
 				1829300417D47C4E00A085CB /* 买逻辑 */,
 			);
 			name = "场次";
@@ -448,6 +461,30 @@
 			name = TabBarImages;
 			sourceTree = "<group>";
 		};
+		18913B9A17D83110009D94D9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				18B5839B17BF682A00059CB1 /* logo.png */,
+				18DC25E317A3CA0C0068C62E /* temp_concert.png */,
+				186A77A1179D266300240EDF /* CheckBox */,
+				183485A3179BB00500EF229F /* sortednames.plist */,
+				1806B7081798ECBA0088234C /* 登录注册 */,
+				18791DA4179369EF00B02EB2 /* TabBarImages */,
+				18791D9B1793684000B02EB2 /* NavBarImages */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		18913B9E17D8AC1A009D94D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18913B9B17D8AC15009D94D9 /* ChoiceListView.h */,
+				18913B9C17D8AC15009D94D9 /* ChoiceListView.m */,
+				18913B9F17D8AC2D009D94D9 /* ChoiceListView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		18957B6C17C863C800009FE9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +544,17 @@
 				187ABED017A2161200113C80 /* CYTableDataSource.m */,
 			);
 			name = Delegate;
+			sourceTree = "<group>";
+		};
+		18D93A8917DC2E1E00F2CC33 /* 刷新 */ = {
+			isa = PBXGroup;
+			children = (
+				18D93A7F17DC2E1300F2CC33 /* EGORefreshTableHeaderView.h */,
+				18D93A8017DC2E1300F2CC33 /* EGORefreshTableHeaderView.m */,
+				18D93A8117DC2E1300F2CC33 /* PullToRefreshViewController.h */,
+				18D93A8217DC2E1300F2CC33 /* PullToRefreshViewController.m */,
+			);
+			name = "刷新";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,6 +657,9 @@
 				1829300917D4860F00A085CB /* GGSellFirstViewController.xib in Resources */,
 				1829300E17D4861C00A085CB /* GGSellSecondViewController.xib in Resources */,
 				18843C2317D6F4960023490F /* GGEventsCell.xib in Resources */,
+				18913BA017D8AC2D009D94D9 /* ChoiceListView.xib in Resources */,
+				18D93A8717DC2E1300F2CC33 /* RefreshArrow.png in Resources */,
+				18D93A8817DC2E1300F2CC33 /* RefreshArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +730,9 @@
 				1829300D17D4861C00A085CB /* GGSellSecondViewController.m in Sources */,
 				18734EC217D58F3A0059F69B /* GGNetworkEngine.m in Sources */,
 				187FE96517D5C872009A6C95 /* Constants.m in Sources */,
+				18913B9D17D8AC15009D94D9 /* ChoiceListView.m in Sources */,
+				18D93A8517DC2E1300F2CC33 /* EGORefreshTableHeaderView.m in Sources */,
+				18D93A8617DC2E1300F2CC33 /* PullToRefreshViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

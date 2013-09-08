@@ -8,6 +8,13 @@
 
 #import "GGNetworkEngine.h"
 #import "MKNetworkOperation.h"
+#import "Reachability.h"
+
+@interface GGNetworkEngine ()
+
+@property (strong, nonatomic) Reachability *reachability;
+
+@end
 
 @implementation GGNetworkEngine
 

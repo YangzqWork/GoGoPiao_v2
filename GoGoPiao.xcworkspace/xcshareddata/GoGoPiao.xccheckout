@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4FE11118-E0F6-4EA1-8D6C-C9DE8056A73F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GoGoPiao</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>20F65541-0050-4408-8790-8C69941A98A7</key>
+		<string>https://github.com/JackieLam/GoGoPiao_v2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GoGoPiao.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>20F65541-0050-4408-8790-8C69941A98A7</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JackieLam/GoGoPiao_v2.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>20F65541-0050-4408-8790-8C69941A98A7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>20F65541-0050-4408-8790-8C69941A98A7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GoGoPiao_v2</string>
+		</dict>
+	</array>
+</dict>
+</plist>
