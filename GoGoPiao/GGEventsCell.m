@@ -42,7 +42,6 @@
     self.idNumber = thisEvent[@"id"];
     
     NSString *posterURLString = [NSString stringWithFormat:@"%@", thisEvent[@"poster_url"]];
-    NSLog(@"%@", posterURLString);
     
     MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithURLString:posterURLString params:nil httpMethod:@"GET"];
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {

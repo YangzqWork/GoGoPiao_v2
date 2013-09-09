@@ -47,8 +47,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == [self.dataArray count]) {
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"loadMoreCell"];
+        cell.textLabel.text = @"加载更多...";
+        return cell;
+    }
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
-
+    
     id item = [self itemAtIndextPath:indexPath];
     
     __typeof (&*cell) __weak weakCell = cell;
@@ -62,8 +69,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"CYTableViewDataSource : %@", self.dataArray);
-    return [self.dataArray count];
+    NSLog(@"CYTableViewDataSource : %d", [self.dataArray count]);
+    return [self.dataArray count] + 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

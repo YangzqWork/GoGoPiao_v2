@@ -28,7 +28,6 @@
     [self customizeiPhoneTheme];
     [self setUpNetworkEngine];
 //    [self getCFUUID];
-    //如果拿到Token以后，就登陆
     
     self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
     [self.window setRootViewController:self.ggMainVC];
@@ -141,7 +140,7 @@
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     
-    UIImage *navBarImage = [UIImage imageNamed:@"2-red-menu-bar.png"];
+    UIImage *navBarImage = [UIImage imageNamed:@"nav_bg.png"];
     
     [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     
@@ -156,11 +155,27 @@
     
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tab_bg.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     
     
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
+//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
+//    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+//    UITabBar *tabBar = tabBarController.tabBar;
+//    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+//    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+//    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+//    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+//    
+//    tabBarItem1.title = @"Home";
+//    tabBarItem2.title = @"Maps";
+//    tabBarItem3.title = @"My Plan";
+//    tabBarItem4.title = @"Settings";
+//    
+//    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home.png"]];
+//    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"maps_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"maps.png"]];
+//    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"myplan_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"myplan.png"]];
+//    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
 }
 
 - (void)setUpNetworkEngine
@@ -188,7 +203,7 @@
     param[@"client_secret"] = @"515104200a02f596fea7c2f298aa621084c5985b";
     
     
-    MKNetworkOperation *op = [self.networkEngine operationWithPath:@"/api/v1/auth/xapp_auth.json" params:param httpMethod:@"GET"];
+    MKNetworkOperation *op = [self.networkEngine operationWithPath:@"api/v1/auth/xapp_auth.json" params:param httpMethod:@"GET"];
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {

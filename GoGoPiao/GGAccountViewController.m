@@ -19,7 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"账号设置";
 //        self.navigationController.navigationItem.title = @"账号设置";
         
     }

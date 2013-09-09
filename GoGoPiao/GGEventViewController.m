@@ -16,7 +16,7 @@
 #import "Constants.h"
 
 
-@interface GGEventViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface GGEventViewController ()
 
 @property (nonatomic, strong) NSArray *events;
 
@@ -38,9 +38,14 @@
     
         self.token = nil;
 //BarButton
-        self.concertTableView.hidden = NO;
-        self.title = @"场次";
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonPressed:)];
+        self.navigationItem.title = @"票集网";
+        self.tableView.hidden = NO;
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_searchBtn.png"] style:UIBarButtonItemStyleDone target:self action:@selector(searchButtonPressed:)];
+//        UIImageView *barButtonImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_searchBtn.png"]];
+//        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:barButtonImageView];
+//        [barButton setCustomView:barButtonImageView];
+//        [barButton setImage:[UIImage imageNamed:@"nav_searchBtn.png"]];
+//        [barButton setBackgroundImage:[UIImage imageNamed:@"nav_searchBtn.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         self.navigationItem.rightBarButtonItem = barButton;
     }
     return self;
@@ -50,8 +55,20 @@
 {
     [super viewDidLoad];
     
+    if (_refreshHeaderView == nil) {
+		
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		view.delegate = self;
+		[self.tableView addSubview:view];
+		_refreshHeaderView = view;
+		
+	}
+    
     [self.segmentControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
-    self.eventsArray = [NSMutableArray array];
+    [self.segmentControl setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    self.eventsArray = [NSMutableArray arrayWithCapacity:10];
+    
     
     [self setToken];
     if (self.token == nil)
@@ -74,8 +91,9 @@
 
 - (void)viewDidUnload
 {
-    [self setConcertTableView:nil];
     [self setSegmentControl:nil];
+    [self setTableView:nil];
+    _refreshHeaderView=nil;
     [super viewDidUnload];
 }
 
@@ -83,6 +101,7 @@
 - (void)segmentChanged:(UISegmentedControl *)paramSender
 {
     if ([paramSender isEqual:self.segmentControl]){
+        
         int selectedSegmentIndex = [paramSender selectedSegmentIndex];
         NSString *selectedSegmentText = [paramSender titleForSegmentAtIndex:selectedSegmentIndex];
         
@@ -116,6 +135,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == [self.eventsArray count]) {
+        
+        [self performSelectorInBackground:@selector(loadMore) withObject:nil];
+        //[loadMoreCell setHighlighted:NO];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        return;
+    }
+    
     NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
     NSString *idNumber = currentEvent[@"event"][@"id"];
     
@@ -203,14 +231,14 @@
     }
     
     paramDict[@"token"] = self.token;
-    NSLog(@"paramDict : %@", paramDict);
     MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:@"api/v1/events.json" params:paramDict httpMethod:@"GET"];
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
             
             NSDictionary *responseDictionary = (NSDictionary *)jsonObject;
-            self.eventsArray = responseDictionary[@"result"][@"events"];
+            [self.eventsArray addObjectsFromArray:(NSArray *)responseDictionary[@"result"][@"events"]];
+//            self.eventsArray = responseDictionary[@"result"][@"events"];
             
             [self setTableView];
         }];
@@ -228,14 +256,147 @@
         [cell showEventData:event[@"event"]];
     };
     
-    [self.concertTableView registerNib:[GGEventsCell nib] forCellReuseIdentifier:@"GGEventsCell"];
+    [self.tableView registerNib:[GGEventsCell nib] forCellReuseIdentifier:@"GGEventsCell"];
     self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
     
-    NSLog(@"self.eventsArray : %@", self.eventsArray);
-    self.concertTableView.delegate = self;
-    self.concertTableView.dataSource = self.cyTableDataSource;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self.cyTableDataSource;
     
-    [self.concertTableView reloadData];
+    [self.tableView reloadData];
+}
+
+
+#pragma mark -
+#pragma mark Data Source Loading / Reloading Methods
+
+- (void)reloadTableViewDataSource{
+	
+	//  should be calling your tableviews data source model to reload
+	//  put here just for demo
+	_reloading = YES;
+    
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    paramDict[@"token"] = self.token;
+    MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:@"api/v1/events.json" params:paramDict httpMethod:@"GET"];
+    
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
+            
+            NSDictionary *responseDictionary = (NSDictionary *)jsonObject;
+            [self.eventsArray removeAllObjects];
+            [self.eventsArray addObjectsFromArray:(NSArray *)responseDictionary[@"result"][@"events"]];
+//            self.eventsArray = responseDictionary[@"result"][@"events"];
+            
+            [self.tableView reloadData];
+        }];
+    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+    [ApplicationDelegate.networkEngine enqueueOperation:op];
+
+}
+
+- (void)doneLoadingTableViewData{
+	
+	//  model should call this when its done loading
+	_reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+	
+}
+
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+	
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+	
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+	
+}
+
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+	
+	[self reloadTableViewDataSource];
+	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
+	
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+	
+	return _reloading; // should return if data source model is reloading
+	
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+	
+	return [NSDate date]; // should return date data source was last changed
+	
+}
+
+#pragma mark - loadMore
+
+- (void)loadMore
+{
+    NSMutableArray *moreEvents = [NSMutableArray array];
+    
+    static NSInteger current_page = 1;
+    current_page += 1;
+    
+#warning 继续拿pagination = 2，3，4...的信息
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    paramDict[@"token"] = self.token;
+    paramDict[@"page"] = [NSString stringWithFormat:@"%ld", (long)current_page];
+    
+    MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:@"api/v1/events.json" params:paramDict httpMethod:@"GET"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
+            
+            NSDictionary *responseDictionary = (NSDictionary *)jsonObject;
+            NSLog(@"original responseDictionary : %@", responseDictionary);
+            [moreEvents addObjectsFromArray:responseDictionary[@"result"][@"events"]];
+            [self performSelectorOnMainThread:@selector(appendTableWith:) withObject:moreEvents waitUntilDone:NO];
+        }];
+    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+    [ApplicationDelegate.networkEngine enqueueOperation:op];
+}
+
+-(void) appendTableWith:(NSMutableArray *)data
+{
+    NSIndexPath *last = [NSIndexPath indexPathForRow:[self.eventsArray count] inSection:0];
+    NSArray *toBeDeleted = [NSArray arrayWithObject:last];
+    
+    for (int i=0;i<[data count];i++) {
+        [self.eventsArray addObject:[data objectAtIndex:i]];
+    }
+    
+    NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10];
+    for (int ind = 0; ind < [data count]; ind++) {
+        NSLog(@"%lu", (unsigned long)[self.eventsArray indexOfObject:[data objectAtIndex:ind]]);
+        NSIndexPath *newPath = [NSIndexPath indexPathForRow:([self.eventsArray indexOfObject:[data objectAtIndex:ind]] - 1) inSection:0];
+        [insertIndexPaths addObject:newPath];
+    }
+//
+//    [self.tableView beginUpdates];
+//    [self.tableView deleteRowsAtIndexPaths:toBeDeleted withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
 }
 
 @end

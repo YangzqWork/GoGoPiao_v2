@@ -70,11 +70,10 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBSegmentControlStyle">2</int>
 						<int key="IBNumberOfSegments">3</int>
-						<int key="IBSelectedSegmentIndex">0</int>
 						<array key="IBSegmentTitles">
-							<string>地区</string>
-							<string>场次类别</string>
-							<string>艺术家</string>
+							<string/>
+							<string/>
+							<string/>
 						</array>
 						<array class="NSMutableArray" key="IBSegmentWidths">
 							<real value="0.0"/>
@@ -92,13 +91,19 @@
 							<string>{0, 0}</string>
 						</array>
 						<array class="NSMutableArray" key="IBSegmentImages">
-							<object class="NSNull" id="4"/>
-							<reference ref="4"/>
-							<reference ref="4"/>
+							<object class="NSCustomResource">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">seg_selectedBtn.png</string>
+							</object>
+							<object class="NSCustomResource" id="210873723">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">seg_normalBtn.png</string>
+							</object>
+							<reference ref="210873723"/>
 						</array>
 						<object class="NSColor" key="IBTintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4wMzAxMDIwNDA4MiAwLjAyOTU5MTgzNjczIDAuMDMwNjEyMjQ0OQA</bytes>
+							<bytes key="NSRGB">MC42OTk0MTgwNDg1IDAuMDM2NjgyNDgyNzggMC4wOTc0OTM3NDkxNgA</bytes>
 						</object>
 					</object>
 				</array>
@@ -143,19 +148,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">concertTableView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="933060902"/>
-					</object>
-					<int key="connectionID">14</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">segmentControl</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="252340872"/>
 					</object>
 					<int key="connectionID">16</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">tableView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="933060902"/>
+					</object>
+					<int key="connectionID">56</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -205,14 +210,14 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<integer value="2" key="11.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
+				<integer value="0" key="11.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">54</int>
+			<int key="maxID">57</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -220,17 +225,17 @@
 					<string key="className">GGEventViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="concertTableView">UITableView</string>
 						<string key="segmentControl">UISegmentedControl</string>
+						<string key="tableView">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="concertTableView">
-							<string key="name">concertTableView</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="segmentControl">
 							<string key="name">segmentControl</string>
 							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tableView">
+							<string key="name">tableView</string>
+							<string key="candidateClassName">UITableView</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -244,6 +249,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="seg_normalBtn.png">{108, 35}</string>
+			<string key="seg_selectedBtn.png">{108, 35}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

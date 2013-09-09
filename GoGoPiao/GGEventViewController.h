@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GGNetworkEngine.h"
-
+#import "EGORefreshTableHeaderView.h"
 
 typedef enum EventCategoryTag : NSUInteger{
     SportsTag = 0,
@@ -17,11 +17,19 @@ typedef enum EventCategoryTag : NSUInteger{
     AllTag = 3
 }EventCategoryTag;
 
-@interface GGEventViewController : UIViewController
+@interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, EGORefreshTableHeaderDelegate>
+{
+	
+	EGORefreshTableHeaderView *_refreshHeaderView;
+	
+	//  Reloading var should really be your tableviews datasource
+	//  Putting it here for demo purposes
+	BOOL _reloading;
+}
 
-@property (strong, nonatomic) IBOutlet UITableView *concertTableView;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
-
 
 
 

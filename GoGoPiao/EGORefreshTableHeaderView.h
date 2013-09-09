@@ -31,26 +31,33 @@ typedef enum{
 	EGOOPullRefreshPulling = 0,
 	EGOOPullRefreshNormal,
 	EGOOPullRefreshLoading,	
-	EGOOPullRefreshUpToDate,
 } EGOPullRefreshState;
 
+@protocol EGORefreshTableHeaderDelegate;
 @interface EGORefreshTableHeaderView : UIView {
 	
-	UILabel *lastUpdatedLabel;
-	UILabel *statusLabel;
-	CALayer *arrowImage;
-	UIActivityIndicatorView *activityView;
-	
+	id _delegate;
 	EGOPullRefreshState _state;
-    NSString *_keyNameForDataStore;
+
+	UILabel *_lastUpdatedLabel;
+	UILabel *_statusLabel;
+	CALayer *_arrowImage;
+	UIActivityIndicatorView *_activityView;
+	
+
 }
 
-@property(nonatomic,assign) EGOPullRefreshState state;
-@property (nonatomic, strong) NSString *keyNameForDataStore;
+@property(nonatomic,assign) id <EGORefreshTableHeaderDelegate> delegate;
 
-- (id)initWithFrameRelativeToFrame:(CGRect)originalFrame;
-- (void)setLastRefreshDate:(NSDate*)date;
-- (void)setCurrentDate;
-- (void)setState:(EGOPullRefreshState)aState;
+- (void)refreshLastUpdatedDate;
+- (void)egoRefreshScrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)egoRefreshScrollViewDidEndDragging:(UIScrollView *)scrollView;
+- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView;
 
+@end
+@protocol EGORefreshTableHeaderDelegate
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view;
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view;
+@optional
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view;
 @end
