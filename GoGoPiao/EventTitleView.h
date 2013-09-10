@@ -2,7 +2,7 @@
 //  EventTitleView.h
 //  GoGoPiao
 //
-//  Created by Cho-Yeung Lam on 29/8/13.
+//  Created by Cho-Yeung Lam on 9/9/13.
 //  Copyright (c) 2013 Cho-Yeung Lam. All rights reserved.
 //
 
@@ -11,6 +11,8 @@
 @interface EventTitleView : UIView
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *subTitleLabel;
+
++ (id)eventTitleView;
 
 @end

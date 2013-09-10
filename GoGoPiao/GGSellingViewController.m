@@ -145,7 +145,7 @@
         cell.titleLabel.text = [event objectForKey:@"title"];
     };
     
-    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell];
+    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell tableViewType:TableViewTypeNormal];
     
     self.tableResult.delegate = self;
     self.tableResult.dataSource = self.cyTableDataSource;

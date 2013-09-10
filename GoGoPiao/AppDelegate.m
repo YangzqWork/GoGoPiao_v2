@@ -31,6 +31,7 @@
     
     self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
     [self.window setRootViewController:self.ggMainVC];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -139,43 +140,64 @@
 {
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+
+//UINavigationBar
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
     
     UIImage *navBarImage = [UIImage imageNamed:@"nav_bg.png"];
     
     [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     
     
-    UIImage *barButton = [[UIImage imageNamed:@"2-red-bar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+//    UIImage *backButton = [[UIImage imageNamed:@"nav_backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
-    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    UIImage *backButton = [[UIImage imageNamed:@"2-red-back-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-    
-    
-    
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tab_bg.png"];
+
+
+//UITabBar
+    UIImage *tabBarBackground = [UIImage imageNamed:@"tab_bg.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     
+    UIImage *tabBarIndicatorImage = [UIImage imageNamed:@"tab_indicator.png"];
+    [[UITabBar appearance] setSelectionIndicatorImage:tabBarIndicatorImage];
     
-//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
-//    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-//    UITabBar *tabBar = tabBarController.tabBar;
-//    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-//    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-//    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-//    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
-//    
-//    tabBarItem1.title = @"Home";
-//    tabBarItem2.title = @"Maps";
-//    tabBarItem3.title = @"My Plan";
-//    tabBarItem4.title = @"Settings";
-//    
-//    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home.png"]];
-//    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"maps_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"maps.png"]];
-//    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"myplan_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"myplan.png"]];
-//    [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
+    
+//UISegmentControl
+    UIImage *segmentSelected =
+    [UIImage imageNamed:@"seg_selectedBtn.png"];
+    UIImage *segmentUnselected =
+    [UIImage imageNamed:@"seg_normalBtn.png"];
+    
+    [[UISegmentedControl appearance] setBackgroundImage:segmentUnselected forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setBackgroundImage:segmentSelected forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setTitleTextAttributes:
+     @{
+        UITextAttributeTextColor : [UIColor blackColor],
+        UITextAttributeTextShadowColor : [UIColor clearColor],
+        
+     } forState:UIControlStateNormal];
+    [[UISegmentedControl appearance] setTitleTextAttributes:
+     @{
+        UITextAttributeTextColor : [UIColor blackColor],
+        UITextAttributeTextShadowColor : [UIColor clearColor],
+        
+     }  forState:UIControlStateSelected];
+    
+//UISearchBar
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"search_bar.png"] forState:UIControlStateNormal];
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"search_bar.png"] forState:UIControlStateSelected];
+    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"search_bg.png"]];
+    
+    //SearchBar -- Cancel Button
+    UIBarButtonItem *searchBarButton = [UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil];
+    [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [searchBarButton setTitle:@"取消"];
+    [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor blackColor]} forState:UIControlStateNormal];
+    [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor grayColor]} forState:UIControlStateSelected];
 }
 
 - (void)setUpNetworkEngine

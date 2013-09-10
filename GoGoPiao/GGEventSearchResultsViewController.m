@@ -36,9 +36,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self customizeNavigationBar];
+    [self setExtraTableViewCellHidden:self.tableView];
     
-    
-    self.title = self.searchKeyword;
+    self.title = @"搜索结果";
     self.eventsArray = [NSMutableArray array];
     [self returnSearchResult];
 }
@@ -54,26 +55,42 @@
     [super viewDidUnload];
 }
 
+#pragma mark - Customize Appearance
+- (void)customizeNavigationBar
+{
+    self.navigationItem.leftBarButtonItem.title = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    UIImage* backButtonImage = [UIImage imageNamed:@"nav_backBtn.png"];
+    CGRect frameimgleft = CGRectMake(0, 0, backButtonImage.size.width, backButtonImage.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimgleft];
+    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backButtonItem =[[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+}
+
+- (void)setExtraTableViewCellHidden:(UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
+
+#pragma mark - Back Button
+- (void)didClickBackButton
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - 搜索结果返回
 - (void)returnSearchResult
 {
-//    NSString *urlString;
-//    NSLog(@"check searchBar : %@", self.searchKeyword);
-//    
-//    urlString = [NSString stringWithFormat:@"%@?token=%@&title=%@", @"/events.json", [GGAuthManager sharedManager].tempToken, self.searchKeyword];
-//    NSLog(@"%@", urlString);
-//    
-//    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
-//    GGGETLink *getLink = [getLinkFactory createLink:urlString];
-//    [getLink getResponseData];
-//    NSDictionary *dict = (NSDictionary *)[getLink getResponseJSON];
-//    NSArray *array = [[dict objectForKey:@"result"] objectForKey:@"events"];
-//    self.eventsArray = [[NSMutableArray alloc] initWithArray:nil];
-//    [self.eventsArray addObjectsFromArray:array];
-//    
-    NSDictionary *paramDict = @{@"token":[GGAuthManager sharedManager].tempToken, @"title":self.searchKeyword};
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:@"/api/v1/events.json" params:paramDict httpMethod:@"GET"];
+    NSDictionary *paramDict = @{@"token":[defaults objectForKey:@"tempToken"], @"title":self.searchKeyword};
+    
+    MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:@"api/v1/events.json" params:paramDict httpMethod:@"GET"];
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
             
@@ -99,7 +116,7 @@
         [cell showEventData:event[@"event"]];
     };
     
-    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
+    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell tableViewType:TableViewTypeNormal];
     
     self.tableView.dataSource = self.cyTableDataSource;
     self.tableView.delegate = self;
@@ -111,19 +128,20 @@
 #pragma mark - TableView Delegate
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *event = [self.eventsArray objectAtIndex:indexPath.row];
-    NSString *eventTitle = [[event objectForKey:@"event"] objectForKey:@"title"];
-    NSString *eventTime = [[event objectForKey:@"event"] objectForKey:@"start_time"];
-    NSString *eventIDNumber = [[event objectForKey:@"event"] objectForKey:@"id"];
+    NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
     
-    self.chooseVC = [[GGChooseViewController alloc] initWithNibName:@"GGChooseViewController" bundle:nil];
-    self.chooseVC.titleString = eventTitle;
-    self.chooseVC.subtitleString = eventTime;
-    self.chooseVC.idNumber = eventIDNumber;
+    GGChooseViewController *chooseVC = [[GGChooseViewController alloc] initWithNibName:@"GGChooseViewController" bundle:nil];
+    chooseVC.idNumber = currentEvent[@"event"][@"id"];
+    NSString *eventTitleString = [NSString stringWithFormat:@"  %@", currentEvent[@"event"][@"title"]];
+    chooseVC.titleString = eventTitleString;
+    NSString *eventTimeString = [NSString stringWithFormat:@"  %@", currentEvent[@"event"][@"start_time"]];
+    chooseVC.subtitleString = eventTimeString;
     
     self.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:self.chooseVC animated:YES];
+    [self.navigationController pushViewController:chooseVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

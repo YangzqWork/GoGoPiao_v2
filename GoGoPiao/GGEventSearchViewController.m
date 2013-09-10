@@ -43,22 +43,9 @@
     allCount = 0;
     self.navigationItem.title = @"搜索";
     results = [[NSMutableArray alloc] initWithCapacity:20];
-    
-    _searchBar.backgroundColor = [UIColor clearColor];
-    //去掉搜索框背景
-    for (UIView *subview in _searchBar.subviews)
-    {
-        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")])
-        {
-            [subview removeFromSuperview];
-            break;
-        }
-    }
-    //自定义背景
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2-red-menu-bar.png"]];
-    [_searchBar insertSubview:imageView atIndex:0];
-    
-    [_searchBar becomeFirstResponder];
+
+    [self customizeNavigationBar];
+    [self customizeSearchBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -81,6 +68,53 @@
     [super viewDidUnload];
 }
 
+#pragma mark - Customize
+- (void)customizeNavigationBar
+{
+    self.navigationItem.leftBarButtonItem.title = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    UIImage* backButtonImage = [UIImage imageNamed:@"nav_backBtn.png"];
+    CGRect frameimgleft = CGRectMake(0, 0, backButtonImage.size.width, backButtonImage.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimgleft];
+    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backButtonItem =[[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+}
+
+- (void)customizeSearchBar
+{
+    _searchBar.backgroundColor = [UIColor clearColor];
+    //去掉搜索框背景
+    UITextField *searchField;
+    for (UIView *subview in _searchBar.subviews)
+    {
+        if ([subview isKindOfClass:[UITextField class]])
+        {
+            searchField = (UITextField *)subview;
+            break;
+        }
+    }
+    if(!(searchField == nil)) {
+        searchField.textColor = [UIColor blackColor];
+        [searchField setBackground: [UIImage imageNamed:@"search_bar.png"] ];
+        [searchField setBorderStyle:UITextBorderStyleNone];
+    }
+    //    //自定义背景
+    //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_bg.png"]];
+    //    [_searchBar insertSubview:imageView atIndex:0];
+    
+    [_searchBar becomeFirstResponder];
+
+}
+
+#pragma mark - BACK
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - 搜索以及搜索栏的Delegate
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
@@ -98,7 +132,6 @@
     //清空
     [self clear];
     [self doSearch];
-//    [self setTableView];
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
@@ -135,17 +168,14 @@
 
 - (void)setTableView
 {
-    TableViewConfigureCellBlock configureCell = ^(GGEventSearchCell* cell, NSString *keyword) {
-        cell.titleLabel.text = keyword;
+    TableViewConfigureCellBlock configureCell = ^(UITableViewCell* cell, NSString *keyword) {
+        cell.textLabel.text = keyword;
     };
     
-//    NSArray *array = [self.fetchResultController fetchedObjects];
-    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventSearchedArray cellIdentifier:@"GGEventSearchCell" configureCellBlock:configureCell];
+    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventSearchedArray cellIdentifier:@"DefaultCell" configureCellBlock:configureCell tableViewType:TableViewTypeNormal];
     
     self.tableResult.delegate = self;
     self.tableResult.dataSource = self.cyTableDataSource;
-    
-    [self.tableResult registerNib:[GGEventSearchCell nib] forCellReuseIdentifier:@"GGEventSearchCell"];
 }
 
 #pragma mark - 增加搜索数据
@@ -169,9 +199,10 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"EventSearched"];
     NSString *keyword = [array objectAtIndex:indexPath.row];
-    
     
     GGEventSearchResultsViewController *resultsVC = [[GGEventSearchResultsViewController alloc] initWithNibName:@"GGEventSearchResultsViewController" bundle:nil];
     resultsVC.searchKeyword = keyword;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface GGEventsCell : UITableViewCell
 
@@ -14,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *eventsTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventsSubtitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventsThirdLabel;
+@property (strong, nonatomic) IBOutlet UILabel *cornerLabel;
 
 @property (strong, nonatomic) NSString *idNumber;
 

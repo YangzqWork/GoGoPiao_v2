@@ -38,14 +38,17 @@
 {
     self.eventsTitleLabel.text = thisEvent[@"title"];
     self.eventsSubtitleLabel.text = thisEvent[@"start_time"];
-    self.eventsThirdLabel.text = thisEvent[@"description"];
+    self.eventsThirdLabel.text = thisEvent[@"region_name"];
     self.idNumber = thisEvent[@"id"];
     
-    NSString *posterURLString = [NSString stringWithFormat:@"%@", thisEvent[@"poster_url"]];
+    NSString *posterURLString = [NSString stringWithFormat:@"%@", thisEvent[@"poster_url_210x140"]];
+    NSLog(@"post : %@", posterURLString);
     
     MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithURLString:posterURLString params:nil httpMethod:@"GET"];
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        
         [self.eventsImageView setImage:[completedOperation responseImage]];
+        
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
         NSLog(@"Image Error : %@", error);
     }];

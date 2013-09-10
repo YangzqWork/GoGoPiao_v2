@@ -9,6 +9,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum{
+	TableViewTypeNormal = 0,
+	TableViewTypeLoadMore,
+} TableViewType;
+
 typedef void (^TableViewConfigureCellBlock)(id cell, id item);
 
 @interface CYTableDataSource : NSObject<UITableViewDataSource>
@@ -16,6 +21,7 @@ typedef void (^TableViewConfigureCellBlock)(id cell, id item);
 - (id)itemAtIndextPath:(NSIndexPath *)indexPath;
 - (id)initWithDataArray:(NSArray *)anArray
          cellIdentifier:(NSString *)aCellIdentifier
-     configureCellBlock:(TableViewConfigureCellBlock)aConfigureCellBlock;
+     configureCellBlock:(TableViewConfigureCellBlock)aConfigureCellBlock
+          tableViewType:(TableViewType)aTableViewType;
 
 @end

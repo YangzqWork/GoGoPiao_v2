@@ -14,6 +14,7 @@
 #import "GGAuthManager.h"
 #import "CYTableDataSource.h"
 #import "Constants.h"
+#import "EventTitleView.h"
 
 
 @interface GGEventViewController ()
@@ -23,7 +24,10 @@
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic, strong) NSMutableArray *eventsArray;
+@property (nonatomic, strong) UITapGestureRecognizer *rightButtonTapped;
 @property (nonatomic, strong) CYTableDataSource *cyTableDataSource;
+
+@property (nonatomic, strong) GGEventSearchViewController *ggEventSearchVC;
 
 @end
 
@@ -39,14 +43,8 @@
         self.token = nil;
 //BarButton
         self.navigationItem.title = @"票集网";
+        
         self.tableView.hidden = NO;
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_searchBtn.png"] style:UIBarButtonItemStyleDone target:self action:@selector(searchButtonPressed:)];
-//        UIImageView *barButtonImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_searchBtn.png"]];
-//        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:barButtonImageView];
-//        [barButton setCustomView:barButtonImageView];
-//        [barButton setImage:[UIImage imageNamed:@"nav_searchBtn.png"]];
-//        [barButton setBackgroundImage:[UIImage imageNamed:@"nav_searchBtn.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        self.navigationItem.rightBarButtonItem = barButton;
     }
     return self;
 }
@@ -54,6 +52,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self customizeNavigationBar];
     
     if (_refreshHeaderView == nil) {
 		
@@ -65,6 +65,8 @@
 	}
     
     [self.segmentControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    
     [self.segmentControl setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     self.eventsArray = [NSMutableArray arrayWithCapacity:10];
@@ -95,6 +97,42 @@
     [self setTableView:nil];
     _refreshHeaderView=nil;
     [super viewDidUnload];
+}
+
+#pragma mark - 自定义UI
+- (void)customizeTitleView
+{
+    EventTitleView *titleView = [EventTitleView eventTitleView];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.titleLabel.font = [UIFont fontWithName:@"GoodMobiPro-CondBold" size:24];
+    titleView.titleLabel.text = @"票集网";
+    titleView.subTitleLabel.font = [UIFont fontWithName:@"GoodMobiPro-CondBold" size:17];
+    titleView.subTitleLabel.text = @"广州";
+    titleView.titleLabel.textColor = [UIColor whiteColor];
+    titleView.subTitleLabel.textColor = [UIColor whiteColor];
+    self.navigationItem.titleView = titleView;
+    [titleView sizeToFit];
+}
+
+- (void)customizeNavigationBar
+{
+//左上角
+    UIImage* loginButtonImage = [UIImage imageNamed:@"nav_loginBtn.png"];
+    CGRect frameimgleft = CGRectMake(0, 0, loginButtonImage.size.width, loginButtonImage.size.height);
+    UIButton *loginButton = [[UIButton alloc] initWithFrame:frameimgleft];
+    [loginButton setBackgroundImage:loginButtonImage forState:UIControlStateNormal];
+    [loginButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *loginButtonItem =[[UIBarButtonItem alloc] initWithCustomView:loginButton];
+    self.navigationItem.leftBarButtonItem = loginButtonItem;
+    
+//右上角
+    UIImage* searchButtonImage = [UIImage imageNamed:@"nav_searchBtn.png"];
+    CGRect frameimgright = CGRectMake(0, 0, searchButtonImage.size.width, searchButtonImage.size.height);
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:frameimgright];
+    [searchButton setBackgroundImage:searchButtonImage forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *searchButtonItem =[[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    self.navigationItem.rightBarButtonItem = searchButtonItem;
 }
 
 #pragma mark - UISegmentControl
@@ -133,36 +171,44 @@
 
 #pragma mark - UITableView Delegate
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //加载Pagination
     if (indexPath.row == [self.eventsArray count]) {
-        
         [self performSelectorInBackground:@selector(loadMore) withObject:nil];
-        //[loadMoreCell setHighlighted:NO];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
         return;
     }
     
+    
     NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
-    NSString *idNumber = currentEvent[@"event"][@"id"];
     
     GGChooseViewController *chooseVC = [[GGChooseViewController alloc] initWithNibName:@"GGChooseViewController" bundle:nil];
-    chooseVC.idNumber = idNumber;
+    chooseVC.idNumber = currentEvent[@"event"][@"id"];
+    NSString *eventTitleString = [NSString stringWithFormat:@"  %@", currentEvent[@"event"][@"title"]];
+    chooseVC.titleString = eventTitleString;
+    NSString *eventTimeString = [NSString stringWithFormat:@"  %@", currentEvent[@"event"][@"start_time"]];
+    chooseVC.subtitleString = eventTimeString;
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chooseVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+
 }
 
 #pragma mark - 处理按钮动作
-- (void)searchButtonPressed:(id)sender
+- (void)searchButtonPressed
 {
     NSLog(@"Search button pressed");
-    GGEventSearchViewController *ggEventSearchVC = [[GGEventSearchViewController alloc] initWithNibName:@"GGEventSearchViewController" bundle:nil];
+    self.ggEventSearchVC = [[GGEventSearchViewController alloc] initWithNibName:@"GGEventSearchViewController" bundle:nil];
+    self.ggEventSearchVC.navigationItem.backBarButtonItem.title = nil;
+    self.navigationItem.backBarButtonItem.title = nil;
     
     self.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:ggEventSearchVC animated:YES];
+    [self.navigationController pushViewController:self.ggEventSearchVC animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
 
@@ -237,8 +283,9 @@
         [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
             
             NSDictionary *responseDictionary = (NSDictionary *)jsonObject;
+            NSLog(@"GGEvent responseDictionary : %@", responseDictionary);
+            
             [self.eventsArray addObjectsFromArray:(NSArray *)responseDictionary[@"result"][@"events"]];
-//            self.eventsArray = responseDictionary[@"result"][@"events"];
             
             [self setTableView];
         }];
@@ -253,11 +300,17 @@
 - (void)setTableView
 {
     TableViewConfigureCellBlock configureCell = ^(GGEventsCell* cell, NSDictionary *event) {
+        
+        [cell.eventsImageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [cell.eventsImageView.layer setBorderWidth: 2.0];
+        [cell.eventsImageView.layer setShadowOffset:CGSizeMake(-1.0, -1.0)];
+        [cell.eventsImageView.layer setShadowOpacity:0.5];
+        
         [cell showEventData:event[@"event"]];
     };
     
     [self.tableView registerNib:[GGEventsCell nib] forCellReuseIdentifier:@"GGEventsCell"];
-    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell];
+    self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell tableViewType:TableViewTypeLoadMore];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self.cyTableDataSource;

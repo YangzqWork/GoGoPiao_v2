@@ -2,7 +2,7 @@
 //  EventTitleView.m
 //  GoGoPiao
 //
-//  Created by Cho-Yeung Lam on 29/8/13.
+//  Created by Cho-Yeung Lam on 9/9/13.
 //  Copyright (c) 2013 Cho-Yeung Lam. All rights reserved.
 //
 
@@ -10,9 +10,15 @@
 
 @implementation EventTitleView
 
-+ (UINib *)nib
++ (id)eventTitleView
 {
-    return [UINib nibWithNibName:@"EventTitleView" bundle:nil];
+    EventTitleView *eventTitleView = [[[NSBundle mainBundle] loadNibNamed:@"EventTitleView" owner:nil options:nil] lastObject];
+    
+    // make sure customView is not nil or the wrong class!
+    if ([eventTitleView isKindOfClass:[EventTitleView class]])
+        return eventTitleView;
+    else
+        return nil;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -23,14 +29,5 @@
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

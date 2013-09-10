@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "RETableViewManager.h"
 
-@interface GGChooseViewController : UIViewController<RETableViewManagerDelegate> {
-    RETableViewManager *_manager;
-}
+@interface GGChooseViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIImageView *eventImageView;
+@property (strong, nonatomic) IBOutlet UILabel *eventTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *subtitleString;
 @property (strong, nonatomic) NSString *idNumber;

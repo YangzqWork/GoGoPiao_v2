@@ -29,39 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-//    EventTitleView *eventTitleView = [[EventTitleView alloc] initWithFrame:CGRectMake(0, 0, 210, 44)];
-//    eventTitleView.titleLabel.text = self.titleString;
-//    eventTitleView.subtitleLabel.text = self.subtitleString;
-    self.navigationItem.title = @"选择";
     
-    __typeof (&*self) __weak weakSelf = self;
+    self.navigationItem.title = @"票务详情";
     
-    _manager = [[RETableViewManager alloc] initWithTableView:self.tableView];
-    _manager.delegate = self;
+    [self customizeLabel];
+    [self customizeNavigationBar];
     
-    RETableViewSection *section = [RETableViewSection section];
-    [_manager addSection:section];
-    
-    [section addItem:[RETableViewItem itemWithTitle:@"我要购买"
-        accessoryType:UITableViewCellAccessoryDisclosureIndicator
-        selectionHandler:^(RETableViewItem *item) {
-        
-            GGListingsViewController *listingsVC = [[GGListingsViewController alloc] initWithNibName:@"GGListingsViewController" bundle:nil];
-            listingsVC.idNumber = weakSelf.idNumber;
-            
-            [item deselectRowAnimated:YES];
-            [weakSelf.navigationController pushViewController:listingsVC animated:YES];
-    }]];
-    [section addItem:[RETableViewItem itemWithTitle:@"我要转让"
-        accessoryType:UITableViewCellAccessoryDisclosureIndicator
-        selectionHandler:^(RETableViewItem *item) {
-            
-            GGSellFirstViewController *sellFirstVC = [[GGSellFirstViewController alloc] initWithNibName:@"GGSellFirstViewController" bundle:nil];
-            
-            [item deselectRowAnimated:YES];
-            [weakSelf.navigationController pushViewController:sellFirstVC animated:YES];
-    }]];
+    self.eventTitleLabel.text = self.titleString;
+    self.timeLabel.text = self.subtitleString;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,8 +46,36 @@
 }
 
 - (void)viewDidUnload {
-    [self setTableView:nil];
-    [self setTableView:nil];
     [super viewDidUnload];
 }
+
+#pragma mark - Customize Appearance
+- (void)customizeNavigationBar
+{
+    self.navigationItem.leftBarButtonItem.title = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    UIImage* backButtonImage = [UIImage imageNamed:@"nav_backBtn.png"];
+    CGRect frameimgleft = CGRectMake(0, 0, backButtonImage.size.width, backButtonImage.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimgleft];
+    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backButtonItem =[[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+}
+
+- (void)customizeLabel
+{
+    self.eventTitleLabel.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.3];
+    self.eventTitleLabel.textColor = [UIColor blackColor];
+    self.timeLabel.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.3];
+    self.timeLabel.textColor = [UIColor blackColor];
+}
+
+#pragma mark - Back Button
+- (void)didClickBackButton
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
