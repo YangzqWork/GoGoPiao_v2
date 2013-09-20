@@ -38,13 +38,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+//    [self customizeTabBar];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)customizeTabBar
+{
+    UITabBarController *tabBarController = self;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+    
+    [item0 setTitle:@"场次"];
+    
+    [item0 setFinishedSelectedImage:[UIImage imageNamed:@"icon_cc.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_cc.png"]];
+    [item1 setFinishedSelectedImage:[UIImage imageNamed:@"icon_wd.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_wd.png"]];
+    [item2 setFinishedSelectedImage:[UIImage imageNamed:@"icon_mr.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_mr.png"]];
+    
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tab_indicator.png"]];
 }
 
 @end

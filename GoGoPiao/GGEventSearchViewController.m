@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "CYTableDataSource.h"
 #import "GGAuthManager.h"
+#import "UIBarButtonItem+ProjectButton.h"
+#import "UISearchBar+ProjectSearchBar.h"
 
 @interface GGEventSearchViewController ()
 
@@ -43,7 +45,6 @@
     allCount = 0;
     self.navigationItem.title = @"搜索";
     results = [[NSMutableArray alloc] initWithCapacity:20];
-
     [self customizeNavigationBar];
     [self customizeSearchBar];
 }
@@ -70,43 +71,14 @@
 
 #pragma mark - Customize
 - (void)customizeNavigationBar
-{
-    self.navigationItem.leftBarButtonItem.title = nil;
-    self.navigationItem.leftBarButtonItem = nil;
-    
-    UIImage* backButtonImage = [UIImage imageNamed:@"nav_backBtn.png"];
-    CGRect frameimgleft = CGRectMake(0, 0, backButtonImage.size.width, backButtonImage.size.height);
-    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimgleft];
-    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *backButtonItem =[[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backButtonItem;
+{  
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem createButtonWithImage:[UIImage imageNamed:@"nav_backBtn.png"] WithTarget:self action:@selector(back)];
 }
 
 - (void)customizeSearchBar
 {
-    _searchBar.backgroundColor = [UIColor clearColor];
-    //去掉搜索框背景
-    UITextField *searchField;
-    for (UIView *subview in _searchBar.subviews)
-    {
-        if ([subview isKindOfClass:[UITextField class]])
-        {
-            searchField = (UITextField *)subview;
-            break;
-        }
-    }
-    if(!(searchField == nil)) {
-        searchField.textColor = [UIColor blackColor];
-        [searchField setBackground: [UIImage imageNamed:@"search_bar.png"] ];
-        [searchField setBorderStyle:UITextBorderStyleNone];
-    }
-    //    //自定义背景
-    //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_bg.png"]];
-    //    [_searchBar insertSubview:imageView atIndex:0];
-    
+    [_searchBar customizeWithSearchFieldImage:[UIImage imageNamed:@"search_barBg.png"]];
     [_searchBar becomeFirstResponder];
-
 }
 
 #pragma mark - BACK

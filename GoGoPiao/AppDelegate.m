@@ -8,10 +8,19 @@
 
 #import "AppDelegate.h"
 #import "GGLoginViewController.h"
+#import "GGEventViewController.h"
+#import "GGMoreViewController.h"
+#import "GGAccountViewController.h"
 #import "GGMainViewController.h"
 #import "GGAuthManager.h"
 #import "Constants.h"
 #import "MKNetworkOperation.h"
+
+@interface AppDelegate ()
+
+@property (nonatomic, strong) NSString *uniqueID;
+
+@end
 
 @implementation AppDelegate
 
@@ -27,15 +36,25 @@
     
     [self customizeiPhoneTheme];
     [self setUpNetworkEngine];
-//    [self getCFUUID];
+    [self getCFUUID];
     
     self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
-    [self.window setRootViewController:self.ggMainVC];
+    
+    GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
+    GGAccountViewController *ggAccountVC = [[GGAccountViewController alloc] initWithNibName:@"GGAccountViewController" bundle:nil];
+    GGMoreViewController *ggMoreVC = [[GGMoreViewController alloc] initWithNibName:@"GGMoreViewController" bundle:nil];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:ggEventVC];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:ggAccountVC];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:ggMoreVC];
+    //        NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.ggCategoryVC, self.ggEventVC, self.ggOrderVC, self.ggSellingVC, self.ggAccountVC, nil];
+    NSArray *viewControllers = [[NSArray alloc] initWithObjects:nav1, nav2, nav3, nil];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:viewControllers];
+    
+    [self.window setRootViewController:tabBarController];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-//    [self getTravellerToken];
 
     return YES;
 }
@@ -140,64 +159,10 @@
 {
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
-
-//UINavigationBar
-    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
-    
-    UIImage *navBarImage = [UIImage imageNamed:@"nav_bg.png"];
-    
-    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-    
-    
-//    UIImage *backButton = [[UIImage imageNamed:@"nav_backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-
-
-//UITabBar
-    UIImage *tabBarBackground = [UIImage imageNamed:@"tab_bg.png"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    
-    UIImage *tabBarIndicatorImage = [UIImage imageNamed:@"tab_indicator.png"];
-    [[UITabBar appearance] setSelectionIndicatorImage:tabBarIndicatorImage];
-    
-    
-//UISegmentControl
-    UIImage *segmentSelected =
-    [UIImage imageNamed:@"seg_selectedBtn.png"];
-    UIImage *segmentUnselected =
-    [UIImage imageNamed:@"seg_normalBtn.png"];
-    
-    [[UISegmentedControl appearance] setBackgroundImage:segmentUnselected forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearance] setBackgroundImage:segmentSelected forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    [[UISegmentedControl appearance] setTitleTextAttributes:
-     @{
-        UITextAttributeTextColor : [UIColor blackColor],
-        UITextAttributeTextShadowColor : [UIColor clearColor],
-        
-     } forState:UIControlStateNormal];
-    [[UISegmentedControl appearance] setTitleTextAttributes:
-     @{
-        UITextAttributeTextColor : [UIColor blackColor],
-        UITextAttributeTextShadowColor : [UIColor clearColor],
-        
-     }  forState:UIControlStateSelected];
-    
-//UISearchBar
-    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"search_bar.png"] forState:UIControlStateNormal];
-    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"search_bar.png"] forState:UIControlStateSelected];
-    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"search_bg.png"]];
-    
-    //SearchBar -- Cancel Button
-    UIBarButtonItem *searchBarButton = [UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil];
-    [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    [searchBarButton setTitle:@"取消"];
-    [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor blackColor]} forState:UIControlStateNormal];
-    [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor grayColor]} forState:UIControlStateSelected];
+    [self cutsomizeUINavigationBar];
+    [self customizeUISegmentControl];
+    [self customizeUITabBar];
+    [self customizeUISearchBar];
 }
 
 - (void)setUpNetworkEngine
@@ -210,9 +175,20 @@
 
 - (void)getCFUUID
 {
-    CFUUIDRef cfuuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *cfuuidString = (NSString*)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, cfuuid));
-    [GGAuthManager sharedManager].uuid = cfuuidString;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    id uuid = [defaults objectForKey:@"UUID"];
+    
+    if (uuid)
+        self.uniqueID = [NSString stringWithString:(NSString *)uuid];
+    else {
+        CFUUIDRef temp = CFUUIDCreate(NULL);
+        CFStringRef cfUuid = CFUUIDCreateString(NULL, temp);
+        self.uniqueID = [NSString stringWithString:(__bridge NSString*) cfUuid];
+        CFRelease(cfUuid);
+        CFRelease(temp);
+        
+        [defaults setObject:self.uniqueID forKey:@"UUID"]; // warning here
+    }
 }
 
 - (void)getTravellerToken
@@ -242,6 +218,82 @@
     }];
     
     [self.networkEngine enqueueOperation:op];
+}
+
+#pragma mark - 自定义控件
+- (void)cutsomizeUINavigationBar
+{
+    //UINavigationBar
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
+    
+    UIImage *navBarImage = [UIImage imageNamed:@"nav_bg.png"];
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    
+    
+    //    UIImage *backButton = [[UIImage imageNamed:@"nav_backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+}
+
+- (void)customizeUITabBar
+{
+    //UITabBar
+//    UIImage *tabBarBackground = [UIImage imageNamed:@"tab_bg.png"];
+//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+    
+    [item0 setFinishedSelectedImage:[UIImage imageNamed:@"icon_cc.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_cc.png"]];
+    [item1 setFinishedSelectedImage:[UIImage imageNamed:@"icon_wd.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_wd.png"]];
+    [item2 setFinishedSelectedImage:[UIImage imageNamed:@"icon_mr.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_mr.png"]];
+    
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tab_indicator.png"]];
+
+}
+
+- (void)customizeUISegmentControl
+{
+    UIImage *segmentSelected = [[UIImage imageNamed:@"seg_selectedBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)];
+    UIImage *segmentUnselected = [[UIImage imageNamed:@"seg_normalBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1)];
+    
+    [[UISegmentedControl appearance] setBackgroundImage:segmentUnselected forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setBackgroundImage:segmentSelected forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setDividerImage:[UIImage imageNamed:@"seg_bg_line.png"] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [[UISegmentedControl appearance] setTitleTextAttributes:
+     @{
+                                  UITextAttributeTextColor : [UIColor blackColor],
+                            UITextAttributeTextShadowColor : [UIColor clearColor],
+     
+     } forState:UIControlStateNormal];
+    [[UISegmentedControl appearance] setTitleTextAttributes:
+     @{
+                                  UITextAttributeTextColor : [UIColor blackColor],
+                            UITextAttributeTextShadowColor : [UIColor clearColor],
+     
+     }  forState:UIControlStateSelected];
+}
+
+- (void)customizeUISearchBar
+{
+    //UISearchBar
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"search_barBg.png"] forState:UIControlStateNormal];
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageNamed:@"search_barBg.png"] forState:UIControlStateSelected];
+    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"search_bg.png"]];
+    
+    //SearchBar -- Cancel Button
+    UIBarButtonItem *searchBarButton = [UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil];
+    [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+#warning EXC_BAD in iOS7
+    [searchBarButton setTitle:@"取消"];
+    [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor blackColor]} forState:UIControlStateNormal];
+    [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor grayColor]} forState:UIControlStateSelected];
 }
 
 @end

@@ -15,7 +15,8 @@
 #import "CYTableDataSource.h"
 #import "Constants.h"
 #import "EventTitleView.h"
-
+#import "UIBarButtonItem+ProjectButton.h"
+#import "NSString+Encryption.h"
 
 @interface GGEventViewController ()
 
@@ -53,15 +54,14 @@
 {
     [super viewDidLoad];
     
+    //自定义Nav
     [self customizeNavigationBar];
     
     if (_refreshHeaderView == nil) {
-		
 		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
 		view.delegate = self;
 		[self.tableView addSubview:view];
 		_refreshHeaderView = view;
-		
 	}
     
     [self.segmentControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
@@ -71,19 +71,12 @@
     
     self.eventsArray = [NSMutableArray arrayWithCapacity:10];
     
-    
     [self setToken];
     if (self.token == nil)
         [self getTempToken];
     else
         [self loadEventsArrayWithCategoryTag:AllTag];
 }
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -116,23 +109,11 @@
 
 - (void)customizeNavigationBar
 {
-//左上角
-    UIImage* loginButtonImage = [UIImage imageNamed:@"nav_loginBtn.png"];
-    CGRect frameimgleft = CGRectMake(0, 0, loginButtonImage.size.width, loginButtonImage.size.height);
-    UIButton *loginButton = [[UIButton alloc] initWithFrame:frameimgleft];
-    [loginButton setBackgroundImage:loginButtonImage forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *loginButtonItem =[[UIBarButtonItem alloc] initWithCustomView:loginButton];
-    self.navigationItem.leftBarButtonItem = loginButtonItem;
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    [negativeSpacer setWidth:-5];
     
-//右上角
-    UIImage* searchButtonImage = [UIImage imageNamed:@"nav_searchBtn.png"];
-    CGRect frameimgright = CGRectMake(0, 0, searchButtonImage.size.width, searchButtonImage.size.height);
-    UIButton *searchButton = [[UIButton alloc] initWithFrame:frameimgright];
-    [searchButton setBackgroundImage:searchButtonImage forState:UIControlStateNormal];
-    [searchButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *searchButtonItem =[[UIBarButtonItem alloc] initWithCustomView:searchButton];
-    self.navigationItem.rightBarButtonItem = searchButtonItem;
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer,[UIBarButtonItem createButtonWithImage:[UIImage imageNamed:@"nav_loginBtn.png"] WithTarget:self action:@selector(searchButtonPressed)], nil];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer,[UIBarButtonItem createButtonWithImage:[UIImage imageNamed:@"nav_searchBtn"] WithTarget:self action:@selector(searchButtonPressed)], nil];
 }
 
 #pragma mark - UISegmentControl
@@ -171,10 +152,8 @@
 
 #pragma mark - UITableView Delegate
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //加载Pagination
@@ -226,11 +205,15 @@
 //Root of the logic
 - (void)getTempToken
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *uuid = [defaults objectForKey:@"UUID"];
+    
+//需要进行SHA1加密
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"platform"] = @"iphone";
     param[@"application"] = @"gogopiao_v1.0";
-    param[@"client_uuid"] = @"1234567890";
-    param[@"client_secret"] = @"515104200a02f596fea7c2f298aa621084c5985b";
+    param[@"client_uuid"] = [defaults objectForKey:@"UUID"];
+    param[@"client_secret"] = [NSString sha1EncryptWithUnsortedString1:param];
     
     MKNetworkOperation *op = [ApplicationDelegate.networkEngine operationWithPath:@"api/v1/auth/xapp_auth.json" params:param httpMethod:@"GET"];
     
@@ -256,7 +239,6 @@
 - (void)loadEventsArrayWithCategoryTag:(EventCategoryTag)theCategoryTag
 {
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-    
     
     switch (theCategoryTag) {
         case SportsTag:
@@ -322,8 +304,8 @@
 #pragma mark -
 #pragma mark Data Source Loading / Reloading Methods
 
-- (void)reloadTableViewDataSource{
-	
+- (void)reloadTableViewDataSource
+{	
 	//  should be calling your tableviews data source model to reload
 	//  put here just for demo
 	_reloading = YES;
@@ -348,54 +330,47 @@
     }];
     
     [ApplicationDelegate.networkEngine enqueueOperation:op];
-
 }
 
-- (void)doneLoadingTableViewData{
-	
+- (void)doneLoadingTableViewData
+{
 	//  model should call this when its done loading
 	_reloading = NO;
 	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
-	
 }
 
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate Methods
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-	
-	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
-    
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];    
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-	
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{	
 	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
-	
 }
 
 
 #pragma mark -
 #pragma mark EGORefreshTableHeaderDelegate Methods
 
-- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
-	
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
 	[self reloadTableViewDataSource];
-	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
-	
+	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];	
 }
 
-- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
-	
-	return _reloading; // should return if data source model is reloading
-	
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
+{
+	return _reloading; // should return if data source model is reloading	
 }
 
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
-	
-	return [NSDate date]; // should return date data source was last changed
-	
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
+{
+	return [NSDate date]; // should return date data source was last changed	
 }
 
 #pragma mark - loadMore
@@ -431,9 +406,6 @@
 
 -(void) appendTableWith:(NSMutableArray *)data
 {
-    NSIndexPath *last = [NSIndexPath indexPathForRow:[self.eventsArray count] inSection:0];
-    NSArray *toBeDeleted = [NSArray arrayWithObject:last];
-    
     for (int i=0;i<[data count];i++) {
         [self.eventsArray addObject:[data objectAtIndex:i]];
     }
@@ -444,9 +416,7 @@
         NSIndexPath *newPath = [NSIndexPath indexPathForRow:([self.eventsArray indexOfObject:[data objectAtIndex:ind]] - 1) inSection:0];
         [insertIndexPaths addObject:newPath];
     }
-//
-//    [self.tableView beginUpdates];
-//    [self.tableView deleteRowsAtIndexPaths:toBeDeleted withRowAnimation:UITableViewRowAnimationFade];
+    
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
