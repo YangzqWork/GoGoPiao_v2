@@ -28,4 +28,11 @@
     return customBarItem;
 }
 
++ (NSArray *)createEdgeButtonWithImage:(UIImage *)anImage WithTarget:(id)target action:(SEL)action
+{
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    [negativeSpacer setWidth:-5];
+    return [NSArray arrayWithObjects:negativeSpacer, [UIBarButtonItem createButtonWithImage:anImage WithTarget:target action:action], nil];
+}
+
 @end

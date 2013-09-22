@@ -10,6 +10,7 @@
 #import "GGListingsViewController.h"
 #import "GGSellFirstViewController.h"
 #import "EventTitleView.h"
+#import "UIBarButtonItem+ProjectButton.h"
 
 @interface GGChooseViewController ()
 
@@ -32,6 +33,7 @@
     
     self.navigationItem.title = @"票务详情";
     
+    [self customizeImage];
     [self customizeLabel];
     [self customizeNavigationBar];
     
@@ -50,18 +52,16 @@
 }
 
 #pragma mark - Customize Appearance
+
+- (void)customizeImage
+{
+    self.eventImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.eventImageView setImage:self.eventImage];
+}
+
 - (void)customizeNavigationBar
 {
-    self.navigationItem.leftBarButtonItem.title = nil;
-    self.navigationItem.leftBarButtonItem = nil;
-    
-    UIImage* backButtonImage = [UIImage imageNamed:@"nav_backBtn.png"];
-    CGRect frameimgleft = CGRectMake(0, 0, backButtonImage.size.width, backButtonImage.size.height);
-    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimgleft];
-    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *backButtonItem =[[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = backButtonItem;
+    self.navigationItem.leftBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_backBtn.png"] WithTarget:self action:@selector(didClickBackButton)];
 }
 
 - (void)customizeLabel

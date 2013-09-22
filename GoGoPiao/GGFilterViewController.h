@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSString *filterTypeTitleString;
 @property FilterType filterType;
 
 @end

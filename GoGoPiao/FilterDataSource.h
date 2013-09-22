@@ -16,9 +16,10 @@ typedef enum{
 
 typedef void (^FilterCellConfigurationBlock)(id item, id cell);
 
-@interface FilterDataSource : NSObject
+@interface FilterDataSource : NSObject<UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithDataArray:(NSArray *)aDataArray
-         cellIdentifier:(NSString *)aCellIdentifier filterConfigurationBlock:(FilterCellConfigurationBlock)aFilterCellConfigurationBlock filterType:(FilterType)aFilterType;
+         cellIdentifier:(NSString *)aCellIdentifier filterConfigurationBlock:(FilterCellConfigurationBlock)aFilterCellConfigurationBlock filterTypeObjectString:(NSString *)aFilterTypeObjectString;
+- (NSDictionary *)packupDataFromArray:(NSArray *)originalArray FilterObjectType:(NSString *)filterObjectType;
 
 @end

@@ -40,7 +40,13 @@
     [self setExtraTableViewCellHidden:self.tableView];
     
     self.title = @"搜索结果";
+    [self.eventsArray removeAllObjects];
     self.eventsArray = [NSMutableArray array];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [self returnSearchResult];
 }
 
@@ -87,6 +93,7 @@
 - (void)returnSearchResult
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"temp keyword : %@", self.searchKeyword);
     
     NSDictionary *paramDict = @{@"token":[defaults objectForKey:@"tempToken"], @"title":self.searchKeyword};
     
@@ -95,6 +102,7 @@
         [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
             
             NSDictionary *responseDict = (NSDictionary *)jsonObject;
+            NSLog(@"temp : %@", jsonObject);
             [self.eventsArray addObjectsFromArray:responseDict[@"result"][@"events"]];
             [self setTableView];
         }];
@@ -108,14 +116,11 @@
 - (void)setTableView
 {
     TableViewConfigureCellBlock configureCell = ^(GGEventsCell* cell, NSDictionary *event) {
-//        cell.eventsTitleLabel.text = [[event objectForKey:@"event"] objectForKey:@"title"];
-//        cell.eventsSubtitleLabel.text = [[event objectForKey:@"event"] objectForKey:@"start_time"];
-//        cell.eventsThirdLabel.text = [[event objectForKey:@"event"] objectForKey:@"description"];
-//        cell.idNumber = [[event objectForKey:@"event"] objectForKey:@"id"];
-        
+        cell.eventsImageView.tag = 1;
         [cell showEventData:event[@"event"]];
     };
     
+    NSLog(@"temp : %@", self.eventsArray);
     self.cyTableDataSource = [[CYTableDataSource alloc] initWithDataArray:self.eventsArray cellIdentifier:@"GGEventsCell" configureCellBlock:configureCell tableViewType:TableViewTypeNormal];
     
     self.tableView.dataSource = self.cyTableDataSource;
@@ -126,16 +131,22 @@
 }
 
 #pragma mark - TableView Delegate
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GGEventsCell *cell = (GGEventsCell *)[tableView cellForRowAtIndexPath:indexPath];
+    UIImageView *thumbNailImageView = (UIImageView *)[cell viewWithTag:1];
+    UIImage *thumbNailImage = [thumbNailImageView image];
+    
     NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
     
+#warning 重构：转移业务逻辑
     GGChooseViewController *chooseVC = [[GGChooseViewController alloc] initWithNibName:@"GGChooseViewController" bundle:nil];
     chooseVC.idNumber = currentEvent[@"event"][@"id"];
     NSString *eventTitleString = [NSString stringWithFormat:@"  %@", currentEvent[@"event"][@"title"]];
     chooseVC.titleString = eventTitleString;
     NSString *eventTimeString = [NSString stringWithFormat:@"  %@", currentEvent[@"event"][@"start_time"]];
     chooseVC.subtitleString = eventTimeString;
+    chooseVC.eventImage = thumbNailImage;
     
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chooseVC animated:YES];

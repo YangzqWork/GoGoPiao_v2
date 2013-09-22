@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString *titleString;
 @property (strong, nonatomic) NSString *subtitleString;
 @property (strong, nonatomic) NSString *idNumber;
+@property (strong, nonatomic) UIImage *eventImage;
 
 @end

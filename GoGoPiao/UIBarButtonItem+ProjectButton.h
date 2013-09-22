@@ -11,5 +11,5 @@
 @interface UIBarButtonItem (ProjectButton)
 
 +(UIBarButtonItem *)createButtonWithImage:(UIImage *)anImage WithTarget:(id)target action:(SEL)action;
-
++ (NSArray *)createEdgeButtonWithImage:(UIImage *)anImage WithTarget:(id)target action:(SEL)action;
 @end

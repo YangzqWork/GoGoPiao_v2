@@ -11,6 +11,7 @@
 #import "GGEventsCell.h"
 #import "GGEventSearchViewController.h"
 #import "GGChooseViewController.h"
+#import "GGFilterViewController.h"
 #import "GGAuthManager.h"
 #import "CYTableDataSource.h"
 #import "Constants.h"
@@ -71,11 +72,26 @@
     
     self.eventsArray = [NSMutableArray arrayWithCapacity:10];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"temp : %@", [defaults objectForKey:@"tempToken"]);
+    
     [self setToken];
     if (self.token == nil)
         [self getTempToken];
     else
         [self loadEventsArrayWithCategoryTag:AllTag];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    //接收通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(afterTheChoice:) name:@"filtered" object:nil];
+}
+
+- (void)afterTheChoice:(NSNotification *)notification
+{
+    NSLog(@"temp : %@", [notification object]);
+    NSLog(@"afterTheChoice");
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,14 +125,12 @@
 
 - (void)customizeNavigationBar
 {
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    [negativeSpacer setWidth:-5];
-    
-    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:negativeSpacer,[UIBarButtonItem createButtonWithImage:[UIImage imageNamed:@"nav_loginBtn.png"] WithTarget:self action:@selector(searchButtonPressed)], nil];
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer,[UIBarButtonItem createButtonWithImage:[UIImage imageNamed:@"nav_searchBtn"] WithTarget:self action:@selector(searchButtonPressed)], nil];
+    self.navigationItem.leftBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_loginBtn.png"] WithTarget:self action:@selector(searchButtonPressed)];
+    self.navigationItem.rightBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_searchBtn.png"] WithTarget:self action:@selector(searchButtonPressed)];
 }
 
 #pragma mark - UISegmentControl
+
 - (void)segmentChanged:(UISegmentedControl *)paramSender
 {
     if ([paramSender isEqual:self.segmentControl]){
@@ -124,29 +138,34 @@
         int selectedSegmentIndex = [paramSender selectedSegmentIndex];
         NSString *selectedSegmentText = [paramSender titleForSegmentAtIndex:selectedSegmentIndex];
         
+        GGFilterViewController *filterVC = [[GGFilterViewController alloc] initWithNibName:@"GGFilterViewController" bundle:nil];
         switch (selectedSegmentIndex) {
             case 0:
             {
-                self.navigationItem.title = @"体育比赛";
-                [self loadEventsArrayWithCategoryTag:SportsTag];
-                
+                filterVC.filterType = FilterTypeRegions;
+                filterVC.filterTypeTitleString = @"选择地区";
             }
             break;
             case 1:
             {
-                self.navigationItem.title = @"音乐会/戏剧";
-                [self loadEventsArrayWithCategoryTag:ConcertsTag];
+                filterVC.filterType = FilterTypeEventTypes;
+                filterVC.filterTypeTitleString = @"选择演出类别";
             }
             break;
             case 2:
             {
-                self.navigationItem.title = @"其他";
-                [self loadEventsArrayWithCategoryTag:ElseTag];
+                filterVC.filterType = FilterTypePerformers;
+                filterVC.filterTypeTitleString = @"选择艺术家";
             }
             break;
             default:
                 break;
         }
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:filterVC];
+        self.hidesBottomBarWhenPushed = YES;
+        [self presentViewController:navController animated:YES completion:nil];
+        self.hidesBottomBarWhenPushed = NO;
     }
 }
 
@@ -161,7 +180,6 @@
         [self performSelectorInBackground:@selector(loadMore) withObject:nil];
         return;
     }
-    
     
     NSDictionary *currentEvent = [self.eventsArray objectAtIndex:indexPath.row];
     
@@ -265,11 +283,9 @@
         [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
             
             NSDictionary *responseDictionary = (NSDictionary *)jsonObject;
-            NSLog(@"GGEvent responseDictionary : %@", responseDictionary);
-            
             [self.eventsArray addObjectsFromArray:(NSArray *)responseDictionary[@"result"][@"events"]];
-            
             [self setTableView];
+            
         }];
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
         NSLog(@"%@", error);

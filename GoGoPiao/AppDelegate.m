@@ -34,7 +34,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
-    [self customizeiPhoneTheme];
     [self setUpNetworkEngine];
     [self getCFUUID];
     
@@ -56,6 +55,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    [self customizeiPhoneTheme];
+    
     return YES;
 }
 
@@ -170,7 +171,7 @@
     NSMutableDictionary *headerFields = [NSMutableDictionary dictionary];
     headerFields[@"Content-Type"] = @"application/json";
     self.networkEngine = [[MKNetworkEngine alloc] initWithHostName:K_HOST_URL customHeaderFields:headerFields];
-    [self.networkEngine useCache];
+//    [self.networkEngine useCache];
 }
 
 - (void)getCFUUID
@@ -191,43 +192,12 @@
     }
 }
 
-- (void)getTravellerToken
-{
-#warning 待修改 - 判断是iphone还是ipad
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    param[@"platform"] = @"iphone";
-    param[@"application"] = @"gogopiao_v1.0";
-    param[@"client_uuid"] = @"1234567890";
-    param[@"client_secret"] = @"515104200a02f596fea7c2f298aa621084c5985b";
-    
-    
-    MKNetworkOperation *op = [self.networkEngine operationWithPath:@"api/v1/auth/xapp_auth.json" params:param httpMethod:@"GET"];
-    
-    [op addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-        [completedOperation responseJSONWithCompletionHandler:^(id jsonObject) {
-            
-            [GGAuthManager sharedManager].tempToken = ((NSDictionary *)jsonObject)[@"token"];
-            self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
-            [self.window setRootViewController:self.ggMainVC];
-            self.window.backgroundColor = [UIColor whiteColor];
-            [self.window makeKeyAndVisible];
-        }];
-    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
-        
-        NSLog(@"AppDelegate : %@", error);
-    }];
-    
-    [self.networkEngine enqueueOperation:op];
-}
-
 #pragma mark - 自定义控件
 - (void)cutsomizeUINavigationBar
 {
     //UINavigationBar
     [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
-    
     UIImage *navBarImage = [UIImage imageNamed:@"nav_bg.png"];
-    
     [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     
     
@@ -237,15 +207,15 @@
 
 - (void)customizeUITabBar
 {
-    //UITabBar
-//    UIImage *tabBarBackground = [UIImage imageNamed:@"tab_bg.png"];
-//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabBar = tabBarController.tabBar;
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
     UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
     UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+    
+    item0.title = @"场次";
+    item1.title = @"我的";
+    item2.title = @"更多";
     
     [item0 setFinishedSelectedImage:[UIImage imageNamed:@"icon_cc.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_cc.png"]];
     [item1 setFinishedSelectedImage:[UIImage imageNamed:@"icon_wd.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"icon_wd.png"]];

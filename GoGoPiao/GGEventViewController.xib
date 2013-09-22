@@ -40,9 +40,10 @@
 						<reference key="NSNextResponder" ref="345296738"/>
 						<int key="NSvFlags">1298</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{0, 31}, {320, 429}}</string>
+						<string key="NSFrame">{{0, 27}, {320, 433}}</string>
 						<reference key="NSSuperview" ref="345296738"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -61,7 +62,7 @@
 						<reference key="NSNextResponder" ref="345296738"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrameSize">{321, 29}</string>
+						<string key="NSFrame">{{0, -1}, {321, 30}}</string>
 						<reference key="NSSuperview" ref="345296738"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="647374003"/>
@@ -72,7 +73,7 @@
 						<array key="IBSegmentTitles">
 							<string>地区</string>
 							<string>类别</string>
-							<string/>
+							<string>艺术家</string>
 						</array>
 						<array class="NSMutableArray" key="IBSegmentWidths">
 							<real value="0.0"/>
@@ -210,6 +211,7 @@
 				<boolean value="NO" key="1.showNotes"/>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="11.IBUserGuides" ref="0"/>
+				<integer value="2" key="11.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<boolean value="NO" key="11.showNotes"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="4.IBUserGuides" ref="0"/>

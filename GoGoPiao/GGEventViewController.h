@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GGNetworkEngine.h"
 #import "EGORefreshTableHeaderView.h"
 
 typedef enum EventCategoryTag : NSUInteger{
