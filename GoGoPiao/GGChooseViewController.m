@@ -56,6 +56,7 @@
 - (void)customizeImage
 {
     self.eventImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.eventImageView.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
     [self.eventImageView setImage:self.eventImage];
 }
 

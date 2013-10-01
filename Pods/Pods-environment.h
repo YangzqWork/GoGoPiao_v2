@@ -61,9 +61,3 @@
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
 
-// SparkInspector
-#define COCOAPODS_POD_AVAILABLE_SparkInspector
-#define COCOAPODS_VERSION_MAJOR_SparkInspector 1
-#define COCOAPODS_VERSION_MINOR_SparkInspector 0
-#define COCOAPODS_VERSION_PATCH_SparkInspector 12
-

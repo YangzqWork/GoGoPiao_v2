@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "GGEventSearchResultsViewController.h"
-#import "GGAuthManager.h"
 #import "CYTableDataSource.h"
 #import "GGChooseViewController.h"
 #import "GGEventsCell.h"

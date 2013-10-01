@@ -18,11 +18,7 @@ typedef enum EventCategoryTag : NSUInteger{
 
 @interface GGEventViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, EGORefreshTableHeaderDelegate>
 {
-	
 	EGORefreshTableHeaderView *_refreshHeaderView;
-	
-	//  Reloading var should really be your tableviews datasource
-	//  Putting it here for demo purposes
 	BOOL _reloading;
 }
 

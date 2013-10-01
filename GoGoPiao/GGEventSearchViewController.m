@@ -11,7 +11,6 @@
 #import "GGEventSearchCell.h"
 #import "AppDelegate.h"
 #import "CYTableDataSource.h"
-#import "GGAuthManager.h"
 #import "UIBarButtonItem+ProjectButton.h"
 #import "UISearchBar+ProjectSearchBar.h"
 

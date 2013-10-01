@@ -94,7 +94,6 @@
 		18B8C08517EF24D400DBBDE8 /* seg_selectedBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B8C08117EF24D400DBBDE8 /* seg_selectedBtn@2x.png */; };
 		18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA58F179FC719005CB108 /* GGLoginViewController.m */; };
 		18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18BEA590179FC719005CB108 /* GGLoginViewController.xib */; };
-		18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA59417A022DE005CB108 /* GGAuthManager.m */; };
 		18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1523817BBB75B00841C11 /* GGEventSearchCell.m */; };
 		18D1523B17BBB76F00841C11 /* GGEventSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */; };
 		18D269D817DEC0AD006B7B5B /* nav_backBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D269D617DEC0AD006B7B5B /* nav_backBtn.png */; };
@@ -245,8 +244,6 @@
 		18BEA58E179FC719005CB108 /* GGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLoginViewController.h; sourceTree = "<group>"; };
 		18BEA58F179FC719005CB108 /* GGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGLoginViewController.m; sourceTree = "<group>"; };
 		18BEA590179FC719005CB108 /* GGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGLoginViewController.xib; sourceTree = "<group>"; };
-		18BEA59317A022DD005CB108 /* GGAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAuthManager.h; sourceTree = "<group>"; };
-		18BEA59417A022DE005CB108 /* GGAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAuthManager.m; sourceTree = "<group>"; };
 		18D1523717BBB75B00841C11 /* GGEventSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventSearchCell.h; sourceTree = "<group>"; };
 		18D1523817BBB75B00841C11 /* GGEventSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventSearchCell.m; sourceTree = "<group>"; };
 		18D1523A17BBB76F00841C11 /* GGEventSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventSearchCell.xib; sourceTree = "<group>"; };
@@ -386,9 +383,8 @@
 			children = (
 				187FE96317D5C872009A6C95 /* Constants.h */,
 				187FE96417D5C872009A6C95 /* Constants.m */,
-				18D93A8917DC2E1E00F2CC33 /* 刷新 */,
+				18D93A8917DC2E1E00F2CC33 /* 刷新功能 */,
 				1892D2CD17EBDE2C00436555 /* Categories */,
-				189F449617B8D68A00D9275B /* Singleton */,
 				18BEA59617A022EC005CB108 /* Delegate */,
 				186A7796179D177E00240EDF /* Cells */,
 				18957B6C17C863C800009FE9 /* CoreData */,
@@ -538,15 +534,6 @@
 			name = "卖逻辑";
 			sourceTree = "<group>";
 		};
-		189F449617B8D68A00D9275B /* Singleton */ = {
-			isa = PBXGroup;
-			children = (
-				18BEA59317A022DD005CB108 /* GGAuthManager.h */,
-				18BEA59417A022DE005CB108 /* GGAuthManager.m */,
-			);
-			name = Singleton;
-			sourceTree = "<group>";
-		};
 		18BEA59617A022EC005CB108 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,7 +639,7 @@
 			name = "Buy&Sell";
 			sourceTree = "<group>";
 		};
-		18D93A8917DC2E1E00F2CC33 /* 刷新 */ = {
+		18D93A8917DC2E1E00F2CC33 /* 刷新功能 */ = {
 			isa = PBXGroup;
 			children = (
 				18D93AA317DC839A00F2CC33 /* EGORefreshTableHeaderView.h */,
@@ -660,7 +647,7 @@
 				18D93A8317DC2E1300F2CC33 /* RefreshArrow.png */,
 				18D93A8417DC2E1300F2CC33 /* RefreshArrow@2x.png */,
 			);
-			name = "刷新";
+			name = "刷新功能";
 			sourceTree = "<group>";
 		};
 		18D93A8A17DC77A900F2CC33 /* Images */ = {
@@ -870,7 +857,6 @@
 				1806B70C1798EDF50088234C /* GGRegisterViewController.m in Sources */,
 				186A7795179D176A00240EDF /* GGEventsCell.m in Sources */,
 				18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */,
-				18BEA59517A022DE005CB108 /* GGAuthManager.m in Sources */,
 				187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */,
 				18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */,
 				18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */,
@@ -979,9 +965,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoPiao/GoGoPiao-Prefix.pch";
 				INFOPLIST_FILE = "GoGoPiao/GoGoPiao-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos7.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -996,9 +983,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoPiao/GoGoPiao-Prefix.pch";
 				INFOPLIST_FILE = "GoGoPiao/GoGoPiao-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos7.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};

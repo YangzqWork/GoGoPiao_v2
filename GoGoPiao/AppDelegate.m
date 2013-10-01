@@ -12,7 +12,6 @@
 #import "GGMoreViewController.h"
 #import "GGAccountViewController.h"
 #import "GGMainViewController.h"
-#import "GGAuthManager.h"
 #import "Constants.h"
 #import "MKNetworkOperation.h"
 
@@ -37,7 +36,7 @@
     [self setUpNetworkEngine];
     [self getCFUUID];
     
-    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
+//    self.ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
     
     GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
     GGAccountViewController *ggAccountVC = [[GGAccountViewController alloc] initWithNibName:@"GGAccountViewController" bundle:nil];
@@ -45,7 +44,7 @@
     UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:ggEventVC];
     UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:ggAccountVC];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:ggMoreVC];
-    //        NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.ggCategoryVC, self.ggEventVC, self.ggOrderVC, self.ggSellingVC, self.ggAccountVC, nil];
+    
     NSArray *viewControllers = [[NSArray alloc] initWithObjects:nav1, nav2, nav3, nil];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:viewControllers];
@@ -198,11 +197,8 @@
     //UINavigationBar
     [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"nav_shadow.png"]];
     UIImage *navBarImage = [UIImage imageNamed:@"nav_bg.png"];
-    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-    
-    
-    //    UIImage *backButton = [[UIImage imageNamed:@"nav_backBtn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarPosition:UIBarPositionTopAttached barMetrics:UIBarMetricsDefault];
 }
 
 - (void)customizeUITabBar
@@ -261,7 +257,7 @@
     [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [searchBarButton setBackgroundImage:[UIImage imageNamed:@"search_bg_line.png"] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
 #warning EXC_BAD in iOS7
-    [searchBarButton setTitle:@"取消"];
+//    [searchBarButton setTitle:@"取消"];
     [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor blackColor]} forState:UIControlStateNormal];
     [searchBarButton setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor grayColor]} forState:UIControlStateSelected];
 }

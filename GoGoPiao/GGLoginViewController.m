@@ -12,9 +12,6 @@
 #import "GGEventViewController.h"
 #import "GGMainViewController.h"
 #import "SVProgressHUD.h"
-#import "JSONKit.h"
-#import "GGAuthManager.h"
-//#import "CYNetworkingHelper.h"
 
 @interface GGLoginViewController ()
 
@@ -24,8 +21,6 @@
 
 @implementation GGLoginViewController
 
-@synthesize ggAcountVC;
-@synthesize ggSettingsVC;
 
 @synthesize didRememberPw;
 @synthesize userTextField;
@@ -71,7 +66,6 @@
 - (void)viewDidUnload {
     [self setLoginButton:nil];
     [self setRegisterButton:nil];
-    [self setRememberPwButton:nil];
     [self setUserTextField:nil];
     [self setPasswordTextField:nil];
     [super viewDidUnload];
@@ -80,19 +74,6 @@
 #pragma mark - 按钮处理
 - (IBAction)loginButtonPressed:(id)sender
 {
-    //    self.tabBarController = [[UITabBarController alloc] init];
-    //    self.ggAcountVC = [[GGAccountViewController alloc] initWithNibName:@"GGAccountViewController" bundle:nil];
-    //    self.ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-    //    self.ggSettingsVC = [[GGSettingsViewController alloc] initWithNibName:@"GGSettingsViewController" bundle:nil];
-    //    UINavigationController *accountNav = [[UINavigationController alloc] initWithRootViewController:self.ggAcountVC];
-    //    UINavigationController *eventNav = [[UINavigationController alloc] initWithRootViewController:self.ggEventVC];
-    //    UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:self.ggSettingsVC];
-    //
-    //    NSArray* vcArray = [[NSArray alloc] initWithObjects:accountNav, eventNav, settingNav, nil];
-    //    [self.tabBarController setViewControllers:vcArray];
-    //
-    //
-    //    [self presentViewController:self.tabBarController animated:YES completion:nil];
     GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:ggMainVC];
     [self presentViewController:mainNav animated:YES completion:nil];
@@ -106,20 +87,6 @@
     [self presentViewController:ggRegisterVC animated:YES completion:nil];
 }
 
-- (IBAction)rememberPwButtonPressed:(id)sender
-{
-    UIButton *btn = (UIButton *)sender;
-    if (btn.tag == 0) {
-        btn.tag = 1;
-        self.didRememberPw = YES;
-        [self.rememberPwButton setImage:[UIImage imageNamed:@"cb_dark_on.png"] forState:UIControlStateNormal];
-    }
-    else {
-        btn.tag = 0;
-        self.didRememberPw = NO;
-        [self.rememberPwButton setImage:[UIImage imageNamed:@"cb_dark_off.png"] forState:UIControlStateNormal];
-    }
-}
 
 #pragma mark - UITextField Delegate
 
@@ -150,17 +117,6 @@
         [SVProgressHUD showWithStatus:@"正在登录"];
         NSLog(@"%@ -- %@", self.userTextField.text, self.passwordTextField.text);
         
-//        GGPOSTLinkFactory *getPOSTLinkFactory = [[GGPOSTLinkFactory alloc] init];
-//        GGPOSTLink *postLink = [getPOSTLinkFactory createLink:@"/auth/signin.json"];
-//        
-//        postLink.postBody = [NSString stringWithFormat:@"login=%@&password=%@&platform=%@&client_uuid=%@&client_secret=%@&application=%@",self.userTextField.text, self.passwordTextField.text, @"iphone", [GGAuthManager sharedManager].uuid, @"1234567890", @"gogopiao_v1.0"];
-//        
-//        [postLink getResponseData];
-//        NSDictionary *responseDict = (NSDictionary *)[postLink getResponseJSON];
-//        
-//        NSString *token = [responseDict objectForKey:@"token"];
-//        [[GGAuthManager sharedManager] setToken:token];
-        
         [self login];
     }
     return YES;
@@ -169,59 +125,7 @@
 #pragma mark - 登录method
 - (void)login
 {
-    if ([GGAuthManager sharedManager].token == nil) {
-        [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
-    }
-    else {
-        [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-    //登录成功以后自己跳出页面
-#warning 登录postNotification信息
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"didSucceedLogin" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[GGAuthManager sharedManager].token, @"token", nil]];
-//        [self removeFromParentViewController];
-        [self.navigationController popViewControllerAnimated:YES];
-        
-//#warning to_be_refined - 最后要改成先进入主页面
-//        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
-//        GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-//        //        [self presentViewController:ggEventVC animated:YES completion:nil];
-//        [self.navigationController pushViewController:ggMainVC animated:YES];
-    }
+    
 }
-//
-//#pragma mark - 网络异步方法
-//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-//{
-//    self.responseData = [[NSMutableData alloc] init];
-//}
-//
-//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-//{
-//    [self.responseData appendData:data];
-//}
-//
-//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-//{
-//    NSLog(@"Login fail error message: %@", error);
-//}
-//
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-//{
-//    NSDictionary *returnJSONObject = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingAllowFragments error:nil];
-//    NSString *token = [returnJSONObject objectForKey:@"token"];
-//    [[GGAuthManager sharedManager] setToken:token];
-//    NSLog(@"%@", [[GGAuthManager sharedManager] token]);
-//    
-//    if ([GGAuthManager sharedManager].token == nil) {
-//        [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
-//    }
-//    else {
-//        [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-//#warning to_be_refined - 最后要改成先进入主页面
-//        GGMainViewController *ggMainVC = [[GGMainViewController alloc] initWithNibName:@"GGMainViewController" bundle:nil];
-//        GGEventViewController *ggEventVC = [[GGEventViewController alloc] initWithNibName:@"GGEventViewController" bundle:nil];
-////        [self presentViewController:ggEventVC animated:YES completion:nil];
-//        [self.navigationController pushViewController:ggMainVC animated:YES];
-//    }
-//}
 
 @end

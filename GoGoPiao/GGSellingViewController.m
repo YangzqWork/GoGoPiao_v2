@@ -8,7 +8,6 @@
 
 #import "GGSellingViewController.h"
 #import "CYTableDataSource.h"
-#import "GGAuthManager.h"
 #import "GGEventSearchCell.h"
 
 @interface GGSellingViewController ()
@@ -119,9 +118,10 @@
     isLoading = YES;
     NSString *urlString;
     NSLog(@"check searchBar : %@", self.searchBar.text);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
     
-    urlString = [NSString stringWithFormat:@"%@?token=%@&title=%@", @"/events.json", [GGAuthManager sharedManager].tempToken, _searchBar.text];
-           
+    urlString = [NSString stringWithFormat:@"%@?token=%@&title=%@", @"/events.json", token, _searchBar.text];
 //    
 //    GGGETLinkFactory *getLinkFactory = [[GGGETLinkFactory alloc] init];
 //    GGGETLink *getLink = [getLinkFactory createLink:urlString];

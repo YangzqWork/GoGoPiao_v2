@@ -12,7 +12,7 @@
 #import "GGEventSearchViewController.h"
 #import "GGChooseViewController.h"
 #import "GGFilterViewController.h"
-#import "GGAuthManager.h"
+#import "GGLoginViewController.h"
 #import "CYTableDataSource.h"
 #import "Constants.h"
 #import "EventTitleView.h"
@@ -35,8 +35,18 @@
 
 @implementation GGEventViewController
 
-
 #pragma mark - Life Cycle
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -90,8 +100,11 @@
 
 - (void)afterTheChoice:(NSNotification *)notification
 {
-    NSLog(@"temp : %@", [notification object]);
-    NSLog(@"afterTheChoice");
+    NSDictionary *receivedDict = [notification object];
+    NSString *chosenString = receivedDict[@"chosenValue"];
+    
+    int selectedSegmentIndex = [self.segmentControl selectedSegmentIndex];
+    [self.segmentControl setTitle:chosenString forSegmentAtIndex:selectedSegmentIndex];
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,7 +138,7 @@
 
 - (void)customizeNavigationBar
 {
-    self.navigationItem.leftBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_loginBtn.png"] WithTarget:self action:@selector(searchButtonPressed)];
+    self.navigationItem.leftBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_loginBtn.png"] WithTarget:self action:@selector(loginButtonPressed)];
     self.navigationItem.rightBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_searchBtn.png"] WithTarget:self action:@selector(searchButtonPressed)];
 }
 
@@ -136,7 +149,7 @@
     if ([paramSender isEqual:self.segmentControl]){
         
         int selectedSegmentIndex = [paramSender selectedSegmentIndex];
-        NSString *selectedSegmentText = [paramSender titleForSegmentAtIndex:selectedSegmentIndex];
+        NSString *selectedSegmentString = [paramSender titleForSegmentAtIndex:selectedSegmentIndex];
         
         GGFilterViewController *filterVC = [[GGFilterViewController alloc] initWithNibName:@"GGFilterViewController" bundle:nil];
         switch (selectedSegmentIndex) {
@@ -197,9 +210,17 @@
 }
 
 #pragma mark - 处理按钮动作
+
+- (void)loginButtonPressed
+{
+    GGLoginViewController *loginVC = [[GGLoginViewController alloc] initWithNibName:@"GGLoginViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 - (void)searchButtonPressed
 {
-    NSLog(@"Search button pressed");
     self.ggEventSearchVC = [[GGEventSearchViewController alloc] initWithNibName:@"GGEventSearchViewController" bundle:nil];
     self.ggEventSearchVC.navigationItem.backBarButtonItem.title = nil;
     self.navigationItem.backBarButtonItem.title = nil;
