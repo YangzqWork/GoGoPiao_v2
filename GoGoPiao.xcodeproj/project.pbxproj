@@ -51,8 +51,6 @@
 		182CED4C1792960500C23EB4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4B1792960500C23EB4 /* Default.png */; };
 		182CED4E1792960500C23EB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4D1792960500C23EB4 /* Default@2x.png */; };
 		182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CED4F1792960500C23EB4 /* Default-568h@2x.png */; };
-		182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */; };
-		182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */; };
 		182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CED6F1792F72100C23EB4 /* GGEventViewController.m */; };
 		182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CED701792F72100C23EB4 /* GGEventViewController.xib */; };
 		18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18359D7A17B75F8100A8B95E /* GGSellingViewController.m */; };
@@ -126,6 +124,13 @@
 		18DF281517E050E2008466F4 /* GGFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF281317E050E2008466F4 /* GGFilterViewController.xib */; };
 		18DF281817E05497008466F4 /* FilterDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF281717E05497008466F4 /* FilterDataSource.m */; };
 		290A4B84453149ADB9B15F85 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 492F2180B4DF4903B3FA911F /* libPods.a */; };
+		FEE9E35A17FC077900B1B9DC /* AccountTbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E35017FC077900B1B9DC /* AccountTbCell.m */; };
+		FEE9E35B17FC077900B1B9DC /* TicketTbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E35217FC077900B1B9DC /* TicketTbCell.m */; };
+		FEE9E35C17FC077900B1B9DC /* TicketTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE9E35317FC077900B1B9DC /* TicketTbCell.xib */; };
+		FEE9E35D17FC077900B1B9DC /* GGAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E35517FC077900B1B9DC /* GGAccountViewController.m */; };
+		FEE9E35E17FC077900B1B9DC /* GGAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE9E35617FC077900B1B9DC /* GGAccountViewController.xib */; };
+		FEE9E35F17FC077900B1B9DC /* GGTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E35817FC077900B1B9DC /* GGTicketViewController.m */; };
+		FEE9E36017FC077900B1B9DC /* MyIMG.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FEE9E35917FC077900B1B9DC /* MyIMG.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,9 +189,6 @@
 		182CED4B1792960500C23EB4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		182CED4D1792960500C23EB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		182CED4F1792960500C23EB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		182CED691792F70A00C23EB4 /* GGAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAccountViewController.h; sourceTree = "<group>"; };
-		182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAccountViewController.m; sourceTree = "<group>"; };
-		182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGAccountViewController.xib; sourceTree = "<group>"; };
 		182CED6E1792F72100C23EB4 /* GGEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGEventViewController.h; sourceTree = "<group>"; };
 		182CED6F1792F72100C23EB4 /* GGEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGEventViewController.m; sourceTree = "<group>"; };
 		182CED701792F72100C23EB4 /* GGEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGEventViewController.xib; sourceTree = "<group>"; };
@@ -281,6 +283,17 @@
 		18DF281717E05497008466F4 /* FilterDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterDataSource.m; sourceTree = "<group>"; };
 		492F2180B4DF4903B3FA911F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		962A5487CA6E4853A66A551A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FEE9E34F17FC077900B1B9DC /* AccountTbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTbCell.h; sourceTree = "<group>"; };
+		FEE9E35017FC077900B1B9DC /* AccountTbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTbCell.m; sourceTree = "<group>"; };
+		FEE9E35117FC077900B1B9DC /* TicketTbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketTbCell.h; sourceTree = "<group>"; };
+		FEE9E35217FC077900B1B9DC /* TicketTbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketTbCell.m; sourceTree = "<group>"; };
+		FEE9E35317FC077900B1B9DC /* TicketTbCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketTbCell.xib; sourceTree = "<group>"; };
+		FEE9E35417FC077900B1B9DC /* GGAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAccountViewController.h; sourceTree = "<group>"; };
+		FEE9E35517FC077900B1B9DC /* GGAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAccountViewController.m; sourceTree = "<group>"; };
+		FEE9E35617FC077900B1B9DC /* GGAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGAccountViewController.xib; sourceTree = "<group>"; };
+		FEE9E35717FC077900B1B9DC /* GGTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTicketViewController.h; sourceTree = "<group>"; };
+		FEE9E35817FC077900B1B9DC /* GGTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTicketViewController.m; sourceTree = "<group>"; };
+		FEE9E35917FC077900B1B9DC /* MyIMG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MyIMG.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,7 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				18359D8A17B7912600A8B95E /* 场次 */,
-				182C6BC517BF2B9B005CA40A /* 我的 */,
+				FEE9E34D17FC077900B1B9DC /* 我的 */,
 				1851458F17C9A941009805E7 /* 更多 */,
 			);
 			name = TabBar;
@@ -335,16 +348,6 @@
 				1829300117D47C3800A085CB /* GGBuySecondViewController.xib */,
 			);
 			name = "买逻辑";
-			sourceTree = "<group>";
-		};
-		182C6BC517BF2B9B005CA40A /* 我的 */ = {
-			isa = PBXGroup;
-			children = (
-				182CED691792F70A00C23EB4 /* GGAccountViewController.h */,
-				182CED6A1792F70A00C23EB4 /* GGAccountViewController.m */,
-				182CED6B1792F70A00C23EB4 /* GGAccountViewController.xib */,
-			);
-			name = "我的";
 			sourceTree = "<group>";
 		};
 		182CED2D1792960500C23EB4 = {
@@ -666,6 +669,32 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		FEE9E34D17FC077900B1B9DC /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9E34E17FC077900B1B9DC /* CustomCell */,
+				FEE9E35417FC077900B1B9DC /* GGAccountViewController.h */,
+				FEE9E35517FC077900B1B9DC /* GGAccountViewController.m */,
+				FEE9E35617FC077900B1B9DC /* GGAccountViewController.xib */,
+				FEE9E35717FC077900B1B9DC /* GGTicketViewController.h */,
+				FEE9E35817FC077900B1B9DC /* GGTicketViewController.m */,
+				FEE9E35917FC077900B1B9DC /* MyIMG.bundle */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		FEE9E34E17FC077900B1B9DC /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9E34F17FC077900B1B9DC /* AccountTbCell.h */,
+				FEE9E35017FC077900B1B9DC /* AccountTbCell.m */,
+				FEE9E35117FC077900B1B9DC /* TicketTbCell.h */,
+				FEE9E35217FC077900B1B9DC /* TicketTbCell.m */,
+				FEE9E35317FC077900B1B9DC /* TicketTbCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -727,9 +756,9 @@
 				182CED441792960500C23EB4 /* InfoPlist.strings in Resources */,
 				182CED4C1792960500C23EB4 /* Default.png in Resources */,
 				18B8C08517EF24D400DBBDE8 /* seg_selectedBtn@2x.png in Resources */,
+				FEE9E35C17FC077900B1B9DC /* TicketTbCell.xib in Resources */,
 				182CED4E1792960500C23EB4 /* Default@2x.png in Resources */,
 				182CED501792960500C23EB4 /* Default-568h@2x.png in Resources */,
-				182CED6D1792F70A00C23EB4 /* GGAccountViewController.xib in Resources */,
 				182CED721792F72100C23EB4 /* GGEventViewController.xib in Resources */,
 				1806B70D1798EDF50088234C /* GGRegisterViewController.xib in Resources */,
 				18BEA592179FC719005CB108 /* GGLoginViewController.xib in Resources */,
@@ -795,10 +824,12 @@
 				18B8C07B17EF246C00DBBDE8 /* icon_mr@2x.png in Resources */,
 				18D269F917DEC0F6006B7B5B /* saleBtn.png in Resources */,
 				18B8C07017EF23C500DBBDE8 /* cancelWhite.png in Resources */,
+				FEE9E36017FC077900B1B9DC /* MyIMG.bundle in Resources */,
 				184E750517EBEA0C007963F1 /* search_barBg.png in Resources */,
 				184E750817EBEA0C007963F1 /* search_barIcon@2x.png in Resources */,
 				18D269FA17DEC0F6006B7B5B /* saleBtn@2x.png in Resources */,
 				18D269FE17DEC15D006B7B5B /* nav_checkBtn.png in Resources */,
+				FEE9E35E17FC077900B1B9DC /* GGAccountViewController.xib in Resources */,
 				18D269FF17DEC15D006B7B5B /* nav_checkBtn@2x.png in Resources */,
 				18D26A0217DEC1BA006B7B5B /* nav_shadow.png in Resources */,
 				18D26A0317DEC1BA006B7B5B /* nav_shadow@2x.png in Resources */,
@@ -851,10 +882,11 @@
 			files = (
 				182CED461792960500C23EB4 /* main.m in Sources */,
 				182CED4A1792960500C23EB4 /* AppDelegate.m in Sources */,
-				182CED6C1792F70A00C23EB4 /* GGAccountViewController.m in Sources */,
 				182CED711792F72100C23EB4 /* GGEventViewController.m in Sources */,
+				FEE9E35B17FC077900B1B9DC /* TicketTbCell.m in Sources */,
 				1806B6FF1798CFD20088234C /* GoGoPiao.xcdatamodeld in Sources */,
 				1806B70C1798EDF50088234C /* GGRegisterViewController.m in Sources */,
+				FEE9E35A17FC077900B1B9DC /* AccountTbCell.m in Sources */,
 				186A7795179D176A00240EDF /* GGEventsCell.m in Sources */,
 				18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */,
 				187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */,
@@ -864,6 +896,7 @@
 				189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */,
 				18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */,
 				18957B6217C8511D00009FE9 /* GGMoreViewController.m in Sources */,
+				FEE9E35F17FC077900B1B9DC /* GGTicketViewController.m in Sources */,
 				18957B6B17C863C200009FE9 /* EventSearched.m in Sources */,
 				18957B7017C8941800009FE9 /* GGEventSearchResultsViewController.m in Sources */,
 				1861D75917CF49D5009DD2EA /* GGChooseViewController.m in Sources */,
@@ -875,6 +908,7 @@
 				187FE96517D5C872009A6C95 /* Constants.m in Sources */,
 				18D93AA517DC839A00F2CC33 /* EGORefreshTableHeaderView.m in Sources */,
 				181F424A17DD77C600C7CC0F /* EventTitleView.m in Sources */,
+				FEE9E35D17FC077900B1B9DC /* GGAccountViewController.m in Sources */,
 				18DF281417E050E2008466F4 /* GGFilterViewController.m in Sources */,
 				18DF281817E05497008466F4 /* FilterDataSource.m in Sources */,
 				1892D2CC17EBDE1000436555 /* UIBarButtonItem+ProjectButton.m in Sources */,

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGAccountViewController : UIViewController
+@interface GGAccountViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic,strong) UITableView *accounTable;
 
 @end
 
