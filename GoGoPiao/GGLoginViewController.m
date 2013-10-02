@@ -55,6 +55,9 @@
     self.passwordTextField.layer.masksToBounds = YES;
     self.passwordTextField.layer.borderColor = [[UIColor grayColor] CGColor];
     self.passwordTextField.layer.borderWidth = 3.0f;
+    
+    self.userTextField.text=@"汪子俊";
+    self.passwordTextField.text=@"Phoenix920724";
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,7 +128,27 @@
 #pragma mark - 登录method
 - (void)login
 {
+    self.netEngine=[[RESTfulEngine alloc] initWithHostName:kBaseURL];
+    [_netEngine loginWithUser:self.userTextField.text password:self.passwordTextField.text onSucceeded:^{
+        [SVProgressHUD dismiss];
+        NSLog(@"登陆完成了");
+        [self.navigationController popViewControllerAnimated:YES];  //登陆
+        
+    } onError:^(RESTError *engineError) {
+        NSLog(@"登陆失败: %@",engineError);
+        [SVProgressHUD dismiss];
+        
+    }];
     
 }
 
 @end
+
+
+
+
+
+
+
+
+

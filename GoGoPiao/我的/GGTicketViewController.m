@@ -34,19 +34,29 @@
     if ([[UIDevice currentDevice] systemVersion].floatValue <7.0) {
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem createEdgeButtonWithImage:[UIImage imageNamed:@"nav_backBtn.png"] WithTarget:self action:@selector(didClickBackButton)];
     }
-    
-    
-
     self.tableView.rowHeight=98.0f;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView setBackgroundColor:[UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0]];
     
+    [self requestTicketData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void) requestTicketData{
+    self.netEngine=[[RESTfulEngine alloc] initWithHostName:kBaseURL];
+    [_netEngine ticketDataWithUrlPath:self.urlPath onSucceeded:^(NSMutableArray *listOfModelBaseObjects) {
+        self.ticketDataArray=listOfModelBaseObjects;
+        NSLog(@"获取ticket数据成功");
+    } onError:^(RESTError *engineError) {
+        NSLog(@"error %@",engineError);
+    }];
+    
 }
 
 #pragma mark - Table view data source

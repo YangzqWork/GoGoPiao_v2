@@ -131,6 +131,12 @@
 		FEE9E35E17FC077900B1B9DC /* GGAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE9E35617FC077900B1B9DC /* GGAccountViewController.xib */; };
 		FEE9E35F17FC077900B1B9DC /* GGTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E35817FC077900B1B9DC /* GGTicketViewController.m */; };
 		FEE9E36017FC077900B1B9DC /* MyIMG.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FEE9E35917FC077900B1B9DC /* MyIMG.bundle */; };
+		FEE9E37317FC151800B1B9DC /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E36717FC151800B1B9DC /* JSONModel.m */; };
+		FEE9E37417FC151800B1B9DC /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E36917FC151800B1B9DC /* MenuItem.m */; };
+		FEE9E37517FC151800B1B9DC /* RESTError.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E36B17FC151800B1B9DC /* RESTError.m */; };
+		FEE9E37617FC151800B1B9DC /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E36D17FC151800B1B9DC /* Review.m */; };
+		FEE9E37717FC151800B1B9DC /* RESTfulEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E36F17FC151800B1B9DC /* RESTfulEngine.m */; };
+		FEE9E37817FC151800B1B9DC /* RESTfulOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE9E37117FC151800B1B9DC /* RESTfulOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -294,6 +300,19 @@
 		FEE9E35717FC077900B1B9DC /* GGTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTicketViewController.h; sourceTree = "<group>"; };
 		FEE9E35817FC077900B1B9DC /* GGTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTicketViewController.m; sourceTree = "<group>"; };
 		FEE9E35917FC077900B1B9DC /* MyIMG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MyIMG.bundle; sourceTree = "<group>"; };
+		FEE9E36217FC151800B1B9DC /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		FEE9E36617FC151800B1B9DC /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		FEE9E36717FC151800B1B9DC /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		FEE9E36817FC151800B1B9DC /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		FEE9E36917FC151800B1B9DC /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		FEE9E36A17FC151800B1B9DC /* RESTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTError.h; sourceTree = "<group>"; };
+		FEE9E36B17FC151800B1B9DC /* RESTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTError.m; sourceTree = "<group>"; };
+		FEE9E36C17FC151800B1B9DC /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		FEE9E36D17FC151800B1B9DC /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		FEE9E36E17FC151800B1B9DC /* RESTfulEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTfulEngine.h; sourceTree = "<group>"; };
+		FEE9E36F17FC151800B1B9DC /* RESTfulEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTfulEngine.m; sourceTree = "<group>"; };
+		FEE9E37017FC151800B1B9DC /* RESTfulOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTfulOperation.h; sourceTree = "<group>"; };
+		FEE9E37117FC151800B1B9DC /* RESTfulOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTfulOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -672,6 +691,7 @@
 		FEE9E34D17FC077900B1B9DC /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				FEE9E36117FC151800B1B9DC /* RESTEngine */,
 				FEE9E34E17FC077900B1B9DC /* CustomCell */,
 				FEE9E35417FC077900B1B9DC /* GGAccountViewController.h */,
 				FEE9E35517FC077900B1B9DC /* GGAccountViewController.m */,
@@ -693,6 +713,34 @@
 				FEE9E35317FC077900B1B9DC /* TicketTbCell.xib */,
 			);
 			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		FEE9E36117FC151800B1B9DC /* RESTEngine */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9E36217FC151800B1B9DC /* API.h */,
+				FEE9E36517FC151800B1B9DC /* Models */,
+				FEE9E36E17FC151800B1B9DC /* RESTfulEngine.h */,
+				FEE9E36F17FC151800B1B9DC /* RESTfulEngine.m */,
+				FEE9E37017FC151800B1B9DC /* RESTfulOperation.h */,
+				FEE9E37117FC151800B1B9DC /* RESTfulOperation.m */,
+			);
+			path = RESTEngine;
+			sourceTree = "<group>";
+		};
+		FEE9E36517FC151800B1B9DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9E36617FC151800B1B9DC /* JSONModel.h */,
+				FEE9E36717FC151800B1B9DC /* JSONModel.m */,
+				FEE9E36817FC151800B1B9DC /* MenuItem.h */,
+				FEE9E36917FC151800B1B9DC /* MenuItem.m */,
+				FEE9E36A17FC151800B1B9DC /* RESTError.h */,
+				FEE9E36B17FC151800B1B9DC /* RESTError.m */,
+				FEE9E36C17FC151800B1B9DC /* Review.h */,
+				FEE9E36D17FC151800B1B9DC /* Review.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -889,11 +937,13 @@
 				FEE9E35A17FC077900B1B9DC /* AccountTbCell.m in Sources */,
 				186A7795179D176A00240EDF /* GGEventsCell.m in Sources */,
 				18BEA591179FC719005CB108 /* GGLoginViewController.m in Sources */,
+				FEE9E37417FC151800B1B9DC /* MenuItem.m in Sources */,
 				187ABED117A2161200113C80 /* CYTableDataSource.m in Sources */,
 				18359D7C17B75F8200A8B95E /* GGSellingViewController.m in Sources */,
 				18359D8317B7614800A8B95E /* GGMainViewController.m in Sources */,
 				189F448417B8B96900D9275B /* GGEventSearchViewController.m in Sources */,
 				189F448817B8C1F000D9275B /* GGListingsCell.m in Sources */,
+				FEE9E37317FC151800B1B9DC /* JSONModel.m in Sources */,
 				18D1523917BBB75B00841C11 /* GGEventSearchCell.m in Sources */,
 				18957B6217C8511D00009FE9 /* GGMoreViewController.m in Sources */,
 				FEE9E35F17FC077900B1B9DC /* GGTicketViewController.m in Sources */,
@@ -902,14 +952,18 @@
 				1861D75917CF49D5009DD2EA /* GGChooseViewController.m in Sources */,
 				18292FF817D47C0100A085CB /* GGListingsViewController.m in Sources */,
 				18292FFD17D47C2B00A085CB /* GGBuyFirstViewController.m in Sources */,
+				FEE9E37517FC151800B1B9DC /* RESTError.m in Sources */,
 				1829300217D47C3900A085CB /* GGBuySecondViewController.m in Sources */,
 				1829300817D4860F00A085CB /* GGSellFirstViewController.m in Sources */,
 				1829300D17D4861C00A085CB /* GGSellSecondViewController.m in Sources */,
 				187FE96517D5C872009A6C95 /* Constants.m in Sources */,
 				18D93AA517DC839A00F2CC33 /* EGORefreshTableHeaderView.m in Sources */,
+				FEE9E37717FC151800B1B9DC /* RESTfulEngine.m in Sources */,
 				181F424A17DD77C600C7CC0F /* EventTitleView.m in Sources */,
+				FEE9E37617FC151800B1B9DC /* Review.m in Sources */,
 				FEE9E35D17FC077900B1B9DC /* GGAccountViewController.m in Sources */,
 				18DF281417E050E2008466F4 /* GGFilterViewController.m in Sources */,
+				FEE9E37817FC151800B1B9DC /* RESTfulOperation.m in Sources */,
 				18DF281817E05497008466F4 /* FilterDataSource.m in Sources */,
 				1892D2CC17EBDE1000436555 /* UIBarButtonItem+ProjectButton.m in Sources */,
 				1892D2D217EBE70000436555 /* UISearchBar+ProjectSearchBar.m in Sources */,
@@ -999,7 +1053,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoPiao/GoGoPiao-Prefix.pch";
 				INFOPLIST_FILE = "GoGoPiao/GoGoPiao-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;
@@ -1017,7 +1071,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoPiao/GoGoPiao-Prefix.pch";
 				INFOPLIST_FILE = "GoGoPiao/GoGoPiao-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos7.0;

@@ -10,7 +10,6 @@
 #import "AccountTbCell.h"
 #import "GGTicketViewController.h"
 #import "GGLoginViewController.h"
-#import "MKNetworkOperation.h"
 #import "AppDelegate.h"
 #import "NSString+Encryption.h"
 
@@ -30,7 +29,8 @@
     [super viewDidLoad];
     self.title=@"我的";
     [self setUpTable];
-
+    
+    
 }
 
 
@@ -73,6 +73,7 @@
                       ];
     _headerTextArray=@[@"订单列表",@"个人信息",@"帮助        "];
 }
+
 
 
 #pragma mark - UITableViewDataSource
@@ -153,9 +154,12 @@
 }
 
 #pragma mark - UITableViewDelegate
+//这里判断点击的行数，传入相应的API，ticket视图根据API发起请求
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==1) {
         GGTicketViewController *ticketVC=[GGTicketViewController new];
+        NSArray *urlPathArray=@[kPathBuyer,kPathSeller,kPathSold];
+        ticketVC.urlPath=urlPathArray[indexPath.row];
         ticketVC.title=[(AccountTbCell *)[tableView cellForRowAtIndexPath:indexPath] titleLabel].text;
         [self.navigationController pushViewController:ticketVC animated:YES];
     }

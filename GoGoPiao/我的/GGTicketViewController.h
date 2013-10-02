@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RESTfulEngine.h"
 
 @interface GGTicketViewController : UITableViewController
+
+@property (nonatomic,strong) NSString *urlPath;
+@property (nonatomic,strong) RESTfulEngine *netEngine;
+@property (nonatomic,strong) NSMutableArray *ticketDataArray;
 
 @end
